@@ -3,10 +3,10 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-22.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Utilities for building our flake
@@ -14,10 +14,6 @@
 
     # Extra flakes for modules, packages, etc
     hardware.url = "github:nixos/nixos-hardware"; # Convenience modules for hardware-specific quirks
-    # nur.url = "github:nix-community/NUR";              # User contributed pkgs and modules
-    # nix-colors.url = "github:misterio77/nix-colors";   # Color schemes for usage with home-manager
-    # impermanence.url = "github:riscadoa/impermanence"; # Utilities for opt-in persistance
-    # TODO: Add any other flakes you need
   };
 
   outputs = { nixpkgs, home-manager, flake-utils, ... }@inputs:
@@ -41,7 +37,7 @@
       # Accessible via 'nixos-rebuild'
       nixosConfigurations = {
         # FIXME: Replace with your hostname
-        your-hostname = nixosSystem {
+        nixos = nixosSystem {
           system = "x86_64-linux";
 
           modules = [
@@ -60,12 +56,25 @@
       # Home configurations
       # Accessible via 'home-manager'
       homeConfigurations = {
-        # FIXME: Replace with your username@hostname
-        "your-name@your-hostname" = homeManagerConfiguration rec {
-          # FIXME: Replace with your username
-          username = "your-name";
-          homeDirectory = "/home/${username}";
+        "adam@nixos" = homeManagerConfiguration rec {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          # modules =[
+          #   ./modules/home-manager
+          #   { nixpkgs.overlays = attrValues overlays; }
+          #   ./home-manager/home.nix
+          #   {
+          #     home = {
+          #       username = "adam";
+          #       homeDirectory = "/home/adam";
+
+          #     };
+          #   }
+          # ];
+
           system = "x86_64-linux";
+          username = "adam";
+          homeDirectory = "/home/${username}";
+          stateVersion = "22.05";
 
           # >> Main home-manager configuration file <<
           configuration = ./home-manager/home.nix;

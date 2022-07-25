@@ -36,7 +36,6 @@
       # System configurations
       # Accessible via 'nixos-rebuild'
       nixosConfigurations = {
-        # FIXME: Replace with your hostname
         nixos = nixosSystem {
           system = "x86_64-linux";
 
@@ -56,35 +55,39 @@
       # Home configurations
       # Accessible via 'home-manager'
       homeConfigurations = {
-        "adam@nixos" = homeManagerConfiguration rec {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          # modules =[
-          #   ./modules/home-manager
-          #   { nixpkgs.overlays = attrValues overlays; }
-          #   ./home-manager/home.nix
-          #   {
-          #     home = {
-          #       username = "adam";
-          #       homeDirectory = "/home/adam";
-
-          #     };
-          #   }
-          # ];
-
-          system = "x86_64-linux";
+        "adam@bridge" = mkHome {
           username = "adam";
-          homeDirectory = "/home/${username}";
+          system = "aarch64-darwin";
+        };
+
+        "adam@bridge" = homeManagerConfiguration rec {
+          system = "aarch64-darwin";
+          pkgs = nixpkgs.legacyPackages.${system};
           stateVersion = "22.05";
 
-          # >> Main home-manager configuration file <<
+          username = "adam";
+          homeDirectory = "/Users/${username}";
           configuration = ./home-manager/home.nix;
+
           extraModules = [
-            # Adds your custom home-manager modules
             ./modules/home-manager
-            # Adds overlays
             { nixpkgs.overlays = attrValues overlays; }
           ];
-          # Make our inputs available to the config (for importing modules)
+          extraSpecialArgs = { inherit inputs; };
+        };
+        "adam@nixos" = homeManagerConfiguration rec {
+          system = "x86_64-linux";
+          pkgs = nixpkgs.legacyPackages.${system};
+          stateVersion = "22.05";
+
+          username = "adam";
+          homeDirectory = "/home/${username}";
+          configuration = ./home-manager/home.nix;
+
+          extraModules = [
+            ./modules/home-manager
+            { nixpkgs.overlays = attrValues overlays; }
+          ];
           extraSpecialArgs = { inherit inputs; };
         };
       };

@@ -18,6 +18,9 @@
 
   outputs = { nixpkgs, home-manager, flake-utils, ... }@inputs:
     let
+      lib = import ./lib { inherit inputs; };
+      inherit (lib) mkHome;
+
       # Bring some functions into scope (from builtins and other flakes)
       inherit (builtins) attrValues;
       inherit (flake-utils.lib) eachSystemMap defaultSystems;
@@ -26,7 +29,7 @@
       eachDefaultSystemMap = eachSystemMap defaultSystems;
     in
     rec {
-      # TODO: If you want to use packages exported from other flakes, add their overlays here.
+      # If you want to use packages exported from other flakes, add their overlays here.
       # They will be added to your 'pkgs'
       overlays = {
         default = import ./overlay; # Our own overlay
@@ -57,39 +60,33 @@
       homeConfigurations = {
         "adam@bridge" = mkHome {
           username = "adam";
+          homeDirectory = "/Users/adam";
           system = "aarch64-darwin";
+          features = [ "cli" "adam@bridge" ];
         };
 
-        "adam@bridge" = homeManagerConfiguration rec {
-          system = "aarch64-darwin";
-          pkgs = nixpkgs.legacyPackages.${system};
-          stateVersion = "22.05";
-
+        "adam@nixos" = mkHome {
           username = "adam";
-          homeDirectory = "/Users/${username}";
-          configuration = ./home-manager/home.nix;
-
-          extraModules = [
-            ./modules/home-manager
-            { nixpkgs.overlays = attrValues overlays; }
-          ];
-          extraSpecialArgs = { inherit inputs; };
-        };
-        "adam@nixos" = homeManagerConfiguration rec {
+          homeDirectory = "/home/adam";
           system = "x86_64-linux";
-          pkgs = nixpkgs.legacyPackages.${system};
-          stateVersion = "22.05";
-
-          username = "adam";
-          homeDirectory = "/home/${username}";
-          configuration = ./home-manager/home.nix;
-
-          extraModules = [
-            ./modules/home-manager
-            { nixpkgs.overlays = attrValues overlays; }
-          ];
-          extraSpecialArgs = { inherit inputs; };
+          features = [ "cli" ];
         };
+
+        # "adam@nixos" = homeManagerConfiguration rec {
+        #   system = "x86_64-linux";
+        #   pkgs = nixpkgs.legacyPackages.${system};
+        #   stateVersion = "22.05";
+
+        #   username = "adam";
+        #   homeDirectory = "/home/${username}";
+        #   configuration = ./home-manager/home.nix;
+
+        #   extraModules = [
+        #     ./modules/home-manager
+        #     { nixpkgs.overlays = attrValues overlays; }
+        #   ];
+        #   extraSpecialArgs = { inherit inputs; };
+        # };
       };
 
       # Packages

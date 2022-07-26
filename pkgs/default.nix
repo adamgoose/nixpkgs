@@ -2,5 +2,6 @@
 { pkgs }: {
   kubectx = pkgs.callPackage ./kubectx {};
   oh-my-posh = pkgs.callPackage ./oh-my-posh {};
-  # example = pkgs.callPackage ./example { };
+  tere = pkgs.callPackage ./tere {};
+  truss-cli = pkgs.callPackage ./truss-cli {};
 }

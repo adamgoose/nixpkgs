@@ -27,4 +27,6 @@
     reload = "home-manager switch --flake ~/.config/nixpkgs#adam@nixos";
     reload-os = "sudo nixos-rebuild switch --flake /home/adam/.config/nixpkgs#nixos";
   };
+
+  home.file.".omp.json".source = ./files/.omp.json;
 }

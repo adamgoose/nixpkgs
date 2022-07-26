@@ -1,13 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [
-    ./apps
+    ./git.nix
+    ./neovim.nix
+    ./ssh.nix
+    ./tmux.nix
+    ./zsh.nix
   ];
-
-  # Comment out if you wish to disable unfree packages for your system
-  # nixpkgs.config.allowUnfree = true;
-
-  programs.home-manager.enable = true;
-
   home.packages = with pkgs; [
     htop
     pass
@@ -16,6 +14,7 @@
     ripgrep
     tailscale
     oh-my-posh
+    tere
 
     aws-vault
     nodejs
@@ -35,7 +34,4 @@
     truss-cli
     # TODO: truss-local
   ];
-
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
 }

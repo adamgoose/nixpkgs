@@ -15,6 +15,7 @@
     tailscale
     oh-my-posh
     tere
+    vault
 
     aws-vault
     nodejs

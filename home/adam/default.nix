@@ -16,32 +16,4 @@ in
     inherit username homeDirectory;
     stateVersion = "22.05";
   };
-
-  # home.packages = with pkgs; [
-  #   htop
-  #   pass
-  #   rclone
-  #   lazygit
-  #   ripgrep
-  #   tailscale
-  #   oh-my-posh
-
-  #   aws-vault
-  #   nodejs
-  #   go_1_18
-  #   rnix-lsp
-  #   postgresql
-
-  #   k9s
-  #   tilt
-  #   kube3d
-  #   awscli2
-  #   teleport
-  #   tfswitch
-  #   pulumi-bin
-  #   terragrunt
-  #   kubectx
-  #   truss-cli
-  #   # TODO: truss-local
-  # ];
 }

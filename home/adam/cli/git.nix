@@ -7,7 +7,4 @@
     userEmail = "adam@enge.me";
   };
 
-  home.shellAliases = {
-    lg = "lazygit";
-  };
 }

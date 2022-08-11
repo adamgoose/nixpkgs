@@ -62,7 +62,7 @@
           username = "adam";
           homeDirectory = "/Users/adam";
           system = "aarch64-darwin";
-          features = [ "cli" "adam@bridge" ];
+          features = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" ];
         };
 
         "adam@ephemeral" = mkHome {
@@ -76,7 +76,14 @@
           username = "gitpod";
           homeDirectory = "/home/gitpod";
           system = "x86_64-linux";
-          reatures = [ "cli" ];
+          features = [ "cli" "ide" "k8s" ];
+        };
+
+        "gitpod-full" = mkHome {
+          username = "gitpod";
+          homeDirectory = "/home/gitpod";
+          system = "x86_64-linux";
+          features = [ "cli" "ide-full" "k8s" ];
         };
 
         "adam@nixos" = mkHome {

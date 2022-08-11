@@ -5,28 +5,6 @@
     enable = true;
     vimAlias = true;
     coc.enable = true;
-    coc.settings = {
-      languageserver = {
-        nix = {
-          command = "rnix-lsp";
-          filetypes = [ "nix" ];
-        };
-        kotlin = {
-          command = "kotlin-language-server";
-          filetypes = [ "kotlin" ];
-          "trace.server" = "messages";
-          settings = {
-            kotlin = {
-              compiler = {
-                jvm = {
-                  target = "17";
-                };
-              };
-            };
-          };
-        };
-      };
-    };
 
     plugins = with pkgs.vimPlugins; [
       yankring
@@ -34,7 +12,6 @@
       { plugin = nord-nvim;
         config = "let g:nord_disable_background = v:true";
       }
-      vim-go
       vim-gitgutter # Git Line Indicators
       indent-blankline-nvim
       plenary-nvim
@@ -68,14 +45,9 @@
           let g:syntastic_check_on_wq = 0
         '';
       }
-      coc-go
-      coc-haxe
-      coc-java
       vim-terraform-completion
-      kotlin-vim
 
       # Language Formats
-      vim-nix
       { plugin = vim-terraform;
         config = ''
           g:terraform_fmt_on_save = 1

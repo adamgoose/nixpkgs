@@ -8,4 +8,4 @@ export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/
 
 nix-shell '<home-manager>' -A install
 
-home-manager switch --flake .#gitpod
+home-manager switch --flake ./.dotfiles#gitpod

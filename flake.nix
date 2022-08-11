@@ -65,6 +65,20 @@
           features = [ "cli" "adam@bridge" ];
         };
 
+        "adam@ephemeral" = mkHome {
+          username = "adam";
+          homeDirectory = "/home/adam";
+          system = "aarch64-linux";
+          features = [ "cli" ];
+        };
+
+        "gitpod@gitpod" = mkHome {
+          username = "gitpod";
+          homeDirectory = "/home/gitpod";
+          system = "x86_64-linux";
+          reatures = [ "cli" ];
+        };
+
         "adam@nixos" = mkHome {
           username = "adam";
           homeDirectory = "/home/adam";

@@ -7,6 +7,7 @@
     ./zsh.nix
   ];
   home.packages = with pkgs; [
+    jq
     htop
     pass
     rclone
@@ -24,6 +25,7 @@
     postgresql
 
     k9s
+    kubernetes-helm
     tilt
     kube3d
     awscli2
@@ -34,5 +36,8 @@
     kubectx
     truss-cli
     # TODO: truss-local
+    # truss-local
+
+    kotlin-language-server
   ];
 }

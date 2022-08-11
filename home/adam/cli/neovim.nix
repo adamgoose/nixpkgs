@@ -11,6 +11,20 @@
           command = "rnix-lsp";
           filetypes = [ "nix" ];
         };
+        kotlin = {
+          command = "kotlin-language-server";
+          filetypes = [ "kotlin" ];
+          "trace.server" = "messages";
+          settings = {
+            kotlin = {
+              compiler = {
+                jvm = {
+                  target = "17";
+                };
+              };
+            };
+          };
+        };
       };
     };
 
@@ -20,6 +34,7 @@
       { plugin = nord-nvim;
         config = "let g:nord_disable_background = v:true";
       }
+      vim-go
       vim-gitgutter # Git Line Indicators
       indent-blankline-nvim
       plenary-nvim
@@ -55,7 +70,9 @@
       }
       coc-go
       coc-haxe
+      coc-java
       vim-terraform-completion
+      kotlin-vim
 
       # Language Formats
       vim-nix

@@ -72,7 +72,7 @@
           features = [ "cli" ];
         };
 
-        "gitpod@gitpod" = mkHome {
+        "gitpod" = mkHome {
           username = "gitpod";
           homeDirectory = "/home/gitpod";
           system = "x86_64-linux";

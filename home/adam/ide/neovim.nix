@@ -45,14 +45,6 @@
           let g:syntastic_check_on_wq = 0
         '';
       }
-      vim-terraform-completion
-
-      # Language Formats
-      { plugin = vim-terraform;
-        config = ''
-          g:terraform_fmt_on_save = 1
-        '';
-      }
 
       # File Tree Sidebar
       { plugin = nerdtree;

@@ -24,8 +24,7 @@
   programs.fzf.enableZshIntegration = true;
 
   home.shellAliases = {
-    reload = "home-manager switch --flake ~/.config/nixpkgs#adam@nixos";
-    reload-os = "sudo nixos-rebuild switch --flake /home/adam/.config/nixpkgs#nixos";
+    reload = "home-manager switch --flake ~/.config/nixpkgs#adam@bridge";
   };
 
 

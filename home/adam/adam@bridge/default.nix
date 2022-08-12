@@ -27,7 +27,6 @@
   };
 
   home.shellAliases = {
-    truss = "truss-cli";
     ave = "aws-vault exec --mfa-token $(op item get \"Amazon Bridge-Users\" --otp)";
     avl = "aws-vault login --mfa-token $(op item get \"Amazon Bridge-Users\" --otp)";
   };

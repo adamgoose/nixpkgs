@@ -1,19 +1,20 @@
-{ lib, buildGo118Module, fetchFromGitHub, installShellFiles }:
+{ lib, buildGoModule, fetchFromGitHub, installShellFiles }:
 
-buildGo118Module rec {
+buildGoModule rec {
   pname = "kubectx";
-  version = "master";
+  version = "0.9.4";
 
   src = fetchFromGitHub {
     owner = "ahmetb";
     repo = pname;
-    rev = "${version}";
-    sha256 = "1cd5bs7gd75sy38y83dcajr36j0cmj56fi3dv5yi41cr39h2d16b";
+    rev = "v${version}";
+    sha256 = "sha256-WY0zFt76mvdzk/s2Rzqys8n+DVw6qg7V6Y8JncOUVCM=";
   };
 
-  vendorSha256 = "sha256-LYGv0hFZy4dV9qRXdxNur8CN3IS4bWp03+BCwO+YrYc=";
+  vendorSha256 = "sha256-4sQaqC0BOsDfWH3cHy2EMQNMq6qiAcbV+RwxCdcSxsg=";
 
   nativeBuildInputs = [ installShellFiles ];
+  ldflags = ["-s -w -X main.version=${version}"];
 
   postInstall = ''
     installShellCompletion completion/*

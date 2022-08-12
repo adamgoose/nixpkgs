@@ -65,13 +65,6 @@
           features = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" ];
         };
 
-        "adam@ephemeral" = mkHome {
-          username = "adam";
-          homeDirectory = "/home/adam";
-          system = "aarch64-linux";
-          features = [ "cli" ];
-        };
-
         "gitpod" = mkHome {
           username = "gitpod";
           homeDirectory = "/home/gitpod";
@@ -93,21 +86,6 @@
           features = [ "cli" ];
         };
 
-        # "adam@nixos" = homeManagerConfiguration rec {
-        #   system = "x86_64-linux";
-        #   pkgs = nixpkgs.legacyPackages.${system};
-        #   stateVersion = "22.05";
-
-        #   username = "adam";
-        #   homeDirectory = "/home/${username}";
-        #   configuration = ./home-manager/home.nix;
-
-        #   extraModules = [
-        #     ./modules/home-manager
-        #     { nixpkgs.overlays = attrValues overlays; }
-        #   ];
-        #   extraSpecialArgs = { inherit inputs; };
-        # };
       };
 
       # Packages

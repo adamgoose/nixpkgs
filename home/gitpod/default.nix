@@ -1,3 +1,5 @@
 { ... }: {
-  import = ../adam;
+  imports = [
+    ../adam
+  ];
 }

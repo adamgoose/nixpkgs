@@ -25,11 +25,15 @@
 
     plugins = with pkgs.vimPlugins; [
       vim-go
+      vim-nix
+      kotlin-vim
+
       coc-go
       coc-haxe
       coc-java
-      kotlin-vim
-      vim-nix
+      coc-yaml
+      coc-eslint
+      coc-tsserver
     ];
   };
 }

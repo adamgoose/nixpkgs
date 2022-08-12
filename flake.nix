@@ -69,7 +69,7 @@
           username = "gitpod";
           homeDirectory = "/home/gitpod";
           system = "x86_64-linux";
-          features = [ "cli" "ide" "k8s" ];
+          features = [ "cli" "k8s" ];
         };
 
         "gitpod-full" = mkHome {

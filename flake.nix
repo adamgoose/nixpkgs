@@ -83,7 +83,7 @@
           username = "adam";
           homeDirectory = "/home/adam";
           system = "x86_64-linux";
-          features = [ "cli" ];
+          features = [ "cli" "ide-full" "k8s" ];
         };
 
       };

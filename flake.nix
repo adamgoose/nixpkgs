@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-22.05";
@@ -16,7 +17,7 @@
     hardware.url = "github:nixos/nixos-hardware"; # Convenience modules for hardware-specific quirks
   };
 
-  outputs = { nixpkgs, home-manager, flake-utils, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, flake-utils, ... }@inputs:
     let
       lib = import ./lib { inherit inputs; };
       inherit (lib) mkHome;
@@ -93,6 +94,10 @@
       packages = eachDefaultSystemMap (system:
         # Propagate nixpkgs' packages, with our overlays applied
         import nixpkgs { inherit system; overlays = attrValues overlays; }
+      );
+
+      packages-unstable = eachDefaultSystemMap (system:
+        import nixpkgs-unstable { inherit system; overlays = attrValues overlays; }
       );
 
       # Devshell for bootstrapping

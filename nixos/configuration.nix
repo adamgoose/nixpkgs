@@ -37,7 +37,7 @@
   };
 
   # Remove if you wish to disable unfree packages for your system
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # Add the rest of your current configuration
   time.timeZone = "America/Chicago";
@@ -46,13 +46,27 @@
     enable = true;
     layout = "us";
     xkbVariant = "";
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    displayManager.lightdm.enable = true;
+    displayManager.lightdm.extraSeatDefaults = "user-session = pantheon";
+    desktopManager.pantheon.enable = true;
   };
+  programs.pantheon-tweaks.enable = true;
 
   # Set your hostname
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+
+  networking.firewall = {
+    enable = true;
+    checkReversePath = "loose";
+    interfaces.tailscale0 = {
+      allowedTCPPorts = [ ];
+    };
+  };
+
+  services.tailscale.enable = true;
+  networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
+  networking.search = [ "enge.me.beta.tailscale.net" ];
 
   # Bootloader
   boot.loader.grub = {
@@ -84,6 +98,16 @@
     permitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)
     passwordAuthentication = true;
+  };
+  programs.mosh.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    brave
+  ];
+
+  fileSystems."/mnt/mildred" = {
+    fsType = "nfs";
+    device = "10.0.2.6:/";
   };
 
   system.stateVersion = "22.05";

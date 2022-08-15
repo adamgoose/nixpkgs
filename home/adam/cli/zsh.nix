@@ -13,7 +13,7 @@
     oh-my-zsh = {
       enable = true;
       plugins = [
-        "vi-mode" "git" "fzf" "direnv"
+        "vi-mode" "git" "fzf" "direnv" "1password"
       ];
     };
   };

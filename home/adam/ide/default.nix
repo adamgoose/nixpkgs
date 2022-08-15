@@ -13,4 +13,8 @@
   home.shellAliases = {
     lg = "lazygit";
   };
+
+  home.sessionVariables = {
+    EDITOR = "vim";
+  };
 }

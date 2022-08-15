@@ -4,6 +4,7 @@
     ./ssh.nix
     ./tmux.nix
     ./zsh.nix
+    ./unstable.nix
   ];
   home.packages = with pkgs; [
     jq

@@ -19,6 +19,7 @@ rec {
       pkgs = outputs.packages.${system};
       extraSpecialArgs = {
         inherit inputs outputs username homeDirectory features;
+        unstable = outputs.packages-unstable.${system};
       };
       configuration = ../home/${username};
       # extraModules = attrValues (import ../modules/home-manager);

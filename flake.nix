@@ -93,11 +93,11 @@
       # Accessible via 'nix build'
       packages = eachDefaultSystemMap (system:
         # Propagate nixpkgs' packages, with our overlays applied
-        import nixpkgs { inherit system; overlays = attrValues overlays; }
+        import nixpkgs { inherit system; overlays = attrValues overlays; config.allowUnfree = true; }
       );
 
       packages-unstable = eachDefaultSystemMap (system:
-        import nixpkgs-unstable { inherit system; overlays = attrValues overlays; }
+        import nixpkgs-unstable { inherit system; overlays = attrValues overlays; config.allowUnfree = true; }
       );
 
       # Devshell for bootstrapping

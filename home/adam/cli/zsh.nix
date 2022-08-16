@@ -16,6 +16,13 @@
         "vi-mode" "git" "fzf" "direnv" "1password"
       ];
     };
+
+    zplug = {
+      enable = true;
+      plugins = [{
+        name = "lukechilds/zsh-nvm";
+      }];
+    };
   };
 
   programs.direnv.enable = true;

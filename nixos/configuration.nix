@@ -46,11 +46,14 @@
     enable = true;
     layout = "us";
     xkbVariant = "";
-    displayManager.lightdm.enable = true;
-    displayManager.lightdm.extraSeatDefaults = "user-session = pantheon";
-    desktopManager.pantheon.enable = true;
   };
+
+  # Pantheon
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.lightdm.extraSeatDefaults = "user-session = pantheon";
+  services.xserver.desktopManager.pantheon.enable = true;
   programs.pantheon-tweaks.enable = true;
+  programs.dconf.enable = true;
 
   # Set your hostname
   networking.hostName = "nixos";
@@ -99,7 +102,6 @@
     # Use keys only. Remove if you want to SSH using password (not recommended)
     passwordAuthentication = true;
   };
-  programs.mosh.enable = true;
 
   environment.systemPackages = with pkgs; [
     brave

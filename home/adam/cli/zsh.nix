@@ -1,5 +1,5 @@
 
-{ pkgs, ... }:
+{ pkgs, name, ... }:
 
 {
   programs.zsh = {
@@ -31,7 +31,7 @@
   programs.fzf.enableZshIntegration = true;
 
   home.shellAliases = {
-    reload = "home-manager switch --flake ~/.config/nixpkgs#adam@bridge";
+    reload = "home-manager switch --flake ~/.config/nixpkgs#${name}";
   };
 
 

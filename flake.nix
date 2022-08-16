@@ -60,6 +60,7 @@
       # Accessible via 'home-manager'
       homeConfigurations = {
         "adam@bridge" = mkHome {
+          name = "adam@bridge";
           username = "adam";
           homeDirectory = "/Users/adam";
           system = "aarch64-darwin";
@@ -67,6 +68,7 @@
         };
 
         "gitpod" = mkHome {
+          name = "gitpod";
           username = "gitpod";
           homeDirectory = "/home/gitpod";
           system = "x86_64-linux";
@@ -74,6 +76,7 @@
         };
 
         "gitpod-full" = mkHome {
+          name = "gitpod-full";
           username = "gitpod";
           homeDirectory = "/home/gitpod";
           system = "x86_64-linux";
@@ -81,6 +84,7 @@
         };
 
         "adam@nixos" = mkHome {
+          name = "adam@nixos";
           username = "adam";
           homeDirectory = "/home/adam";
           system = "x86_64-linux";

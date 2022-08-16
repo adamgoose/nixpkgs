@@ -8,7 +8,8 @@ in
 rec {
 
   mkHome =
-    { username
+    { name
+    , username
     , homeDirectory
     , system
     , features ? [ ]
@@ -18,7 +19,7 @@ rec {
       stateVersion = "22.05";
       pkgs = outputs.packages.${system};
       extraSpecialArgs = {
-        inherit inputs outputs username homeDirectory features;
+        inherit inputs outputs name username homeDirectory features;
         unstable = outputs.packages-unstable.${system};
       };
       configuration = ../home/${username};

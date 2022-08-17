@@ -71,12 +71,6 @@
   networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
   networking.search = [ "enge.me.beta.tailscale.net" ];
 
-  # Bootloader
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/sda";
-    useOSProber = true;
-  };
 
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {

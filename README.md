@@ -226,3 +226,61 @@ NixOS makes it easy to share common configuration between hosts (you might want
 to create a common directory for these), while keeping everything in sync.
 home-manager can help you sync your environment (from editor to WM and
 everything in between) anywhere you use it. Have fun!
+
+## Installing a fresh NixOS
+
+> This installation is designed to run on legacy Master Boot Records. Disabling
+> UEFI is required.
+
+0. Download and boot into the [NixOS Live GNOME Installer][installer]. Quit the
+   Installer Application, and launch a Terminal.
+0. Prepare the project.
+   ```bash
+   nix-shell -p git --run 'git clone https://github.com/adamgoose/nixpkgs.git'
+   cd nixpkgs
+   sudo nix-shell
+   ```
+0. Prepare an MBR, boot partition, and swap partition.
+   ```bash
+   parted /dev/sda -- mklabel msdos
+   parted /dev/sda -- mkpart primary 1MiB -8GiB
+   parted /dev/sda -- mkpart primary linux-swap -8GiB 100%
+   mkfs.ext4 -L nixos /dev/sda1
+   mkswap -L swap /dev/sda2
+   mount /dev/disk/by-label/nixos /mnt
+   swapon /dev/sda2 # utilize the swap now
+   ```
+0. Remove your user's configured shell, as it won't exist on install.
+   ```bash
+   nvim ./nixos/configuration.nix
+   ```
+0. Build and install the system.
+   ```bash
+   export NIXOS_HOSTNAME=<your-desired-hostname>
+   nix build .#nixosConfigurations.${NIXOS_HOSTNAME}.config.system.build.toplevel
+   nixos-install --system ./result
+   ```
+0. Assuming all went well, simply `reboot`.
+0. Log in as the root user and launch a terminal. Reset your password.
+   ```bash
+   passwd <your-user>
+   ```
+0. Log out, and log in as your user. Launch a terminal.
+0. Prepare the project.
+   ```bash
+   nix-shell -p git --run 'git clone https://github.com/adamgoose/nixpkgs.git ~/.config/nixpkgs'
+   cd ~/.config/nixpkgs
+   sudo nix-shell
+   ```
+0. Finish Setting up the system, I guess...
+   ```bash
+   # Install and configure your shell
+   home-manager switch --flake ~/.config/nixpkgs#<your-home-manager-configuration-name>
+
+   # Now that your shell exists, re-apply the system
+   sudo nixos-rebuild switch --flake ~/.config/nixpkgs#<your-desired-hostname>
+   ```
+
+
+
+[installer]: https://nixos.org/download.html

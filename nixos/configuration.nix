@@ -99,6 +99,8 @@
 
   environment.systemPackages = with pkgs; [
     brave
+    whitesur-gtk-theme
+    whitesur-icon-theme
   ];
 
   fileSystems."/mnt/mildred" = {

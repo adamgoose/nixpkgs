@@ -7,8 +7,8 @@ in
   dconf.enable = true;
   dconf.settings = {
     "org/gnome/settings-daemon/plugins/power" = {
-      "sleep-inactive-ac-timeout" = "0";
-      "sleep-inactive-ac-type" = "never";
+      "sleep-inactive-ac-timeout" = 0;
+      "sleep-inactive-ac-type" = "nothing";
     };
   };
 }

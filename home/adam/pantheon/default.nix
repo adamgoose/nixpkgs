@@ -19,10 +19,14 @@ in
       "clock-format" = "12h";
       "gtk-theme" = "WhiteSur-dark";
       "icon-theme" = "WhiteSur-dark";
+      "monospace-font-name" = "Fira Code 10";
     };
     "org/gnome/settings-daemon/plugins/power" = {
       "sleep-inactive-ac-timeout" = 0;
       "sleep-inactive-ac-type" = "nothing";
+    };
+    "org/pantheon/desktop/gala/appearance" = {
+      "button-layout" = "close,minimum,maximize";
     };
   };
 }

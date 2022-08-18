@@ -20,13 +20,11 @@
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, flake-utils, ... }@inputs:
     let
       lib = import ./lib { inherit inputs; };
-      inherit (lib) mkHome;
+      inherit (lib) mkSystem mkHome;
 
       # Bring some functions into scope (from builtins and other flakes)
       inherit (builtins) attrValues;
       inherit (flake-utils.lib) eachSystemMap defaultSystems;
-      inherit (nixpkgs.lib) nixosSystem;
-      inherit (home-manager.lib) homeManagerConfiguration;
       eachDefaultSystemMap = eachSystemMap defaultSystems;
     in
     rec {
@@ -40,19 +38,9 @@
       # System configurations
       # Accessible via 'nixos-rebuild'
       nixosConfigurations = {
-        nixos = nixosSystem {
-          system = "x86_64-linux";
-
-          modules = [
-            # >> Main NixOS configuration file <<
-            ./nixos/configuration.nix
-            # Adds your custom NixOS modules
-            ./modules/nixos
-            # Adds overlays
-            { nixpkgs.overlays = attrValues overlays; }
-          ];
-          # Make our inputs available to the config (for importing modules)
-          specialArgs = { inherit inputs; };
+        nixos = mkSystem {
+          name = "nixos";
+          features = [ "mbr" "pantheon" "ssh" "tailscale" ];
         };
       };
 

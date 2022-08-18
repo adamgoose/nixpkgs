@@ -1,11 +1,28 @@
 { inputs, ... }:
 let
-  inherit (inputs) self home-manager;
+  inherit (inputs) self home-manager nixpkgs;
   inherit (self) outputs;
+  inherit (nixpkgs.lib) nixosSystem;
   inherit (home-manager.lib) homeManagerConfiguration;
   inherit (builtins) attrValues;
 in
 rec {
+
+  mkSystem =
+    { name
+    , system ? "x86_64-linux"
+    , features ? [ ]
+    }: nixosSystem {
+      inherit system;
+
+      modules = [
+        ../nixos/configuration.nix
+        ../modules/nixos
+        { nixpkgs.overlays = attrValues outputs.overlays; }
+      ];
+
+      specialArgs = { inherit inputs name features; };
+    };
 
   mkHome =
     { name
@@ -13,8 +30,7 @@ rec {
     , homeDirectory
     , system
     , features ? [ ]
-    }:
-    homeManagerConfiguration {
+    }: homeManagerConfiguration {
       inherit system username homeDirectory;
       stateVersion = "22.05";
       pkgs = outputs.packages.${system};

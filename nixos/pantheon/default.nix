@@ -23,5 +23,6 @@
     fira-code-symbols
     whitesur-gtk-theme
     whitesur-icon-theme
+    gnome.gnome-disk-utility
   ];
 }

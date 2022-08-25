@@ -19,6 +19,7 @@
   # Theme Packages
   environment.systemPackages = with pkgs; [
     brave # TODO: Move this elsewhere?
+    _1password-gui # TODO: Move this elsewhere?
     fira-code
     fira-code-symbols
     whitesur-gtk-theme

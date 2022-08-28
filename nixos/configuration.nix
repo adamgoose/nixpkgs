@@ -35,6 +35,7 @@ in
   networking.useDHCP = lib.mkDefault true;
   networking.hostName = name;
   networking.firewall.enable = true;
+  networking.firewall.allowedTCPPorts = [ 8008 ];
   networking.networkmanager.enable = true;
 
   # Configure your system-wide user settings (groups, etc), add more users as needed.

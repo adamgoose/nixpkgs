@@ -40,7 +40,7 @@
       nixosConfigurations = {
         nixos = mkSystem {
           name = "nixos";
-          features = [ "mbr" "pantheon" "ssh" "tailscale" ];
+          features = [ "mbr" "pantheon" "ssh" "tailscale" "k3s" ];
         };
       };
 

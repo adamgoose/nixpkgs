@@ -76,7 +76,7 @@
           username = "adam";
           homeDirectory = "/home/adam";
           system = "x86_64-linux";
-          features = [ "cli" "ide-full" "ide-embedded" "k8s" "pantheon" ];
+          features = [ "cli" "ide-full" "k8s" "pantheon" ];
         };
 
       };

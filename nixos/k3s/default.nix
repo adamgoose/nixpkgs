@@ -10,7 +10,7 @@
     extraFlags = "--disable traefik --node-label 'svc-lb.tailscale.iptables.sh/deploy=true'";
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 49199 51826 21064 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 49199 51826 21064 32400 ];
   networking.firewall.interfaces.cni0.allowedTCPPortRanges = [{from = 1; to = 65535;}];
   networking.firewall.interfaces.tailscale0.allowedTCPPortRanges = [{from = 1; to = 65535;}];
 

@@ -12,8 +12,9 @@
     '';
     oh-my-zsh = {
       enable = true;
+      custom = "$HOME/.oh-my-zsh/custom";
       plugins = [
-        "vi-mode" "git" "fzf" "direnv" "1password"
+        "vi-mode" "git" "fzf" "direnv" "1password" "nix-shell-init"
       ];
     };
 
@@ -31,9 +32,12 @@
   programs.fzf.enableZshIntegration = true;
 
   home.shellAliases = {
-    reload = "home-manager switch --flake ~/.config/nixpkgs#${name}";
+    reload = "home-manager switch --flake ~/.config/nixpkgs#${name} && source ~/.zshrc";
   };
 
 
   home.file.".omp.json".source = ./files/.omp.json;
+  home.file.".oh-my-zsh/custom".source = ./files/oh-my-zsh-custom;
+  home.file.".oh-my-zsh/custom".recursive = true;
+
 }

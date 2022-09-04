@@ -7,6 +7,7 @@
     kubectl
     kubectx
     teleport
+    kubelogin-oidc
     kubernetes-helm
   ];
 }

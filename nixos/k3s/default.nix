@@ -7,7 +7,14 @@
 
   services.k3s = {
     enable = true;
-    extraFlags = "--disable traefik --node-label 'svc-lb.tailscale.iptables.sh/deploy=true'";
+    extraFlags = toString [
+      "--disable traefik"
+      "--node-label 'svc-lb.tailscale.iptables.sh/deploy=true'"
+      "--kube-apiserver-arg 'oidc-issuer-url=https://authentik.enge.me/application/o/k8s-on-nixos/'"
+      "--kube-apiserver-arg 'oidc-client-id=f95b622267c49c8cb77309afef936830db1bc035'"
+      "--kube-apiserver-arg 'oidc-username-claim=email'"
+      "--kube-apiserver-arg 'oidc-groups-claim=groups'"
+    ];
   };
 
   networking.firewall.allowedTCPPorts = [ 80 443 49199 51826 21064 32400 ];

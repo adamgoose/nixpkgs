@@ -45,7 +45,7 @@ in
       isNormalUser = true;
       description = "Adam Engebretson";
       shell = "/home/adam/.nix-profile/bin/zsh";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "dialout" ];
     };
   };
 

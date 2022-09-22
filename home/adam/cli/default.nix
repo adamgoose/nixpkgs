@@ -12,5 +12,7 @@
     rclone
     tailscale
     oh-my-posh
+    taskwarrior
+    taskwarrior-tui
   ];
 }

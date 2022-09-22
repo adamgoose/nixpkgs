@@ -9,6 +9,8 @@
   home.packages = with pkgs; [
     jq
     htop
+    wget
+    tasksh
     rclone
     tailscale
     oh-my-posh

@@ -23,9 +23,13 @@
       };
     };
 
+    withRuby = true;
+
     plugins = with pkgs.vimPlugins; [
       vim-go
       vim-nix
+      vim-ruby
+      vim-rails
       kotlin-vim
 
       coc-go

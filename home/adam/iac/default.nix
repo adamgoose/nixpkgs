@@ -3,6 +3,7 @@
     vault
     tfswitch
     pulumi-bin
+    pulumictl
     terragrunt
     truss-cli
   ];

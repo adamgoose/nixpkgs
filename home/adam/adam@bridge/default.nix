@@ -27,7 +27,7 @@
   };
 
   home.shellAliases = {
-    ave = "aws-vault exec --mfa-token $(op item get \"Amazon Bridge-Users\" --otp)";
+    ave = "aws-vault exec --mfa-token $(op item get \"Amazon Bridge-Users\" --otp) --duration 8h";
     avl = "aws-vault login --mfa-token $(op item get \"Amazon Bridge-Users\" --otp)";
   };
 }

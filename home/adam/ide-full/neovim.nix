@@ -35,6 +35,7 @@
       coc-go
       coc-haxe
       coc-java
+      coc-json
       coc-yaml
       coc-eslint
       coc-tsserver

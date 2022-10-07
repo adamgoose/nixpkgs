@@ -1,6 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, unstable, ... }: {
   home.packages = with pkgs; [
-    k9s
     tilt
     fluxcd
     kube3d
@@ -9,5 +8,7 @@
     teleport
     kubelogin-oidc
     kubernetes-helm
-  ];
+  ] ++ (with unstable; [
+    k9s
+  ]);
 }

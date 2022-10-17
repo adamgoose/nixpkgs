@@ -59,10 +59,12 @@
           "foreground": "#2E3440",
           "powerline_symbol": "\ue0b0",
           "properties": {
-            "template": "VPN"
+            "threshold": 500,
+            "style": "austin"
           },
           "style": "powerline",
-          "type": "openconnect"
+          "type": "executiontime",
+          "template": "<#fefefe>\ufbab</> {{ .FormattedMs }} "
         },
         {
           "background": "#8FBCBB",

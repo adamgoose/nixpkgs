@@ -42,6 +42,10 @@
           name = "nixos";
           features = [ "mbr" "pantheon" "ssh" "tailscale" "k3s" "nfs" ];
         };
+        nixos-vb = mkSystem {
+          name = "nixos-vb";
+          features = [ "mbr-vb" "pantheon" "ssh" "tailscale" ];
+        };
       };
 
       # Home configurations
@@ -77,6 +81,14 @@
           homeDirectory = "/home/adam";
           system = "x86_64-linux";
           features = [ "cli" "ide-full" "vscode" "k8s" "pantheon" ];
+        };
+
+        "adam@nixos-vb" = mkHome {
+          name = "adam@nixos-vb";
+          username = "adam";
+          homeDirectory = "/home/adam";
+          system = "x86_64-linux";
+          features = [ "cli" "ide-full" "k8s" "pantheon" ];
         };
 
       };

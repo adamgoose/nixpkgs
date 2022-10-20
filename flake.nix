@@ -42,6 +42,10 @@
           name = "nixos";
           features = [ "mbr" "pantheon" "ssh" "tailscale" "k3s" "nfs" ];
         };
+        roxie = mkSystem {
+          name = "roxie";
+          features = [ "roxie" "bluetooth" "ssh" "tailscale" "k3s" "nfs" "i3" ];
+        };
         nixos-vb = mkSystem {
           name = "nixos-vb";
           features = [ "mbr-vb" "pantheon" "ssh" "tailscale" ];
@@ -81,6 +85,14 @@
           homeDirectory = "/home/adam";
           system = "x86_64-linux";
           features = [ "cli" "ide-full" "vscode" "k8s" "pantheon" ];
+        };
+
+        "adam@roxie" = mkHome {
+          name = "adam@roxie";
+          username = "adam";
+          homeDirectory = "/home/adam";
+          system = "x86_64-linux";
+          features = [ "cli" "ide-full" "k8s" ];
         };
 
         "adam@nixos-vb" = mkHome {

@@ -42,6 +42,14 @@
           name = "nixos";
           features = [ "mbr" "pantheon" "ssh" "tailscale" "k3s" "nfs" ];
         };
+
+        nixosIso = mkSystem {
+          name = "nixos-iso";
+          features = [ "tailscale" "iso" ];
+          extraModules = [
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+          ];
+        };
       };
 
       # Home configurations

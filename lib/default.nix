@@ -12,6 +12,7 @@ rec {
     { name
     , system ? "x86_64-linux"
     , features ? [ ]
+    , extraModules ? [ ]
     }: nixosSystem {
       inherit system;
 
@@ -19,7 +20,7 @@ rec {
         ../nixos/configuration.nix
         ../modules/nixos
         { nixpkgs.overlays = attrValues outputs.overlays; }
-      ];
+      ] ++ extraModules;
 
       specialArgs = { inherit inputs name features; };
     };

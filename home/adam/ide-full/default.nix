@@ -5,7 +5,6 @@
   ];
 
   home.packages = with pkgs; [
-    # go_1_18
     gnumake
     clang
     ctags
@@ -15,5 +14,6 @@
     kotlin-language-server
   ] ++ (with unstable; [
     go_1_19
+    doppler
   ]);
 }

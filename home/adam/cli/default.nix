@@ -15,6 +15,7 @@
     tailscale
     oh-my-posh
     taskwarrior
-    taskwarrior-tui
+    timewarrior
+    trackwarrior
   ];
 }

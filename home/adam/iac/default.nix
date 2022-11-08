@@ -1,11 +1,12 @@
-{ pkgs, ... }: {
+{ pkgs, unstable, ... }: {
   home.packages = with pkgs; [
     vault
     pulumi-bin
     pulumictl
     terragrunt
+  ] ++ (with unstable; [
     truss-cli
-  ];
+  ]);
 
   home.shellAliases = {
     tf = "terraform";

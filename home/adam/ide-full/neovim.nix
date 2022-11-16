@@ -28,6 +28,8 @@
     plugins = with pkgs.vimPlugins; [
       vim-go
       vim-nix
+      vim-pug
+      vim-vue
       vim-ruby
       vim-rails
       kotlin-vim

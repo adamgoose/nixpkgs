@@ -12,7 +12,6 @@
     wget
     tasksh
     rclone
-    tailscale
     oh-my-posh
     taskwarrior
     timewarrior

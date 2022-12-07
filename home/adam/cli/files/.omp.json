@@ -13,7 +13,7 @@
             "style": "agnoster_full"
           },
           "style": "diamond",
-          "template": " \ue5ff {{ .HostName }} {{ .Path }} ",
+          "template": " \ue5ff {{ .Path }} ",
           "trailing_diamond": "\ue0b0",
           "type": "path"
         },

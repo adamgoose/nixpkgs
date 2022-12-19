@@ -13,11 +13,13 @@
     # Utilities for building our flake
     flake-utils.url = "github:numtide/flake-utils";
 
+    nix-npm-buildpackage.url = "github:serokell/nix-npm-buildpackage";
+
     # Extra flakes for modules, packages, etc
     hardware.url = "github:nixos/nixos-hardware"; # Convenience modules for hardware-specific quirks
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, flake-utils, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nix-npm-buildpackage, flake-utils, ... }@inputs:
     let
       lib = import ./lib { inherit inputs; };
       inherit (lib) mkSystem mkHome;
@@ -31,7 +33,10 @@
       # If you want to use packages exported from other flakes, add their overlays here.
       # They will be added to your 'pkgs'
       overlays = {
-        default = import ./overlay; # Our own overlay
+        default = import ./overlay {
+          inherit nixpkgs;
+        }; # Our own overlay
+        nix-npm-buildpackage = nix-npm-buildpackage.overlays.default;
         # nur = nur.overlay
       };
 

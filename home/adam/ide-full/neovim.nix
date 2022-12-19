@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, unstable, ... }: {
   programs.neovim = {
     coc.settings = {
       languageserver = {
@@ -39,8 +39,11 @@
       coc-java
       coc-json
       coc-yaml
+      # coc-volar
       coc-eslint
       coc-tsserver
-    ];
+    ] ++ (with unstable.vimPlugins; [
+      coc-volar
+    ]);
   };
 }

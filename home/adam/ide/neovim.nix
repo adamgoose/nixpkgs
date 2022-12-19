@@ -46,6 +46,9 @@
         '';
       }
 
+      # LSP Context Statusline
+      # look at https://www.reddit.com/r/neovim/comments/vv1jt3/comment/ifh49ti/?utm_source=reddit&utm_medium=web2x&context=3
+
       # File Tree Sidebar
       { plugin = nerdtree;
         # config = "nnoremap <C-t> :NERDTreeToggle<CR>";
@@ -67,6 +70,17 @@
 
           " Reveal in NERDTree
           nnoremap <leader>r :NERDTreeFind<cr>
+
+          " Use K to show documentation in preview window
+          nnoremap <silent> K :call ShowDocumentation()<CR>
+
+          function! ShowDocumentation()
+            if CocAction('hasProvider', 'hover')
+              call CocActionAsync('doHover')
+            else
+              call feedkeys('K', 'in')
+            endif
+          endfunction
         '';
       }
 

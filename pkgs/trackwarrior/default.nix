@@ -5,11 +5,11 @@ stdenv.mkDerivation {
 
   src = fetchgit {
     url = "https://github.com/gkssjovi/trackwarrior.git";
-    sparseCheckout = ''
-      taskwarrior
-      timewarrior
-    '';
-    sha256 = "sha256-BOxAn8lEllBEqHhRBaBwx9S4aBTlLD+0ZzqHMWOeFFw=";
+    sparseCheckout = [
+      "taskwarrior"
+      "timewarrior"
+    ];
+    sha256 = "sha256-2BU2lwB+PtR+jXi/SKOKZFs3LUrbGQSw8ejAzJla0ss=";
   };
 
   dontBuild = true;

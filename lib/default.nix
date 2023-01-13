@@ -31,15 +31,20 @@ rec {
     , system
     , features ? [ ]
     }: homeManagerConfiguration {
-      inherit system username homeDirectory;
-      stateVersion = "22.05";
       pkgs = outputs.packages.${system};
+      modules = [
+        ../home/${username}
+        {
+          home = {
+            inherit username homeDirectory;
+            stateVersion = "22.05";
+          };
+        }
+      ];
       extraSpecialArgs = {
         inherit inputs outputs name username homeDirectory features;
         unstable = outputs.packages-unstable.${system};
       };
-      configuration = ../home/${username};
-      # extraModules = attrValues (import ../modules/home-manager);
     };
 
 }

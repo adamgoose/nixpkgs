@@ -5,15 +5,16 @@
   ];
 
   home.packages = with pkgs; [
-    gnumake
+    go
     clang
     ctags
     cscope
+    doppler
+    gnumake
     rnix-lsp
     postgresql
     kotlin-language-server
   ] ++ (with unstable; [
-    go_1_19
-    doppler
+    ## 
   ]);
 }

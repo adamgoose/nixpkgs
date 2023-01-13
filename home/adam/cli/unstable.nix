@@ -1,6 +1,7 @@
 { unstable, lib, ... }: {
   home.packages = with unstable; [
     tailscale
+    podman
   ]
 
   # The 1Password CLI Must exist in /usr/local/bin on Mac for biometric unlock

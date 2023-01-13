@@ -41,6 +41,7 @@
       coc-yaml
       # coc-volar
       coc-eslint
+      coc-prettier
       coc-tsserver
     ] ++ (with unstable.vimPlugins; [
       coc-volar

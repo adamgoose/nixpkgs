@@ -26,6 +26,12 @@
     };
   };
 
+  home.sessionVariables = {
+    NODE_VERSIONS = "$HOME/.nvm/versions/node";
+    NODE_VERSION_PREFIX = "v";
+    EDITOR = "vim";
+  };
+
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.fzf.enable = true;

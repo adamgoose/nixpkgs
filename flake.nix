@@ -65,7 +65,7 @@
           username = "adam";
           homeDirectory = "/Users/adam";
           system = "aarch64-darwin";
-          features = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" ];
+          features = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" "taskwarrior" ];
         };
 
         "gitpod" = mkHome {

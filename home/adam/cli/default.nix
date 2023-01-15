@@ -10,11 +10,7 @@
     jq
     htop
     wget
-    tasksh
     rclone
     oh-my-posh
-    taskwarrior
-    timewarrior
-    trackwarrior
   ];
 }

@@ -12,6 +12,7 @@
     htop
     wget
     xplr
+    doggo
     rclone
     oh-my-posh
   ];

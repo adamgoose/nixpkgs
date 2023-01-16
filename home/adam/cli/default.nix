@@ -11,6 +11,7 @@
     enc
     htop
     wget
+    xplr
     rclone
     oh-my-posh
   ];

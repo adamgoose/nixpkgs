@@ -45,6 +45,7 @@
       coc-tsserver
     ] ++ (with unstable.vimPlugins; [
       coc-volar
+      copilot-vim
     ]);
   };
 }

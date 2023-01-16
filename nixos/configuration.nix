@@ -13,7 +13,7 @@ in
   nix = {
     # Enable flakes and new 'nix' command
     extraOptions = "experimental-features = nix-command flakes";
-    autoOptimiseStore = true;
+    settings.auto-optimise-store = true;
 
     # This will add your inputs as registries, making operations with them (such
     # as nix shell nixpkgs#name) consistent with your flake inputs.

@@ -50,7 +50,7 @@
         };
         roxie = mkSystem {
           name = "roxie";
-          features = [ "roxie" "bluetooth" "ssh" "tailscale" "k3s" "nfs" "i3" ];
+          features = [ "roxie" "bluetooth" "ssh" "tailscale" "k3s" "nfs" ];
         };
         nixos-vb = mkSystem {
           name = "nixos-vb";

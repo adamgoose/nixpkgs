@@ -6,7 +6,7 @@
 
   home.packages = with pkgs; [
     go
-    clang
+    gcc
     ctags
     cscope
     doppler

@@ -1,9 +1,11 @@
 { pkgs, ... }: {
   imports = [
-    ./neovim.nix
+    # ./neovim.nix
+    ./astrovim.nix
   ];
 
   home.packages = with pkgs; [
+    rnix-lsp
     lazygit
     ripgrep
 
@@ -12,9 +14,5 @@
 
   home.shellAliases = {
     lg = "lazygit";
-  };
-
-  home.sessionVariables = {
-    EDITOR = "vim";
   };
 }

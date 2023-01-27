@@ -1,7 +1,7 @@
 { pkgs, unstable, ... }: {
   imports = [
     ../ide
-    ./neovim.nix
+    # ./neovim.nix
   ];
 
   home.packages = with pkgs; [
@@ -11,7 +11,6 @@
     cscope
     doppler
     gnumake
-    rnix-lsp
     postgresql
     kotlin-language-server
   ] ++ (with unstable; [

@@ -117,6 +117,11 @@
 
       " Simulate CtrlP
       " nmap <C-P> :FZF<CR>
+
+      autocmd BufNewFile,BufRead Tiltfile set syntax=python
+      autocmd BufNewFile,BufRead *.star set syntax=python
+      autocmd BufNewFile,BufRead .envrc set syntax=bash
+      autocmd BufNewFile,BufRead *.md set colorcolumn=80
     '';
   };
 

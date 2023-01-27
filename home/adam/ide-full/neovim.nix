@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }: {
+{ pkgs, unstable, homeDirectory, ... }: {
   programs.neovim = {
     coc.settings = {
       languageserver = {
@@ -26,7 +26,16 @@
     withRuby = true;
 
     plugins = with pkgs.vimPlugins; [
-      vim-go
+      { plugin = vim-go;
+        config = ''
+          let g:go_bin_path = "${homeDirectory}/go/bin"
+          let g:go_debug_substitute_paths = [['/work', '/Users/adam/Modules/authmongo']]
+          let g:go_debug_windows = {
+            \ 'vars':  'rightbelow 60vnew',
+            \ 'stack': 'rightbelow 10new',
+          \ }
+        '';
+      }
       vim-nix
       vim-pug
       vim-vue

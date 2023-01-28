@@ -5,15 +5,7 @@
     enable = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
-      {
-        plugin = nord-nvim;
-        config = "let g:nord_disable_background = v:true";
-      }
-      # vim-nix
-      vim-pug
-      vim-vue
-      vim-ruby
-      vim-rails
+      nord-nvim
     ] ++ (with unstable.vimPlugins; [
       copilot-vim
     ]);

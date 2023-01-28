@@ -5,11 +5,11 @@
   ];
 
   home.packages = with pkgs; [
-    rnix-lsp
+    nodejs
     lazygit
     ripgrep
-
-    nodejs
+    rnix-lsp
+    tree-sitter
   ];
 
   home.shellAliases = {

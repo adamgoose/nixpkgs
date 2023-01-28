@@ -16,4 +16,9 @@
   ] ++ (with unstable; [
     ## 
   ]);
+
+  programs.zsh.initExtra = ''
+    export PATH=$HOME/go/bin:$PATH
+  '';
+
 }

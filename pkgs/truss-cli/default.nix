@@ -1,4 +1,4 @@
-{ lib, buildGoModule, fetchFromGitHub }:
+{ lib, buildGoModule, fetchFromGitHub, installShellFiles }:
 
 buildGoModule rec {
   pname = "truss-cli";
@@ -10,14 +10,19 @@ buildGoModule rec {
     rev = "v${version}";
     sha256 = "sha256-FWDAa7QsytrNOrLAyzNhwBnIA5rjbGE6hNiDUiTQiTg=";
   };
+  vendorSha256 = "sha256-jwJY5GgLU3+/iOu6E1y5T3QzLj+JC3Iv1PGwffCTnCI=";
 
   doCheck = false;
 
-  vendorSha256 = "sha256-jwJY5GgLU3+/iOu6E1y5T3QzLj+JC3Iv1PGwffCTnCI=";
-  ldflags = ["-s -w -X github.com/get-bridge/truss-cli/cmd.Version=${version}"];
+  nativeBuildInputs = [ installShellFiles ];
+  ldflags = [ "-s -w -X github.com/get-bridge/truss-cli/cmd.Version=${version}" ];
 
   postInstall = ''
     mv $out/bin/truss-cli $out/bin/truss
+    installShellCompletion --cmd truss \
+      --bash <($out/bin/truss completion bash) \
+      --fish <($out/bin/truss completion fish) \
+      --zsh <($out/bin/truss completion zsh)
   '';
 
   meta = with lib; {

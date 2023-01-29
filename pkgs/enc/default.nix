@@ -1,4 +1,4 @@
-{ lib, buildGoModule, fetchFromGitHub }:
+{ lib, buildGoModule, fetchFromGitHub, installShellFiles }:
 
 buildGoModule rec {
   pname = "enc";
@@ -12,6 +12,14 @@ buildGoModule rec {
   };
 
   vendorSha256 = "sha256-7PLP3DVtGCStRWzLOrW+vEG5Y7/nevHFzYVf/vrELbA=";
+
+  nativeBuildInputs = [ installShellFiles ];
+  postInstall = ''
+    installShellCompletion --cmd enc \
+      --bash <($out/bin/enc completion bash) \
+      --fish <($out/bin/enc completion fish) \
+      --zsh <($out/bin/enc completion zsh)
+  '';
 
   meta = with lib; {
     homepage = "https://github.com/life4/enc";

@@ -9,11 +9,17 @@
   home.packages = with pkgs; [
     jq
     enc
+    gum
     htop
     wget
     xplr
     doggo
     rclone
-    oh-my-posh
   ];
+
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile ./files/.omp.json));
+  };
 }

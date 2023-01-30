@@ -8,17 +8,17 @@
       nord-nvim
       vim-tmux-navigator
     ] ++ (with unstable.vimPlugins; [
-      copilot-vim
+      # ...
     ]);
   };
 
   home.file.".config/nvim".recursive = true;
   home.file.".config/nvim".source = pkgs.fetchFromGitHub {
-    owner = "AstroNvim";
-    repo = "AstroNvim";
-    rev = "v2.11.8";
-    sha256 = "sha256-fpKrB6LW5KlQx/Egv5QY0hnzDGtJqmaXOzQevllVdjI=";
+    owner = "LunarVim";
+    repo = "LunarVim";
+    rev = "1.2.0";
+    sha256 = "sha256-xlQ4qOUG1+wXyr1xVO2Mni/L3bKyrIlPFmve5w2Xoss=";
   };
 
-  home.file.".config/nvim/lua/user/init.lua".source = ./files/astrovim.lua;
+  home.file.".config/nvim/config.lua".source = ./files/lunarvim.lua;
 }

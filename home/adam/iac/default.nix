@@ -8,12 +8,12 @@
     truss-cli
   ]);
 
-  home.shellAliases = {
-    tf = "terraform";
-  };
-
-  programs.zsh.zplug = {
-    plugins = [{
+  programs.zsh = {
+    oh-my-zsh.plugins = [
+      "terraform"
+      "vault"
+    ];
+    zplug.plugins = [{
       name = "cda0/zsh-tfenv";
     }];
   };

@@ -11,4 +11,8 @@
     AWS_VAULT_PASS_PASSWORD_STORE_DIR = "/Users/adam/.local/share/password-store";
     PASSWORD_STORE_DIR = "/Users/adam/.local/share/password-store";
   };
+
+  programs.zsh.oh-my-zsh.plugins = [
+    "aws"
+  ];
 }

@@ -1,0 +1,11 @@
+session_name: ${APP}
+start_directory: ~/Modules/${APP}
+windows:
+  - window_name: ${APP}
+    layout: main-vertical
+    options:
+      main-pane-width: 75%
+    panes:
+      - vim .
+      - blank
+      - blank

@@ -18,6 +18,25 @@ return {
       "rnix",
     },
   },
+  dap = {
+    adapters = {
+      ruby = {
+        type = "server",
+        host = "127.0.0.1",
+        port = 2345,
+      }
+    },
+    configurations = {
+      ruby = { {
+        type = "ruby",
+        name = "Attach to ruby debug",
+        request = "attach",
+        mode = "remote",
+        host = "127.0.0.1",
+        port = 2345
+      } }
+    }
+  },
   plugins = {
     init = {
       ["phaazon/hop.nvim"] = {

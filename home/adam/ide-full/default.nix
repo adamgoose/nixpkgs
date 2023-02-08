@@ -11,6 +11,7 @@
     cscope
     doppler
     gnumake
+    hasura-cli
     postgresql
     kotlin-language-server
   ] ++ (with unstable; [

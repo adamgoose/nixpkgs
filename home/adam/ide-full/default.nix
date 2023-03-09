@@ -9,6 +9,7 @@
     gcc
     ctags
     cscope
+    mkcert
     doppler
     gnumake
     hasura-cli

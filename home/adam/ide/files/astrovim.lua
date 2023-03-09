@@ -3,6 +3,7 @@ return {
   options = {
     g = {
       nord_disable_background = true,
+      nord_borders = true,
       terraform_fmt_on_save = 1,
     },
   },
@@ -66,6 +67,7 @@ return {
       },
       filesystem = {
         filtered_items = {
+          visible = true,
           hide_dotfiles = false
         },
         hijack_netrw_behavior = "open_split",

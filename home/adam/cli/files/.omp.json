@@ -1,101 +1,121 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "os": "#ACB0BE",
+    "closer": "p:os",
+    "pink": "#F5BDE6",
+    "lavender": "#B7BDF8",
+    "blue":  "#8AADF4",
+    "white": "#FFF",
+    "text": "#5b6078",
+    "green": "#a6da95"
+  },
   "blocks": [
     {
-      "alignment": "left",
+      "alignment": "right",
       "segments": [
         {
-          "foreground": "#88c0d0",
+          "foreground": "p:text",
           "style": "plain",
-          "template": "<#5e81ac>\u250f[{{ .Icon }}</> ",
-          "type": "os"
+          "template": " \uf250 {{ .FormattedMs }} ",
+          "type": "executiontime",
+          "properties": {
+            "style": "austin"
+          }
         },
         {
-          "foreground": "#88c0d0",
+          "foreground": "p:text",
           "style": "plain",
-          "template": "{{ .UserName }}<#5e81ac>]</>",
-          "type": "session"
+          "template": " \ue718 {{ .Full }} ",
+          "type": "node"
         },
         {
-          "foreground": "#b48ead",
+          "foreground": "p:text",
           "style": "plain",
-          "template": "<#5e81ac>--[\udb83\ude0f</> {{.Profile}}{{if .Region}}@{{.Region}}{{end}}<#5e81ac>]</>",
+          "template": " \ue627 {{ .Full }} ",
+          "type": "go"
+        },
+        {
+          "foreground": "p:text",
+          "style": "plain",
+          "template": " \ue69a {{.WorkspaceName}} ",
+          "type": "terraform"
+        },
+        {
+          "foreground": "p:text",
+          "style": "plain",
+          "template": " \udb83\ude0f {{.Profile}}{{if .Region}}@{{.Region}}{{end}} ",
           "type": "aws",
           "properties": {
             "display_default": false
           }
         },
         {
-          "foreground": "#b48ead",
+          "foreground": "p:text",
           "style": "plain",
-          "template": "<#5e81ac>--[\udb84\udcfe</> {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}<#5e81ac>]</>",
+          "template": " \udb84\udcfe {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} ",
           "type": "kubectl"
-        },
-        {
-          "foreground": "#b48ead",
-          "style": "plain",
-          "template": "<#5e81ac>--[\ue69a</> {{.WorkspaceName}}<#5e81ac>]</>",
-          "type": "terraform"
-        },
-        {
-          "foreground": "#d8dee9",
-          "style": "plain",
-          "template": "<#5e81ac>[</>\uf0e7<#5e81ac>]</>",
-          "type": "root"
-        },
-        {
-          "foreground": "#d8dee9",
-          "style": "plain",
-          "template": "<#5e81ac>--[\uf250</> {{ .FormattedMs }}<#5e81ac>]</>",
-          "type": "executiontime",
-          "properties": {
-            "style": "galveston"
-          }
-        },
-        {
-          "foreground": "#d8dee9",
-          "style": "plain",
-          "template": "<#5e81ac>[\uea87</> {{ .Meaning }}<#5e81ac>]</>",
-          "type": "exit"
         }
       ],
-      "type": "prompt"
+      "type": "rprompt"
     },
     {
       "alignment": "left",
-      "newline": true,
       "segments": [
         {
-          "foreground": "#88c0d0",
+          "background": "p:blue",
+          "foreground": "p:white",
+          "powerline_symbol": "\ue0b4",
+          "leading_diamond": "\ue0b6",
+          "style": "diamond",
+          "template": "{{.Icon}} ",
+          "type": "os"
+        },
+        {
+          "background": "p:blue",
+          "foreground": "p:text",
+          "powerline_symbol": "\ue0b4",
+          "style": "diamond",
+          "template": "{{ .UserName }}",
+          "type": "session"
+        },
+        {
+          "background": "p:pink",
+          "foreground": "p:text",
+          "powerline_symbol": "\ue0b4",
           "properties": {
-            "style": "full"
+            "folder_icon": "..\ue5fe..",
+            "home_icon": "~",
+            "style": "agnoster_short"
           },
-          "style": "plain",
-          "template": "<#5e81ac>\u2516[</>{{ .Path }}<#5e81ac>]</>",
+          "style": "powerline",
+          "template": " {{ .Path }}",
           "type": "path"
         },
         {
-          "foreground": "#b48ead",
+          "background": "p:lavender",
+          "foreground": "p:text",
+          "powerline_symbol": "\ue0b4",
           "properties": {
-            "fetch_stash_count": true,
-            "fetch_status": true,
-            "fetch_upstream_icon": true
+            "branch_icon": "\ue725 ",
+            "cherry_pick_icon": "\ue29b ",
+            "commit_icon": "\uf417 ",
+            "fetch_status": false,
+            "fetch_upstream_icon": false,
+            "merge_icon": "\ue727 ",
+            "no_commits_icon": "\uf594 ",
+            "rebase_icon": "\ue728 ",
+            "revert_icon": "\uf0e2 ",
+            "tag_icon": "\uf412 "
           },
-          "style": "plain",
-          "template": "<#5e81ac>--[</>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<#8fbcbb> \u25cf </>{{ end }}{{ if .Staging.Changed }}<#88c0d0> \u25cf </>{{ end }}<#5e81ac>]</>",
+          "template": " {{ .HEAD }}",
+          "style": "powerline",
           "type": "git"
-        }
-      ],
-      "type": "prompt"
-    },
-    {
-      "alignment": "left",
-      "newline": true,
-      "segments": [
+        },
         {
-          "foreground": "#5e81ac",
           "style": "plain",
-          "template": " \ue602 ",
+          "foreground": "p:closer",
+          "template": "\uf105",
           "type": "text"
         }
       ],

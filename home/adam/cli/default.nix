@@ -22,4 +22,6 @@
     enableZshIntegration = true;
     settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile ./files/.omp.json));
   };
+
+  xdg.enable = true;
 }

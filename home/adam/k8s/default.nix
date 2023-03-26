@@ -12,4 +12,6 @@
   ] ++ (with unstable; [
     ##
   ]);
+
+  home.file.".config/k9s/skin.yml".source = ./files/k9s-theme.yml;
 }

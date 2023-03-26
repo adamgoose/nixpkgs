@@ -26,4 +26,6 @@
   programs.zsh.zplug.plugins = [{
     name = "lukechilds/zsh-nvm";
   }];
+
+  home.file.".config/lazygit/config.yml".source = ./files/lazygit.yml;
 }

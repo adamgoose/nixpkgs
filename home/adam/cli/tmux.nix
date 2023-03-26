@@ -5,13 +5,25 @@
     enable = true;
     keyMode = "vi";
     plugins = with pkgs.tmuxPlugins; [
-      nord
       prefix-highlight
       vim-tmux-navigator
+      {
+        plugin = mkTmuxPlugin {
+          pluginName = "catppuccin";
+          version = "a98dc1e";
+          src = pkgs.fetchFromGitHub {
+            owner = "catppuccin";
+            repo = "tmux";
+            rev = "8dd142b4e0244a357360cf87fb36c41373ab451f";
+            sha256 = "sha256-KoGrA5Mgw52jU00bgirQb/E8GbsMkG1WVyS5NSFqv7o=";
+          };
+        };
+      }
     ];
     tmuxp.enable = true;
     extraConfig = ''
       set -g mouse on
+      set -g @catppuccin_flavour 'macchiato'
     '';
   };
 

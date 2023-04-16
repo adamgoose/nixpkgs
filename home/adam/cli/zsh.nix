@@ -20,7 +20,7 @@
     };
 
     zplug = {
-      enable = false;
+      enable = true;
       plugins = [];
     };
   };

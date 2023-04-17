@@ -9,5 +9,11 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
-  "phaazon/hop.nvim",
+  {
+    "phaazon/hop.nvim",
+    event = "BufRead",
+    config = function()
+      require("hop").setup()
+    end,
+  },
 }

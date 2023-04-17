@@ -21,8 +21,8 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
 
-    ["<leader>hw"] = { "<cmd>HopWord<cr>", desc = "Hop word" },
-    ["<leader>hc"] = { "<cmd>HopChar2<cr>", desc = "Hop char" },
+    ["<leader>hw"] = { "<cmd>HopWord<cr>", desc = "Hop to word" },
+    ["<leader>ht"] = { "<cmd>HopChar2<cr>", desc = "Hop to char" },
     ["<leader>h"] = { name = "Hop", desc = "➴ Hop" },
     ["<leader>lx"] = { "<cmd>LspRestart<cr>", desc = "Restart LSP" },
   },

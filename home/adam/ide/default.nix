@@ -1,8 +1,6 @@
 { pkgs, ... }: {
   imports = [
-    # ./neovim.nix
     ./astrovim.nix
-    # ./lunarvim.nix
   ];
 
   home.packages = with pkgs; [

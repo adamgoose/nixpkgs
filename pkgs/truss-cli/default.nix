@@ -2,15 +2,15 @@
 
 buildGoModule rec {
   pname = "truss-cli";
-  version = "0.3.0";
+  version = "0.3.2";
 
   src = fetchFromGitHub {
     owner = "get-bridge";
     repo = "truss-cli";
     rev = "v${version}";
-    sha256 = "sha256-FWDAa7QsytrNOrLAyzNhwBnIA5rjbGE6hNiDUiTQiTg=";
+    sha256 = "sha256-GNs+CGcXcoImYQM3mMfwuATUn4A0gziy7DKtF08krb8=";
   };
-  vendorSha256 = "sha256-jwJY5GgLU3+/iOu6E1y5T3QzLj+JC3Iv1PGwffCTnCI=";
+  vendorSha256 = "sha256-9hV4gh6RHsPff9XsFyVybMc5QSe54ZPZjIrPL+HFVBs=";
 
   doCheck = false;
 

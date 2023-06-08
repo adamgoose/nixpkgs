@@ -69,6 +69,14 @@
           features = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" "taskwarrior" ];
         };
 
+        "adam@home" = mkHome {
+          name = "adam@home";
+          username = "adam";
+          homeDirectory = "/Users/adam";
+          system = "aarch64-darwin";
+          features = [ "cli" "ide-full" "aws" "k8s" "iac" ];
+        };
+
         "gitpod" = mkHome {
           name = "gitpod";
           username = "gitpod";

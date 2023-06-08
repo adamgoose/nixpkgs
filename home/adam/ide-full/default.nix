@@ -12,6 +12,7 @@
     mkcert
     doppler
     gnumake
+    asciinema
     hasura-cli
     postgresql
     kotlin-language-server

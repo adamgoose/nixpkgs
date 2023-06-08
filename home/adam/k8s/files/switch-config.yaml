@@ -1,0 +1,13 @@
+kind: SwitchConfig
+version: v1alpha1
+kubeconfigStores:
+ - kind: filesystem
+   id: teleport
+   kubeconfigName: "config*"
+   paths:
+     - ~/.kube
+ - kind: filesystem
+   id: truss
+   kubeconfigName: "kubeconfig*"
+   paths:
+     - ~/.kube/configs/

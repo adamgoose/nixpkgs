@@ -1,6 +1,11 @@
 {
   description = "You new nix config";
 
+  nixConfig = {
+    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
+    extra-substituters = "https://devenv.cachix.org";
+  };
+
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
@@ -16,11 +21,14 @@
     nix-npm-buildpackage.url = "github:serokell/nix-npm-buildpackage";
     nix-npm-buildpackage.inputs.nixpkgs.follows = "nixpkgs";
 
+    devenv.url = "github:cachix/devenv/latest";
+    # devenv.inputs.nixpkgs.follows = "nixpkgs";
+
     # Extra flakes for modules, packages, etc
     hardware.url = "github:nixos/nixos-hardware"; # Convenience modules for hardware-specific quirks
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nix-npm-buildpackage, flake-utils, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nix-npm-buildpackage, flake-utils, devenv, ... }@inputs:
     let
       lib = import ./lib { inherit inputs; };
       inherit (lib) mkSystem mkHome;
@@ -35,7 +43,7 @@
       # They will be added to your 'pkgs'
       overlays = {
         default = import ./overlay {
-          inherit nixpkgs;
+          inherit nixpkgs devenv;
         }; # Our own overlay
         nix-npm-buildpackage = nix-npm-buildpackage.overlays.default;
         # nur = nur.overlay

@@ -1,5 +1,5 @@
 # Your overlays go here (see https://nixos.wiki/wiki/Overlays)
-{ ... }:
+{ devenv, ... }:
 final: prev: {
 
   nodePackages = prev.nodePackages // {
@@ -68,4 +68,6 @@ final: prev: {
       maintainers = with maintainers; [ bryanasdev000 ];
     };
   };
+
+  devenv = devenv.packages.${prev.system}.devenv;
 } // import ../pkgs { pkgs = final; }

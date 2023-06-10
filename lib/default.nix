@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  inherit (inputs) self home-manager nixpkgs;
+  inherit (inputs) self home-manager devenv nixpkgs;
   inherit (self) outputs;
   inherit (nixpkgs.lib) nixosSystem;
   inherit (home-manager.lib) homeManagerConfiguration;

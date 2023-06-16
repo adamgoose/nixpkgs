@@ -54,6 +54,7 @@
   home.shellAliases = {
     cat = "bat";
     reload = "home-manager switch --flake ~/.config/nixpkgs#${name} && source ~/.zshrc";
+    nixpkgs = "cd ~/.config/nixpkgs";
   };
 }
 

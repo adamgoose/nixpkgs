@@ -53,9 +53,9 @@
 
   home.shellAliases = {
     cat = "bat";
-    reload = "home-manager switch --flake ~/.config/nixpkgs#${name} && source ~/.zshrc";
+    reload = "home-manager switch --flake ~/src/github.com/adamgoose/nixpkgs#${name} && source ~/.zshrc";
     restart-nix = "sudo launchctl stop org.nixos.nix-daemon && sudo launchctl start org.nixos.nix-daemon";
-    nixpkgs = "cd ~/.config/nixpkgs";
+    nixpkgs = "cd ~/src/github.com/adamgoose/nixpkgs";
   };
 }
 

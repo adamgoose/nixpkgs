@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  inherit (inputs) self home-manager devenv nixpkgs;
+  inherit (inputs) self home-manager devenv nixpkgs nixpkgs-unstable;
   inherit (self) outputs;
   inherit (nixpkgs.lib) nixosSystem;
   inherit (home-manager.lib) homeManagerConfiguration;
@@ -31,7 +31,8 @@ rec {
     , system
     , features ? [ ]
     }: homeManagerConfiguration {
-      pkgs = outputs.packages.${system};
+      # pkgs = outputs.packages.${system};
+      pkgs = import nixpkgs { inherit system; };
       modules = [
         ../home/${username}
         {
@@ -43,7 +44,7 @@ rec {
       ];
       extraSpecialArgs = {
         inherit inputs outputs name username homeDirectory features;
-        unstable = outputs.packages-unstable.${system};
+        unstable = import nixpkgs-unstable { inherit system; };
       };
     };
 

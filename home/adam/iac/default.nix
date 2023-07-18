@@ -5,7 +5,7 @@
     pulumictl
     terragrunt
   ] ++ (with unstable; [
-    truss-cli
+    # truss-cli
   ]);
 
   programs.zsh = {

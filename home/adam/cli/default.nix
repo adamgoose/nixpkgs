@@ -15,7 +15,7 @@
     xplr
     doggo
     cachix
-    devenv
+    # devenv
     rclone
   ];
 

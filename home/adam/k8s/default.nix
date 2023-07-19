@@ -5,9 +5,9 @@
     fluxcd
     kube3d
     kubectl
-    # kubetap
+    kubetap
     teleport
-    # kubeswitch
+    kubeswitch
     kubelogin-oidc
     kubernetes-helm
   ] ++ (with unstable; [

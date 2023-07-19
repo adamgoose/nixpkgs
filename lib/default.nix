@@ -31,8 +31,10 @@ rec {
     , system
     , features ? [ ]
     }: homeManagerConfiguration {
-      # pkgs = outputs.packages.${system};
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ outputs.overlays.default ];
+      };
       modules = [
         ../home/${username}
         {

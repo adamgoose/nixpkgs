@@ -1,7 +1,6 @@
 { pkgs, unstable, ... }: {
   imports = [
     ../ide
-    # ./neovim.nix
   ];
 
   home.packages = with pkgs; [

@@ -1,9 +1,10 @@
 # When you add custom packages, list them here
 { pkgs }: {
-  enc = pkgs.callPackage ./enc { };
+
   hasura-cli = pkgs.callPackage ./hasura-cli { };
-  kotlin-language-server = pkgs.callPackage ./kotlin-language-server { };
+  kubeswitch = pkgs.callPackage ./kubeswitch { };
+  kubetap = pkgs.callPackage ./kubetap { };
   trackwarrior = pkgs.callPackage ./trackwarrior { };
   truss-cli = pkgs.callPackage ./truss-cli { };
-  truss-local = pkgs.callPackage ./truss-local { };
+
 }

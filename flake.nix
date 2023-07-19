@@ -30,7 +30,7 @@
     # hardware.url = "github:nixos/nixos-hardware"; # Convenience modules for hardware-specific quirks
   };
 
-  outputs = inputs@{ nixpkgs, flake-parts, home-manager, ... }: 
+  outputs = inputs@{ nixpkgs, devenv, flake-parts, home-manager, ... }: 
     let
       lib = import ./lib { inherit inputs; };
       inherit (lib)  mkHome;
@@ -38,9 +38,13 @@
     in mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
-        ##
+        packages = import ./pkgs { inherit pkgs; };
       };
       flake = {
+        overlays.default = import ./overlay {
+          inherit nixpkgs devenv;
+        };
+
         homeConfigurations = {
           "adam@bridge" = mkHome {
             name = "adam@bridge";

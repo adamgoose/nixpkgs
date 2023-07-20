@@ -7,24 +7,18 @@
   };
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Utilities for building our flake
-    # flake-utils.url = "github:numtide/flake-utils";
+    darwin.url = "github:lnl7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    # nix-npm-buildpackage.url = "github:serokell/nix-npm-buildpackage";
-    # nix-npm-buildpackage.inputs.nixpkgs.follows = "nixpkgs";
-
     devenv.url = "github:cachix/devenv/latest";
-    # devenv.inputs.nixpkgs.follows = "nixpkgs";
 
     # Extra flakes for modules, packages, etc
     # hardware.url = "github:nixos/nixos-hardware"; # Convenience modules for hardware-specific quirks
@@ -33,8 +27,8 @@
   outputs = inputs@{ nixpkgs, devenv, flake-parts, home-manager, ... }: 
     let
       lib = import ./lib { inherit inputs; };
-      inherit (lib)  mkHome;
-      inherit(flake-parts.lib) mkFlake;
+      inherit (lib) mkHome mkDarwin;
+      inherit (flake-parts.lib) mkFlake;
     in mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
@@ -49,17 +43,22 @@
           "adam@bridge" = mkHome {
             name = "adam@bridge";
             username = "adam";
-            homeDirectory = "/Users/adam";
             system = "aarch64-darwin";
             features = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" "taskwarrior" ];
           };
+        };
 
-          "adam@home" = mkHome {
+        darwinConfigurations = {
+          "adam@home" = mkDarwin {
             name = "adam@home";
             username = "adam";
-            homeDirectory = "/Users/adam";
             system = "aarch64-darwin";
-            features = [ "cli" "ide-full" "aws" "k8s" "iac" ];
+            homeFeatures = [ "cli" "ide-full" "aws" "k8s" "iac" "raycast" "alacritty" ];
+          };
+          "adam@bridge" = mkDarwin {
+            name = "adam@bridge";
+            username = "adam";
+            system = "aarch64-darwin";
           };
         };
       };

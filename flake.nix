@@ -3,7 +3,7 @@
 
   nixConfig = {
     extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
-    extra-substituters = "https://devenv.cachix.org";
+    extra-substituters = "https://devenv.cachix.org https://hyprland.cachix.org";
   };
 
   inputs = {
@@ -19,6 +19,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     devenv.url = "github:cachix/devenv/latest";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     # Extra flakes for modules, packages, etc
     # hardware.url = "github:nixos/nixos-hardware"; # Convenience modules for hardware-specific quirks
@@ -66,6 +67,14 @@
         nixosConfigurations = {
           "nixtop" = mkSystem {
             name = "nixtop";
+            username = "adam";
+            homeFeatures = [ "cli" "ide-full" "hyprland" ];
+            features = [ "hyprland" ];
+          };
+
+          "nixvm" = mkSystem {
+            name = "nixvm";
+            system = "aarch64-linux";
             username = "adam";
             homeFeatures = [ "cli" "ide-full" "hyprland" ];
             features = [ "hyprland" ];

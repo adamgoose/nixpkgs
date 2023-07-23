@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  inherit (inputs) self home-manager darwin devenv nixpkgs nixpkgs-unstable;
+  inherit (inputs) self home-manager hyprland darwin devenv nixpkgs nixpkgs-unstable;
   inherit (self) outputs;
   inherit (nixpkgs.lib) nixosSystem;
   inherit (home-manager.lib) homeManagerConfiguration;
@@ -22,6 +22,7 @@ rec {
         { nixpkgs.overlays = [ outputs.overlays.default ]; }
         { nixpkgs.config.allowUnfree = true; }
         ../hosts/${name}/configuration.nix
+        hyprland.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -67,8 +68,7 @@ rec {
     };
 
   mkDarwin =
-    {
-      name
+    { name
     , username
     , system
     , homeFeatures ? [ ]

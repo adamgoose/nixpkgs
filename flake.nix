@@ -24,12 +24,13 @@
     # hardware.url = "github:nixos/nixos-hardware"; # Convenience modules for hardware-specific quirks
   };
 
-  outputs = inputs@{ nixpkgs, devenv, flake-parts, home-manager, ... }: 
+  outputs = inputs@{ nixpkgs, devenv, flake-parts, home-manager, ... }:
     let
       lib = import ./lib { inherit inputs; };
-      inherit (lib) mkHome mkDarwin;
+      inherit (lib) mkHome mkDarwin mkSystem;
       inherit (flake-parts.lib) mkFlake;
-    in mkFlake { inherit inputs; } {
+    in
+    mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
         packages = import ./pkgs { inherit pkgs; };
@@ -59,6 +60,15 @@
             name = "adam@bridge";
             username = "adam";
             system = "aarch64-darwin";
+          };
+        };
+
+        nixosConfigurations = {
+          "nixtop" = mkSystem {
+            name = "nixtop";
+            username = "adam";
+            homeFeatures = [ "cli" "ide-full" "hyprland" ];
+            features = [ "hyprland" ];
           };
         };
       };

@@ -14,6 +14,7 @@
     wget
     xplr
     doggo
+    unzip
     cachix
     devenv
     rclone

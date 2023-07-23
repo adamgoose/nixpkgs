@@ -2,28 +2,43 @@
 let
   inherit (inputs) self home-manager darwin devenv nixpkgs nixpkgs-unstable;
   inherit (self) outputs;
-  # inherit (nixpkgs.lib) nixosSystem;
+  inherit (nixpkgs.lib) nixosSystem;
   inherit (home-manager.lib) homeManagerConfiguration;
   inherit (darwin.lib) darwinSystem;
   inherit (builtins) attrValues;
 in
 rec {
 
-  # mkSystem =
-  #   { name
-  #   , system ? "x86_64-linux"
-  #   , features ? [ ]
-  #   }: nixosSystem {
-  #     inherit system;
-  #
-  #     modules = [
-  #       ../nixos/configuration.nix
-  #       ../modules/nixos
-  #       { nixpkgs.overlays = attrValues outputs.overlays; }
-  #     ];
-  #
-  #     specialArgs = { inherit inputs name features; };
-  #   };
+  mkSystem =
+    { name
+    , username
+    , system ? "x86_64-linux"
+    , features ? [ ]
+    , homeFeatures ? [ ]
+    }: nixosSystem {
+      inherit system;
+
+      modules = [
+        { nixpkgs.overlays = [ outputs.overlays.default ]; }
+        { nixpkgs.config.allowUnfree = true; }
+        ../hosts/${name}/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {
+              inherit inputs outputs username;
+              features = homeFeatures;
+              unstable = import nixpkgs-unstable { inherit system; nixpkgs.config.allowUnfree = true; };
+            };
+            users.${username} = import ../home/${username};
+          };
+        }
+      ];
+
+      specialArgs = { inherit inputs name username features; };
+    };
 
   mkHome =
     { name

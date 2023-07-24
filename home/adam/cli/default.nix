@@ -16,7 +16,6 @@
     doggo
     unzip
     cachix
-    devenv
     rclone
   ];
 

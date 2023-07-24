@@ -1,6 +1,19 @@
-{ config, pkgs, name, username, ... }: {
-  imports = [ ./hardware-configuration.nix ./hyprland ];
+{ config, pkgs, name, username, features, ... }:
 
+let
+  inherit (builtins) map pathExists filter readDir;
+in
+{
+  imports = [
+    ./hardware-configuration.nix
+    ./${name}-hardware.nix
+  ] ++ (filter pathExists (map (feature: ./${feature}) features));
+
+  nix = {
+    extraOptions = "experimental-features = nix-command flakes";
+    settings.auto-optimise-store = true;
+    registry = lib.mapAttrs' (n: v: lib.nameValuePair n { flake = v; }) inputs;
+  };
   nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "nixos";
@@ -28,8 +41,6 @@
   };
 
   fonts.fonts = with pkgs; [
-    nerdfonts
+    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
   ];
-
-  system.stateVersion = "23.05"; # Did you read the comment?
 }

@@ -15,15 +15,18 @@ rec {
     , system ? "x86_64-linux"
     , features ? [ ]
     , homeFeatures ? [ ]
+    , stateVersion ? "23.05"
     }: nixosSystem {
       inherit system;
 
       modules = [
-        { nixpkgs.overlays = [ outputs.overlays.default ]; }
-        { nixpkgs.config.allowUnfree = true; }
-        ../hosts/${name}/configuration.nix
+        {
+          nixpkgs.overlays = [ outputs.overlays.default ];
+          system.stateVersion = stateVersion;
+        }
         hyprland.nixosModules.default
         home-manager.nixosModules.home-manager
+        ../hosts/configuration.nix
         {
           home-manager = {
             useGlobalPkgs = true;

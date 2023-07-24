@@ -55,6 +55,7 @@
             name = "adam@home";
             username = "adam";
             system = "aarch64-darwin";
+            features = [ "wm" ];
             homeFeatures = [ "cli" "ide-full" "aws" "k8s" "iac" "raycast" "alacritty" ];
           };
           "adam@bridge" = mkDarwin {

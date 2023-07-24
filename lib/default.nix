@@ -71,6 +71,7 @@ rec {
     { name
     , username
     , system
+    , features ? [ ]
     , homeFeatures ? [ ]
     }: darwinSystem {
       inherit system;
@@ -97,7 +98,7 @@ rec {
         }
       ];
       specialArgs = {
-        inherit username;
+        inherit username features;
         unstable = import nixpkgs-unstable { inherit system; };
       };
     };

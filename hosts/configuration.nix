@@ -1,11 +1,10 @@
-{ config, pkgs, name, username, features, ... }:
+{ lib, inputs, config, pkgs, name, username, features, ... }:
 
 let
   inherit (builtins) map pathExists filter readDir;
 in
 {
   imports = [
-    ./hardware-configuration.nix
     ./${name}-hardware.nix
   ] ++ (filter pathExists (map (feature: ./${feature}) features));
 

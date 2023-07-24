@@ -15,7 +15,7 @@ in
   };
   nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "nixos";
+  networking.hostName = name;
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Chicago";

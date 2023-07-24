@@ -66,15 +66,15 @@
           "nixtop" = mkSystem {
             name = "nixtop";
             username = "adam";
-            homeFeatures = [ "cli" "ide-full" "hyprland" ];
+            homeFeatures = [ "cli" "ide-full" "hyprland-nvidia" ];
             features = [ "hyprland" ];
           };
 
           "roxie" = mkSystem {
             name = "roxie";
             username = "adam";
-            homeFeatures = [ "cli" "ide-full" "k8s" ];
-            features = [ "roxie" "bluetooth" "ssh" "tailscale" "k3s" "nfs" ];
+            homeFeatures = [ "cli" "ide-full" "k8s" "hyprland" ];
+            features = [ "roxie" "bluetooth" "ssh" "tailscale" "k3s" "nfs" "hyprland" ];
             stateVersion = "22.05";
           };
         };

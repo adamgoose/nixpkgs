@@ -1,4 +1,13 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  catppuccin-rofi = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "rofi";
+    rev = "5350da4";
+    sha256 = "sha256-DNorfyl3C4RBclF2KDgwvQQwixpTwSRu7fIvihPN8JY=";
+  };
+in
+{
   home.packages = with pkgs; [
     dolphin
     cliphist
@@ -131,4 +140,9 @@
     rev = "f74ab1e";
     sha256 = "sha256-WLJMA2X20E5PCPg0ZPtSop0bfmu+pLImP9t8A8V4QK8=";
   };
+
+  home.file.".config/rofi".recursive = true;
+  home.file.".config/rofi".source = catppuccin-rofi + "/basic/.config/rofi";
+  home.file.".local/share/rofi/themes".recursive = true;
+  home.file.".local/share/rofi/themes".source = catppuccin-rofi + "/basic/.local/share/rofi/themes";
 }

@@ -9,10 +9,18 @@ let
 in
 {
   home.packages = with pkgs; [
+    cider
+    slack
+    steam
+    discord
     dolphin
+    spotify
     cliphist
     hyprpaper
     wl-clipboard
+    _1password-gui
+    signal-desktop
+    beekeeper-studio
   ];
 
   # programs.eww = {

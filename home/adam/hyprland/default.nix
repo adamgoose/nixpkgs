@@ -75,7 +75,12 @@ in
           disable-scroll = true;
           sort-by-name = true;
           format = "{icon}";
-          format-icons = { default = ""; };
+          format-icons = {
+            "1" = "󰲠";
+            "2" = "󰲢";
+            "3" = "󰲤";
+            default = "";
+          };
         };
 
         pulseaudio = {
@@ -85,9 +90,13 @@ in
             "󰕿"
             "󰖀"
             "󰕾"
+            "󰕾󰕾"
+            "󰕾󰕾󰕾"
+            "󰕾󰕾󰕾󰕾"
           ];
           tooltip = true;
           tooltip-format = "{volume}%";
+          max-volume = 50;
         };
 
         network = {

@@ -13,6 +13,7 @@ in
     dunst
     slack
     steam
+    baobab
     discord
     dolphin
     pamixer

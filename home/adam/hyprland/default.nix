@@ -9,28 +9,44 @@ let
 in
 {
   home.packages = with pkgs; [
+    vlc
+    nyxt
+    pantheon.elementary-files
     cider
     dunst
     slack
     steam
     baobab
     discord
-    dolphin
     pamixer
     cliphist
+    gnome.eog
     hyprpaper
     hyprpicker
     wl-clipboard
     _1password-gui
     signal-desktop
     beekeeper-studio
+    plex-media-player
   ];
 
-  # programs.eww = {
-  #   enable = true;
-  #   package = pkgs.eww-wayland;
-  #   configDir = ./.eww;
-  # };
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-Macchiato-Compact-Pink-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "pink" ];
+        size = "compact";
+        tweaks = [ "rimless" "black" ];
+        variant = "macchiato";
+      };
+    };
+    cursorTheme = {
+      name = "Catppuccin-Macchiato-Pink-Cursors";
+      package = pkgs.catppuccin-cursors.macchiatoPink;
+    };
+    font.name = "FireCode Nerd Font";
+  };
 
   services.dunst = {
     enable = true;

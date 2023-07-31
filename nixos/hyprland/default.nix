@@ -1,15 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, unstable, ... }:
 let
   sddm-catppuccin = pkgs.callPackage ./sddm-catppuccin.nix { };
 in
 {
   environment.systemPackages = with pkgs; [
     kitty
-    brave
+    # brave
     tmux
     brightnessctl
     sddm-catppuccin
-  ];
+  ] ++ (with unstable; [
+    brave
+  ]);
 
   programs.hyprland = {
     enable = true;

@@ -41,7 +41,10 @@ rec {
         }
       ];
 
-      specialArgs = { inherit inputs name username features; };
+      specialArgs = {
+        inherit inputs name username features;
+        unstable = import nixpkgs-unstable { inherit system; nixpkgs.config.allowUnfree = true; };
+      };
     };
 
   mkHome =

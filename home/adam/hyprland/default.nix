@@ -11,11 +11,11 @@ in
   home.packages = with pkgs; [
     vlc
     nyxt
-    pantheon.elementary-files
-    cider
     dunst
+    qtemu
     slack
     steam
+    cider
     baobab
     discord
     pamixer
@@ -28,6 +28,7 @@ in
     signal-desktop
     beekeeper-studio
     plex-media-player
+    pantheon.elementary-files
   ];
 
   gtk = {

@@ -42,4 +42,6 @@ in
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
   ];
+
+  environment.pathsToLink = [ "/share/qemu" ];
 }

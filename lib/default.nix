@@ -26,7 +26,7 @@ rec {
         }
         hyprland.nixosModules.default
         home-manager.nixosModules.home-manager
-        ../hosts/configuration.nix
+        ../nixos/configuration.nix
         {
           home-manager = {
             useGlobalPkgs = true;

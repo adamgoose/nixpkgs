@@ -1,54 +1,45 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, lib, config, pkgs, name, features, ... }:
+{ lib, inputs, config, pkgs, name, username, features, ... }:
 
 let
   inherit (builtins) map pathExists filter readDir;
 in
 {
-  # Import features that have modules
-  imports = filter pathExists (map (feature: ./${feature}) features);
+  imports = [
+    ./${name}-hardware.nix
+  ] ++ (filter pathExists (map (feature: ./${feature}) features));
 
-  # Configuring Nix
   nix = {
-    # Enable flakes and new 'nix' command
     extraOptions = "experimental-features = nix-command flakes";
     settings.auto-optimise-store = true;
-
-    # This will add your inputs as registries, making operations with them (such
-    # as nix shell nixpkgs#name) consistent with your flake inputs.
     registry = lib.mapAttrs' (n: v: lib.nameValuePair n { flake = v; }) inputs;
   };
   nixpkgs.config.allowUnfree = true;
 
-  # Will activate home-manager profiles for each user upon login
-  # This is useful when using ephemeral installations
-  environment.loginShellInit = ''
-    [ -d "$HOME/.nix-profile" ] || /nix/var/nix/profiles/per-user/$USER/home-manager/activate &> /dev/null
-  '';
-
-  # Configuring Locale
-  time.timeZone = "America/Chicago";
-  i18n.defaultLocale = "en_US.utf8";
-
-  # Configuring Network
-  networking.useDHCP = lib.mkDefault true;
   networking.hostName = name;
-  networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 8008 ];
   networking.networkmanager.enable = true;
 
-  # Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users = {
-    adam = {
-      initialPassword = "ashes disbelief exhale commute";
-      isNormalUser = true;
-      description = "Adam Engebretson";
-      shell = "/home/adam/.nix-profile/bin/zsh";
-      extraGroups = [ "networkmanager" "wheel" "dialout" ];
-    };
+  time.timeZone = "America/Chicago";
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
+  programs.zsh.enable = true;
+  users.users.${username} = {
+    isNormalUser = true;
+    extraGroups = [ "networkmanager" "wheel" "input" ];
+    shell = pkgs.zsh;
+  };
 
-  system.stateVersion = "22.05";
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
+  ];
 }

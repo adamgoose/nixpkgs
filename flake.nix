@@ -38,14 +38,7 @@
           inherit nixpkgs devenv;
         };
 
-        homeConfigurations = {
-          "adam@bridge" = mkHome {
-            name = "adam@bridge";
-            username = "adam";
-            system = "aarch64-darwin";
-            features = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" "taskwarrior" ];
-          };
-        };
+        homeConfigurations = { };
 
         darwinConfigurations = {
           "adam@home" = mkDarwin {
@@ -59,6 +52,8 @@
             name = "adam@bridge";
             username = "adam";
             system = "aarch64-darwin";
+            features = [ "wm" ];
+            homeFeatures = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" "taskwarrior" ];
           };
         };
 

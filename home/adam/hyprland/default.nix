@@ -22,6 +22,7 @@ in
     cliphist
     gnome.eog
     hyprpaper
+    playerctl
     hyprpicker
     wl-clipboard
     _1password-gui
@@ -78,102 +79,10 @@ in
     };
   };
 
-  programs.waybar = {
+  programs.eww = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.waybar-hyprland;
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "left";
-        modules-left = [ "wlr/workspaces" ];
-        modules-center = [ ];
-        modules-right = [ "pulseaudio" "network" "clock" "tray" "custom/power" ];
-
-        "wlr/workspaces" = {
-          disable-scroll = true;
-          sort-by-name = true;
-          format = "{icon}";
-          format-icons = {
-            "1" = "󰲠";
-            "2" = "󰲢";
-            "3" = "󰲤";
-            default = "";
-          };
-        };
-
-        pulseaudio = {
-          format = " {icon} ";
-          format-muted = "󰖁";
-          format-icons = [
-            "󰕿"
-            "󰖀"
-            "󰕾"
-            "󰕾󰕾"
-            "󰕾󰕾󰕾"
-            "󰕾󰕾󰕾󰕾"
-          ];
-          tooltip = true;
-          tooltip-format = "{volume}%";
-          max-volume = 50;
-        };
-
-        network = {
-          interface = "tailscale*";
-          format-wifi = " 󰖩 ";
-          format-disconnected = " 󰖪 ";
-          format-ethernet = " 󰈀 ";
-          tooltip = true;
-          tooltip-format = "{ifname}: {ipaddr}";
-        };
-
-        backlight = {
-          device = "intel_backlight";
-          format = "{icon}";
-          format-icons = [ "" "" "" "" "" "" "" "" "" ];
-          tooltip = true;
-          tooltip-format = "{percent}%";
-        };
-
-        battery = {
-          states = {
-            warning = 30;
-            critical = 15;
-          };
-          format = "{icon}";
-          format-charging = "";
-          format-plugged = "";
-          format-icons = [ "" "" "" "" "" "" "" "" "" "" "" "" ];
-          tooltip = true;
-          tooltip-format = "{capacity}%";
-        };
-
-        "custom/power" = {
-          tooltip = false;
-          on-click = "powermenu";
-          format = "襤";
-        };
-
-        clock = {
-          tooltip-format = ''
-            <big>{:%Y %B}</big>
-            <tt><small>{calendar}</small></tt>'';
-          format-alt = ''
-             {:%d
-             %m
-            %Y}'';
-          format = ''
-            {:%H
-            %M}'';
-        };
-
-        tray = {
-          icon-size = 21;
-          spacing = 10;
-        };
-      };
-    };
-
-    style = builtins.readFile ./.waybar/style.css;
+    package = pkgs.eww-wayland;
+    configDir = ./.eww/bar;
   };
 
   programs.rofi = {

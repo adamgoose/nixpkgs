@@ -7,6 +7,7 @@ in
     kitty
     # brave
     tmux
+    socat
     brightnessctl
     sddm-catppuccin
   ] ++ (with unstable; [

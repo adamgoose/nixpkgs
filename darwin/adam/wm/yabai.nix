@@ -33,6 +33,7 @@
       yabai -m rule --add app="^iTerm2$" manage=off
 
       # New window spawns to the right if vertical split, or bottom if horizontal split
+      yabai -m config focus_follows_mouse autofocus
       yabai -m config window_placement second_child
       yabai -m config window_topmost off
       yabai -m config window_opacity off

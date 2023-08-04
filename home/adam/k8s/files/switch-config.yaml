@@ -3,11 +3,16 @@ version: v1alpha1
 kubeconfigStores:
  - kind: filesystem
    id: teleport
-   kubeconfigName: "config*"
+   kubeconfigName: "config"
    paths:
-     - ~/.kube
+     - ~/.kube/
  - kind: filesystem
    id: truss
    kubeconfigName: "kubeconfig*"
    paths:
      - ~/.kube/configs/
+ - kind: filesystem
+   id: truss-local
+   kubeconfigName: "kubeconfig.yaml"
+   paths:
+     - ~/.truss/k3d/

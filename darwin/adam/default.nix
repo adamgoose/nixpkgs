@@ -45,6 +45,8 @@ in
     finder.ShowPathbar = true;
     finder.ShowStatusBar = true;
     finder._FXShowPosixPathInTitle = true;
+    trackpad.Clicking = true;
+    trackpad.Dragging = true;
   };
 
   security.pam.enableSudoTouchIdAuth = true;

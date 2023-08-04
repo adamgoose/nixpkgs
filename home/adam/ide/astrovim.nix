@@ -5,7 +5,6 @@
     enable = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
-      nord-nvim
       vim-tmux-navigator
     ];
   };

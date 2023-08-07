@@ -22,8 +22,7 @@
 
       # float system preferences. Most of these just diable Yabai form resizing them.
       yabai -m rule --add app="^System Settings$" sticky=on layer=above manage=off
-      yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
-      yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
+      yabai -m rule --add app="^BetterTouchTool$" sticky=on layer=above manage=off
       yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
       yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
       yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off

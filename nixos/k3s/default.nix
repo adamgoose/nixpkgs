@@ -19,7 +19,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 80 443 53 49199 44190 51826 21064 32400 ];
-  networking.firewall.allowedUDPPorts = [ 53 8472 ];
+  networking.firewall.allowedUDPPorts = [ 53 8472 50222 ];
   networking.firewall.interfaces.cni0.allowedTCPPortRanges = [{ from = 1; to = 65535; }];
   networking.firewall.interfaces.cni0.allowedUDPPortRanges = [{ from = 1; to = 65535; }];
   networking.firewall.interfaces.tailscale0.allowedTCPPortRanges = [{ from = 1; to = 65535; }];

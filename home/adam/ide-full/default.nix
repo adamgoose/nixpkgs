@@ -12,6 +12,7 @@
     doppler
     gnumake
     asciinema
+    termshark
     hasura-cli
     postgresql
     kotlin-language-server

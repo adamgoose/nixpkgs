@@ -9,7 +9,7 @@ in
   ] ++ (filter pathExists (map (feature: ./${feature}) features));
 
   nix = {
-    extraOptions = "experimental-features = nix-command flakes";
+    extraOptions = "experimental-features = nix-command flakes repl-flake";
     settings.auto-optimise-store = true;
     registry = lib.mapAttrs' (n: v: lib.nameValuePair n { flake = v; }) inputs;
   };

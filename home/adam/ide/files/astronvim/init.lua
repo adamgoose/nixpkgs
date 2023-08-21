@@ -74,16 +74,16 @@ return {
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
     -- Set up custom filetypes
-    -- vim.filetype.add {
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
-    --   filename = {
-    --     ["Foofile"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     ["~/%.config/foo/.*"] = "fooscript",
-    --   },
-    -- }
+    vim.filetype.add {
+      extension = {
+        star = "python",
+      },
+      -- filename = {
+      --   ["Foofile"] = "fooscript",
+      -- },
+      pattern = {
+        ["Tiltfile.*"] = "python",
+      },
+    }
   end,
 }

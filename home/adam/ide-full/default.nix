@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     go
     gcc
+    risor
     ctags
     cscope
     mkcert

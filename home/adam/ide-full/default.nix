@@ -6,8 +6,9 @@
   home.packages = with pkgs; [
     go
     gcc
-    risor
+    yarn
     ctags
+    risor
     cscope
     mkcert
     doppler

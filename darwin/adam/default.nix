@@ -1,4 +1,4 @@
-{ username, pkgs, features, ... }:
+{ username, pkgs, features, buildName, ... }:
 
 let
   inherit (builtins) map pathExists filter;
@@ -26,6 +26,9 @@ in
     loginShell = pkgs.zsh;
     systemPackages = with pkgs; [ qemu ];
     pathsToLink = [ "/share/qemu" ];
+    shellAliases = {
+      reload = "nix run nix-darwin -- switch --flake ~/src/github.com/adamgoose/nixpkgs#${buildName}";
+    };
   };
 
   fonts.fontDir.enable = true;

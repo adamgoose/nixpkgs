@@ -105,6 +105,7 @@ rec {
       ];
       specialArgs = {
         inherit username features;
+        buildName = name;
         unstable = import nixpkgs-unstable { inherit system; };
       };
     };

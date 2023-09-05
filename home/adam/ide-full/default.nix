@@ -5,6 +5,7 @@
 
   home.packages = with pkgs; [
     go
+    air
     gcc
     yarn
     ctags

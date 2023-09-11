@@ -27,7 +27,7 @@ in
     systemPackages = with pkgs; [ qemu ];
     pathsToLink = [ "/share/qemu" ];
     shellAliases = {
-      reload = "nix run nix-darwin -- switch --flake ~/src/github.com/adamgoose/nixpkgs#${buildName}";
+      reload = "nix run nix-darwin -- switch --flake ~/src/github.com/adamgoose/nixpkgs#${buildName} && source ~/.zshrc";
     };
   };
 

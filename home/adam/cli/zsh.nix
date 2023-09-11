@@ -6,13 +6,14 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     enableSyntaxHighlighting = true;
+    autocd = true;
     oh-my-zsh = {
       enable = true;
       custom = "$HOME/.oh-my-zsh/custom";
       plugins = [
-        "direnv"
         "fzf"
-        "git"
+        "gcd"
+        "direnv"
         "vi-mode"
       ]
       ++ lib.lists.optional (pkgs.stdenv.isDarwin) "macos"
@@ -21,7 +22,7 @@
 
     zplug = {
       enable = true;
-      plugins = [];
+      plugins = [ ];
     };
   };
 
@@ -53,9 +54,11 @@
 
   home.shellAliases = {
     cat = "bat";
-    # reload = "home-manager switch --flake ~/src/github.com/adamgoose/nixpkgs#${name} && source ~/.zshrc";
     restart-nix = "sudo launchctl stop org.nixos.nix-daemon && sudo launchctl start org.nixos.nix-daemon";
     nixpkgs = "cd ~/src/github.com/adamgoose/nixpkgs";
   };
+
+  home.file.".oh-my-zsh/custom".recursive = true;
+  home.file.".oh-my-zsh/custom".source = ./files/oh-my-zsh-custom;
 }
 

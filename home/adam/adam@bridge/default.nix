@@ -30,16 +30,16 @@
   programs.git = {
     extraConfig = {
       url = {
-        "git@github.com:get-bridge/" = {
-          insteadOf = "https://github.com/get-bridge/";
+        "ssh://git@github.com/" = {
+          insteadOf = "https://github.com/";
         };
       };
     };
   };
 
   home.shellAliases = {
-    ave = "aws-vault exec --mfa-token $(op item get \"Amazon Bridge-Users\" --otp) --duration 8h";
-    avl = "aws-vault login --mfa-token $(op item get \"Amazon Bridge-Users\" --otp) --duration 8h";
+    ave = "aws-vault exec --duration 8h";
+    avl = "aws-vault login --duration 8h";
 
     bridge = "cd ~/src/github.com/get-bridge";
   };

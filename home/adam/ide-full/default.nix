@@ -20,7 +20,7 @@
     postgresql
     kotlin-language-server
   ] ++ (with unstable; [
-    ## 
+    bun
   ]);
 
   programs.zsh.oh-my-zsh.plugins = [

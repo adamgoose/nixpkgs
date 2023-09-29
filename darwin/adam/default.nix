@@ -50,6 +50,7 @@ in
     finder._FXShowPosixPathInTitle = true;
     trackpad.Clicking = true;
     trackpad.Dragging = true;
+    NSGlobalDomain.AppleShowScrollBars = "WhenScrolling";
   };
 
   security.pam.enableSudoTouchIdAuth = true;

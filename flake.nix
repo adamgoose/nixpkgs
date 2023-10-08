@@ -46,7 +46,7 @@
             username = "adam";
             system = "aarch64-darwin";
             features = [ "wm" ];
-            homeFeatures = [ "cli" "ide-full" "aws" "k8s" "iac" "raycast" "alacritty" "syncthing" ];
+            homeFeatures = [ "cli" "ide-full" "aws" "k8s" "iac" "raycast" "alacritty" "syncthing" "wm" ];
           };
           "adam@bridge" = mkDarwin {
             name = "adam@bridge";

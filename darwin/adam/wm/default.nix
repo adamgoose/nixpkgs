@@ -3,7 +3,8 @@
   imports = [
     ./skhd.nix
     ./yabai.nix
-    ./spacebar.nix
+    # ./spacebar.nix
+    ./sketchybar.nix
   ];
 
 }

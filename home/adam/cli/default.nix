@@ -16,6 +16,7 @@
     xplr
     doggo
     unzip
+    watch
     cachix
     rclone
   ];

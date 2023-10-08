@@ -1,7 +1,8 @@
-{ ... }: {
+{ unstable, ... }: {
 
   services.yabai = {
     enable = true;
+    package = unstable.yabai;
     config = {
       layout = "bsp";
       external_bar = "main:26:0";

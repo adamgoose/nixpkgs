@@ -1,6 +1,7 @@
 # When you add custom packages, list them here
 { pkgs }: {
 
+  apple-fonts = pkgs.callPackage ./apple-fonts { };
   hasura-cli = pkgs.callPackage ./hasura-cli { };
   kubeswitch = pkgs.callPackage ./kubeswitch { };
   kubetap = pkgs.callPackage ./kubetap { };

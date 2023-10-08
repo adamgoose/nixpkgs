@@ -39,6 +39,7 @@ in
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
     montserrat
+    apple-fonts
   ];
 
   system.defaults = {

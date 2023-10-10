@@ -53,7 +53,7 @@
             username = "adam";
             system = "aarch64-darwin";
             features = [ "wm" ];
-            homeFeatures = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" "taskwarrior" ];
+            homeFeatures = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" "taskwarrior" "wm" ];
           };
         };
 

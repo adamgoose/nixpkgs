@@ -18,6 +18,7 @@
     unzip
     watch
     cachix
+    httpie
     rclone
   ];
 

@@ -6,10 +6,14 @@
     kube3d
     kubectl
     kubetap
+    helmfile
     teleport
     kubeswitch
     kubelogin-oidc
-    kubernetes-helm
+
+    (wrapHelm kubernetes-helm {
+      plugins = [ kubernetes-helmPlugins.helm-diff ];
+    })
   ] ++ (with unstable; [
     ##
   ]);

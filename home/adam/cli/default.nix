@@ -7,6 +7,8 @@
     ./unstable.nix
   ];
   home.packages = with pkgs; [
+    abots
+
     jq
     enc
     gum

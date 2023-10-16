@@ -15,14 +15,16 @@
 
     devenv.url = "github:cachix/devenv/latest";
     hyprland.url = "github:hyprwm/Hyprland";
+
+    abots.url = "github:adamgoose/abots";
   };
 
   nixConfig = {
-    extra-substituters = "https://devenv.cachix.org https://hyprland.cachix.org";
-    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw= hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=";
+    extra-substituters = "https://devenv.cachix.org https://hyprland.cachix.org https://cache.garnix.io";
+    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw= hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc= cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=";
   };
 
-  outputs = inputs@{ nixpkgs, devenv, flake-parts, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, devenv, abots, flake-parts, home-manager, ... }:
     let
       lib = import ./lib { inherit inputs; };
       inherit (lib) mkHome mkDarwin mkSystem;
@@ -35,7 +37,7 @@
       };
       flake = {
         overlays.default = import ./overlay {
-          inherit nixpkgs devenv;
+          inherit nixpkgs devenv abots;
         };
 
         homeConfigurations = { };

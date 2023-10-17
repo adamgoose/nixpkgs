@@ -24,6 +24,9 @@
     extraConfig = ''
       set -g mouse on
       set -g @catppuccin_flavour 'macchiato'
+
+      bind '"' split-window -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
     '';
   };
 

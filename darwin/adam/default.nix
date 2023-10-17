@@ -58,7 +58,7 @@ in
     NSGlobalDomain.AppleShowScrollBars = "WhenScrolling";
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.touchIdAuth.enable = true;
 
   system.stateVersion = 4;
 }

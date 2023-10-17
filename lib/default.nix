@@ -87,6 +87,7 @@ rec {
         config.allowUnfree = true;
       };
       modules = [
+        ../darwin/modules/pam-tid
         ../darwin/${username}
         home-manager.darwinModules.home-manager
         {

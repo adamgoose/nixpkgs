@@ -22,6 +22,7 @@
     cachix
     httpie
     rclone
+    neofetch
   ];
 
   programs.oh-my-posh = {

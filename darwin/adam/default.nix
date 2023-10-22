@@ -9,9 +9,11 @@ in
 
   nix = {
     useDaemon = true;
+    settings = {
+      trusted-users = [ "root" username ];
+    };
     extraOptions = ''
       experimental-features = nix-command flakes repl-flake
-      trusted-users = root adam
     '';
   };
 
@@ -30,7 +32,10 @@ in
     loginShell = pkgs.zsh;
     systemPackages = with pkgs; [ qemu ];
     pathsToLink = [ "/share/qemu" ];
-    shellAliases = {
+  };
+
+  home-manager.users.${username} = {
+    home.shellAliases = {
       reload = "nix run nix-darwin -- switch --flake ~/src/github.com/adamgoose/nixpkgs#${buildName} && source ~/.zshrc";
     };
   };

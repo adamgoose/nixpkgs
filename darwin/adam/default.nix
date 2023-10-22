@@ -11,6 +11,8 @@ in
     useDaemon = true;
     settings = {
       trusted-users = [ "root" username ];
+      extra-substituters = [ "http://roxie:5000" ];
+      extra-trusted-public-keys = [ "roxie:+JaVj6NNA0Gwg2DetgATXDZu8xrtgL3mVLuWshxAYFM=" ];
     };
     extraOptions = ''
       experimental-features = nix-command flakes repl-flake

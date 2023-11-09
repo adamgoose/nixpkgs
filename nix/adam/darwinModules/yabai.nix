@@ -5,7 +5,6 @@
     package = unstable.yabai;
     config = {
       layout = "bsp";
-      external_bar = "main:26:0";
       top_padding = 10;
       bottom_padding = 10;
       left_padding = 10;

@@ -1,6 +1,7 @@
 { unstable, ... }: {
 
   system.defaults.NSGlobalDomain._HIHideMenuBar = true;
+  services.yabai.config.external_bar = "main:26:0";
   services.sketchybar = {
     enable = true;
     package = unstable.sketchybar;

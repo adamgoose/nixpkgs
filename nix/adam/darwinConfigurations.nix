@@ -8,7 +8,7 @@ in
   "adam@home" = cell.lib.mkDarwinSystem {
     username = "adam";
     homeModules = with homeModules; [
-      wm
+      # wm
       aws
       cli
       iac
@@ -20,7 +20,7 @@ in
     darwinModules = with cell.darwinModules; [
       fonts
       preferences
-      sketchybar
+      # sketchybar
       skhd
       yabai
     ];

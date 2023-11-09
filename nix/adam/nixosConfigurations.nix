@@ -16,6 +16,7 @@ in
     ];
     nixosModules = [
       cell.nixosModules.roxie
+      # bluetooth ssh tailscale k3s nfs hyprland pulseaudio syncthing
     ];
   };
 }

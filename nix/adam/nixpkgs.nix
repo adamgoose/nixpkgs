@@ -4,6 +4,7 @@
 
   unstable = import inputs.nixpkgs-unstable {
     system = inputs.nixpkgs.system;
+    allowUnfree = true;
   };
 
 }

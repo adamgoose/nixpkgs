@@ -1,32 +1,11 @@
 { inputs, cell }:
 let
-  inherit (inputs) self cells darwin nixpkgs home-manager;
+  inherit (inputs) cells;
   inherit (cells.home-manager) homeModules;
-  mkDarwin =
-    { username
-    , system ? "aarch64-darwin"
-    , darwinModules ? [ ]
-    , homeModules ? [ ]
-    }: darwin.lib.darwinSystem {
-      inherit system;
-
-      pkgs = nixpkgs;
-      modules = [
-        cells.pam-tid.darwinModules.default
-        home-manager.darwinModules.home-manager
-        (cell.darwinModules.home homeModules)
-        cell.darwinModules.default
-      ] ++ darwinModules;
-
-      specialArgs = {
-        inherit inputs username;
-        unstable = cell.nixpkgs.unstable;
-      };
-    };
 in
 {
 
-  "adam@home" = mkDarwin {
+  "adam@home" = cell.lib.mkDarwinSystem {
     username = "adam";
     homeModules = with homeModules; [
       wm
@@ -47,7 +26,7 @@ in
     ];
   };
 
-  "adam@bridge" = mkDarwin {
+  "adam@bridge" = cell.lib.mkDarwinSystem {
     username = "adam";
     homeModules = with homeModules; [
       wm

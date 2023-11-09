@@ -35,9 +35,14 @@
 
         (pkgs "nixpkgs")
       ];
+
+      nixpkgsConfig = {
+        allowUnfree = true;
+      };
     }
     {
       packages = std.harvest (inputs.self) [
+        [ "hasura-cli" "packages" ]
         [ "kubeswitch" "packages" ]
         [ "kubetap" "packages" ]
         [ "truss-cli" "packages" ]

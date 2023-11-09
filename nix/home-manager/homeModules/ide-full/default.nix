@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }: {
+{ pkgs, inputs, unstable, ... }: {
   imports = [
     ../ide
   ];
@@ -15,9 +15,9 @@
     gnumake
     asciinema
     termshark
-    hasura-cli
     postgresql
     kotlin-language-server
+    inputs.cells.hasura-cli.packages.hasura-cli
   ] ++ (with unstable; [
     risor
   ]);

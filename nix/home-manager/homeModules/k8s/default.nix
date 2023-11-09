@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 let
-  kubeswitch = inputs.cells.kubeswitch.packages.default;
-  kubetap = inputs.cells.kubetap.packages.default;
+  kubeswitch = inputs.cells.kubeswitch.packages.kubeswitch;
+  kubetap = inputs.cells.kubetap.packages.kubetap;
 in
 {
   home.packages = with pkgs; [

@@ -5,7 +5,7 @@ let
 in
 {
 
-  default = buildGoModule rec {
+  kubeswitch = buildGoModule rec {
     pname = "kubeswitch";
     version = "0.8.0";
 

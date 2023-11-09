@@ -7,6 +7,7 @@
   ide = import ./ide;
   ide-full = import ./ide-full;
   k8s = import ./k8s;
+  raycast = import ./raycast;
   syncthing = import ./syncthing;
   wm = import ./wm;
 

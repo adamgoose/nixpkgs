@@ -6,7 +6,7 @@ let
 in
 {
 
-  default = buildGoModule rec {
+  kubetap = buildGoModule rec {
     pname = "kubetap";
     version = "0.1.4";
 

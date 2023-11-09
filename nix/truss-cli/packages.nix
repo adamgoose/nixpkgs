@@ -5,7 +5,7 @@ let
 in
 {
 
-  default = buildGoModule rec {
+  truss-cli = buildGoModule rec {
     pname = "truss-cli";
     version = "0.3.2";
 

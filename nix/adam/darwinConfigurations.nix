@@ -35,6 +35,7 @@ in
       iac
       k8s
       ide-full
+      raycast
       syncthing
     ];
     darwinModules = with cell.darwinModules; [

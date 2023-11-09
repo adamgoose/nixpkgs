@@ -9,7 +9,7 @@ in
     pulumi-bin
     pulumictl
     terragrunt
-    truss-cli.packages.default
+    truss-cli.packages.truss-cli
   ];
 
   programs.zsh = {

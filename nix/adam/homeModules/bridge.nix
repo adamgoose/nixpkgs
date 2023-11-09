@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, inputs, ... }: {
   programs.ssh = {
     enable = true;
     controlPath = "~/.ssh/%C";
@@ -34,6 +34,10 @@
       };
     };
   };
+
+  home.packages = [
+    inputs.cells.truss-cli.packages.truss-cli
+  ];
 
   home.shellAliases = {
     ave = "aws-vault exec --duration 8h";

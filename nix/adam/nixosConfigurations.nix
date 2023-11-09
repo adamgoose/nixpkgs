@@ -1,7 +1,8 @@
 { inputs, cell }:
 let
-  inherit (inputs) cells nixpkgs hyprland home-manager;
+  inherit (inputs) cells nixpkgs nixos hyprland home-manager;
   inherit (cells.home-manager) homeModules;
+
   mkSystem =
     { name
     , username
@@ -9,7 +10,7 @@ let
     , stateVersion ? "23.05"
     , nixosModules ? [ ]
     , homeModules ? [ ]
-    }: nixpkgs.lib.nixosSystem {
+    }: nixos.lib.nixosSystem {
       inherit system;
 
       modules = [
@@ -35,7 +36,7 @@ in
       cli
       ide-full
       k8s
-      hyprland
+      homeModules.hyprland
     ];
     nixosModules = [
       cell.nixosModules.roxie

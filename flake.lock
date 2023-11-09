@@ -510,6 +510,9 @@
         "devenv": "devenv",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "nixos": [
+          "nixpkgs"
+        ],
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "std": "std"

@@ -2,6 +2,7 @@
 
   aws = import ./aws;
   cli = import ./cli;
+  hyprland = import ./hyprland;
   iac = import ./iac;
   ide = import ./ide;
   ide-full = import ./ide-full;

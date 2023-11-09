@@ -11,6 +11,7 @@ in
   nix = {
     extraOptions = "experimental-features = nix-command flakes repl-flake";
     settings.auto-optimise-store = true;
+    settings.trusted-users = [ "root" "adam" ];
     registry = lib.mapAttrs' (n: v: lib.nameValuePair n { flake = v; }) inputs;
   };
   nixpkgs.config.allowUnfree = true;
@@ -44,4 +45,9 @@ in
   ];
 
   environment.pathsToLink = [ "/share/qemu" ];
+  environment.shellAliases = {
+    reload = "sudo nixos-rebuild switch --flake ~/src/github.com/adamgoose/nixpkgs#${name}";
+  };
+
+  virtualisation.podman.enable = true;
 }

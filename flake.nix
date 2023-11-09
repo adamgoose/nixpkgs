@@ -71,7 +71,7 @@
             name = "roxie";
             username = "adam";
             homeFeatures = [ "cli" "ide-full" "k8s" "hyprland" ];
-            features = [ "roxie" "bluetooth" "ssh" "tailscale" "k3s" "nfs" "hyprland" "pulseaudio" "syncthing" ];
+            features = [ "roxie" "bluetooth" "ssh" "tailscale" "k3s" "nfs" "hyprland" "pulseaudio" "syncthing" "hydra" "podman" "netdata" ];
             stateVersion = "22.05";
           };
         };

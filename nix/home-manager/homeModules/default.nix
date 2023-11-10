@@ -1,6 +1,7 @@
 { inputs, cell }: {
 
   aws = import ./aws;
+  charm = import ./charm;
   cli = import ./cli;
   hyprland = import ./hyprland;
   iac = import ./iac;

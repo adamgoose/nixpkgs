@@ -19,6 +19,7 @@
     cachix
     httpie
     rclone
+    hostctl
     neofetch
   ];
 

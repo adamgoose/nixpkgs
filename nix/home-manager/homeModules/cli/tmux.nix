@@ -1,8 +1,23 @@
 { pkgs, ... }:
+let
+  catppuccin = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "tmux";
+    rev = "47e33044b4b47b1c1faca1e42508fc92be12131a";
+    sha256 = "sha256-kn3kf7eiiwXj57tgA7fs5N2+B2r441OtBlM8IBBLl4I=";
+  };
 
+  catppuccinSrc = pkgs.runCommand "build-catppuccin-tmux" { } ''
+    mkdir $out
+    cp -r ${catppuccin}/* $out/
+    chmod +w $out/custom
+    cp -r ${./files/catppuccin-tmux}/* $out/custom/
+  '';
+in
 {
   programs.tmux = {
     enable = true;
+    mouse = true;
     keyMode = "vi";
     plugins = with pkgs.tmuxPlugins; [
       prefix-highlight
@@ -10,21 +25,17 @@
       {
         plugin = mkTmuxPlugin {
           pluginName = "catppuccin";
-          version = "a98dc1e";
-          src = pkgs.fetchFromGitHub {
-            owner = "catppuccin";
-            repo = "tmux";
-            rev = "8dd142b4e0244a357360cf87fb36c41373ab451f";
-            sha256 = "sha256-KoGrA5Mgw52jU00bgirQb/E8GbsMkG1WVyS5NSFqv7o=";
-          };
+          version = "47e3304";
+          src = catppuccinSrc;
         };
+        extraConfig = ''
+          set -g @catppuccin_flavour 'macchiato'
+          set -g @catppuccin_status_modules_right 'weather date_time session'
+        '';
       }
     ];
     tmuxp.enable = true;
     extraConfig = ''
-      set -g mouse on
-      set -g @catppuccin_flavour 'macchiato'
-
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
     '';

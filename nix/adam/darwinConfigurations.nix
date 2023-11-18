@@ -2,6 +2,7 @@
 let
   inherit (inputs) cells;
   inherit (cells.home-manager) homeModules;
+  inherit (cells.nix-darwin) darwinModules;
 in
 {
 
@@ -17,7 +18,7 @@ in
       raycast
       syncthing
     ];
-    darwinModules = with cell.darwinModules; [
+    darwinModules = with darwinModules; [
       fonts
       preferences
       skhd
@@ -35,7 +36,7 @@ in
       ide-full
       cell.homeModules.bridge
     ];
-    darwinModules = with cell.darwinModules; [
+    darwinModules = with darwinModules; [
       fonts
       preferences
       skhd

@@ -1,10 +1,8 @@
 { inputs, cell }:
 let
   inherit (inputs.cells) home-manager;
-  inherit (inputs.cells.adam.lib) importModules;
 in
-
-importModules ./. // {
+{
 
   default = { pkgs, username, ... }: {
     nix = {

@@ -1,3 +1,6 @@
-{ inputs, cell }: {
-  roxie = import ./roxie.nix;
-}
+{ inputs, cell }:
+let
+  inherit (cell.lib) importModules;
+in
+
+importModules ./.

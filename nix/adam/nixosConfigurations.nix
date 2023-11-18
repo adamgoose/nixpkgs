@@ -2,6 +2,7 @@
 let
   inherit (inputs) cells nixpkgs nixos hyprland home-manager;
   inherit (cells.home-manager) homeModules;
+  inherit (cells.nixos) nixosModules;
 in
 {
   roxie = cell.lib.mkNixosSystem {
@@ -14,9 +15,16 @@ in
       k8s
       homeModules.hyprland
     ];
-    nixosModules = [
+    nixosModules = with nixosModules; [
+      k3s
+      nfs
+      ssh
+      bluetooth
+      syncthing
+      tailscale
+      pulseaudio
+      nixosModules.hyprland
       cell.hardwareProfiles.roxie
-      # bluetooth ssh tailscale k3s nfs hyprland pulseaudio syncthing
     ];
   };
 }

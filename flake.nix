@@ -28,6 +28,7 @@
 
         (functions "lib")
         (functions "homeModules")
+        (functions "hardwareProfiles")
         (functions "nixosModules")
         (functions "nixosConfigurations")
         (functions "darwinModules")

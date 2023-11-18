@@ -42,6 +42,4 @@ in
       cell.homeModules.default
     ] ++ modules);
 
-  roxie = import ./roxie.nix;
-
 }

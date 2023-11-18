@@ -1,6 +1,8 @@
 { inputs, cell }:
 let
   inherit (inputs) cells nixos darwin hyprland home-manager;
+
+  l = inputs.nixpkgs.lib // builtins;
 in
 {
 
@@ -50,5 +52,14 @@ in
         unstable = cell.nixpkgs.unstable;
       };
     };
+
+  importModules = dir:
+    l.mapAttrs'
+      (file: type: l.nameValuePair
+        (l.removeSuffix ".nix" file)
+        (import (dir + /${file})))
+      (l.filterAttrs
+        (file: type: type == "directory" || file != "default.nix")
+        (l.readDir dir));
 
 }

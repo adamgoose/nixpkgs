@@ -1,8 +1,10 @@
 { inputs, cell }:
 let
   inherit (inputs.cells) home-manager;
+  inherit (inputs.cells.adam.lib) importModules;
 in
-{
+
+importModules ./. // {
 
   default = { pkgs, username, ... }: {
     nix = {
@@ -37,11 +39,5 @@ in
     home-manager.darwinModules.mkDarwinModule ([
       cell.homeModules.default
     ] ++ modules);
-
-  fonts = import ./fonts.nix;
-  preferences = import ./preferences.nix;
-  sketchybar = import ./sketchybar.nix;
-  skhd = import ./skhd.nix;
-  yabai = import ./yabai.nix;
 
 }

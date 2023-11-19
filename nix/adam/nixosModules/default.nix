@@ -8,6 +8,7 @@ in
     nix = {
       extraOptions = "experimental-features = nix-command flakes repl-flake";
       settings.auto-optimise-store = true;
+      settings.trusted-users = [ "root" username ];
       # registry = lib.mapAttrs' (n: v: lib.nameValuePair n { flake = v; }) inputs;
     };
     nixpkgs.config.allowUnfree = true;

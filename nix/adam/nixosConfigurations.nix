@@ -19,6 +19,9 @@ in
       k3s
       nfs
       ssh
+      hydra
+      podman
+      netdata
       bluetooth
       syncthing
       tailscale

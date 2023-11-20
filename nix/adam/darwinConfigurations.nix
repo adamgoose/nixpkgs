@@ -34,6 +34,7 @@ in
       iac
       k8s
       ide-full
+      syncthing
       cell.homeModules.bridge
     ];
     darwinModules = with darwinModules; [

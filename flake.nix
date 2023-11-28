@@ -17,6 +17,7 @@
 
     devenv.url = "github:cachix/devenv/latest";
     hyprland.url = "github:hyprwm/Hyprland";
+    hlsdl.url = "github:adamgoose/hlsdl";
   };
 
   outputs = { std, ... }@inputs: std.growOn

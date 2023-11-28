@@ -19,6 +19,7 @@ in
       k3s
       nfs
       ssh
+      hlsdl
       hydra
       podman
       netdata

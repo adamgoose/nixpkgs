@@ -1,6 +1,6 @@
 { inputs, cell }:
 let
-  inherit (inputs) cells nixos darwin hyprland home-manager;
+  inherit (inputs) cells nixos darwin hlsdl hyprland home-manager;
 
   l = inputs.nixpkgs.lib // builtins;
 in
@@ -17,6 +17,7 @@ in
       inherit system;
 
       modules = [
+        hlsdl.nixosModules.default
         hyprland.nixosModules.default
         home-manager.nixosModules.home-manager
         (cell.nixosModules.home homeModules)
@@ -25,7 +26,7 @@ in
       ] ++ nixosModules;
 
       specialArgs = {
-        inherit inputs name username;
+        inherit system inputs name username;
         unstable = cell.nixpkgs.unstable;
       };
     };

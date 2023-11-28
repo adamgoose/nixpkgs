@@ -1,8 +1,7 @@
 { inputs, cell }:
 let
-  inherit (inputs) cells nixpkgs nixos hyprland home-manager;
-  inherit (cells.home-manager) homeModules;
-  inherit (cells.nixos) nixosModules;
+  inherit (inputs.cells.home-manager) homeModules;
+  inherit (inputs.cells.nixos) nixosModules;
 in
 {
   roxie = cell.lib.mkNixosSystem {
@@ -11,9 +10,10 @@ in
     stateVersion = "22.05";
     homeModules = with homeModules; [
       cli
-      ide-full
       k8s
-      homeModules.hyprland
+      hyprland
+      ide-full
+      soft-serve
     ];
     nixosModules = with nixosModules; [
       k3s
@@ -22,11 +22,11 @@ in
       hydra
       podman
       netdata
+      hyprland
       bluetooth
       syncthing
       tailscale
       pulseaudio
-      nixosModules.hyprland
       cell.hardwareProfiles.roxie
     ];
   };

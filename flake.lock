@@ -388,11 +388,11 @@
         "std": "std"
       },
       "locked": {
-        "lastModified": 1701242543,
-        "narHash": "sha256-NZgdLfw6dIzzo+88yNqpX8nz7P3Ll0G731hAiQgYAAE=",
+        "lastModified": 1701245357,
+        "narHash": "sha256-sv2P8n2ThB4O2aH61bxj1OOU/k54tuMjF8kzN4Vrevs=",
         "owner": "adamgoose",
         "repo": "hlsdl",
-        "rev": "15a9f019e4e48fb69cce8b4d3879a6ec0436b1f4",
+        "rev": "f019b81d6913b907eaef1e6de010cf5a6dfa6f6c",
         "type": "github"
       },
       "original": {

@@ -12,6 +12,7 @@ in
       aws
       charm
       cli
+      hlsdl
       iac
       k8s
       ide-full

@@ -16,7 +16,7 @@ in
       sha256 = "sha256-7BQhkFvOgmLuzBEvAou8KANhxWna5KVokIF4DEIVU2g=";
     };
 
-    vendorSha256 = null;
+    vendorHash = null;
 
     subPackages = [ "cmd/main.go" ];
 

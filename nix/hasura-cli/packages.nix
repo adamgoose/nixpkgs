@@ -18,7 +18,7 @@ in
 
     subPackages = [ "cmd/hasura" ];
 
-    vendorSha256 = "sha256-vZKPVQ/FTHnEBsRI5jOT6qm7noGuGukWpmrF8fK0Mgs=";
+    vendorHash = "sha256-vZKPVQ/FTHnEBsRI5jOT6qm7noGuGukWpmrF8fK0Mgs=";
 
     doCheck = false;
 

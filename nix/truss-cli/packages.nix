@@ -15,7 +15,7 @@ in
       rev = "v${version}";
       sha256 = "sha256-GNs+CGcXcoImYQM3mMfwuATUn4A0gziy7DKtF08krb8=";
     };
-    vendorSha256 = "sha256-9hV4gh6RHsPff9XsFyVybMc5QSe54ZPZjIrPL+HFVBs=";
+    vendorHash = "sha256-9hV4gh6RHsPff9XsFyVybMc5QSe54ZPZjIrPL+HFVBs=";
 
     doCheck = false;
 

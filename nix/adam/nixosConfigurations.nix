@@ -25,6 +25,7 @@ in
       netdata
       hyprland
       bluetooth
+      buildkite
       syncthing
       tailscale
       pulseaudio

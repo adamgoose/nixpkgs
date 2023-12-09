@@ -11,7 +11,7 @@ in
     homeModules = with homeModules; [
       cli
       k8s
-      hyprland
+      # hyprland
       ide-full
       soft-serve
     ];
@@ -20,15 +20,15 @@ in
       nfs
       ssh
       hlsdl
-      hydra
+      # hydra
       podman
       netdata
-      hyprland
-      bluetooth
+      # hyprland
+      # bluetooth
       buildkite
       syncthing
       tailscale
-      pulseaudio
+      # pulseaudio
       cell.hardwareProfiles.roxie
     ];
   };

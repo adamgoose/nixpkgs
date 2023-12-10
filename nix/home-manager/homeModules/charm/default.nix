@@ -8,7 +8,7 @@ in
   options = {
     services.charm = {
       enable = mkOption {
-        default = true;
+        default = false;
         description = ''
           Whether to enable the Charm service
         '';
@@ -40,8 +40,11 @@ in
   };
 
   config = mkMerge [
-    (mkIf cfg.enable {
+    {
       home.packages = with pkgs; [ charm skate ];
+    }
+    (mkIf cfg.enable {
+      # home.packages = with pkgs; [ charm skate ];
 
       home.sessionVariables = {
         CHARM_HOST = cfg.host;

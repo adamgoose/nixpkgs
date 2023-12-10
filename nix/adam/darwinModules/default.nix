@@ -13,6 +13,9 @@ in
       extraOptions = ''
         experimental-features = nix-command flakes repl-flake
       '';
+      registry = {
+        nixpkgs.flake = inputs.nixpkgs;
+      };
     };
 
     nixpkgs.config = {

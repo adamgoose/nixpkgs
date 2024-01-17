@@ -33,6 +33,7 @@ in
     programs.zsh.enable = true;
     users.users.${username} = {
       isNormalUser = true;
+      initialPassword = "applesauce";
       extraGroups = [ "networkmanager" "wheel" "input" ];
       shell = pkgs.zsh;
     };

@@ -11,9 +11,8 @@
   networking.firewall = {
     checkReversePath = "loose";
     interfaces.tailscale0 = {
-      allowedTCPPorts = [
-        # Allow Tailscale-only ports here
-      ];
+      allowedTCPPortRanges = [{ from = 1; to = 65535; }];
+      allowedUDPPortRanges = [{ from = 1; to = 65535; }];
     };
   };
 

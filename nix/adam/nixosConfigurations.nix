@@ -39,12 +39,13 @@ in
     stateVersion = "23.11";
     homeModules = with homeModules; [
       cli
-      ide-full
+      ide
     ];
     nixosModules = with nixosModules; [
       ssh
       netdata
       cell.hardwareProfiles.totoro
+      cell.hardwareProfiles.totoro-net
     ];
   };
 }

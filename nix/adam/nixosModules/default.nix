@@ -14,7 +14,7 @@ in
     nixpkgs.config.allowUnfree = true;
 
     networking.hostName = name;
-    networking.networkmanager.enable = true;
+    # networking.networkmanager.enable = true;
 
     time.timeZone = "America/Chicago";
     i18n.defaultLocale = "en_US.UTF-8";

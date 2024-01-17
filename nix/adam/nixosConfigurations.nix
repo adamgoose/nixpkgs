@@ -32,4 +32,19 @@ in
       cell.hardwareProfiles.roxie
     ];
   };
+
+  totoro = cell.lib.mkNixosSystem {
+    name = "totoro";
+    username = "adam";
+    stateVersion = "23.11";
+    homeModules = with homeModules; [
+      cli
+      ide-full
+    ];
+    nixosModules = with nixosModules; [
+      ssh
+      netdata
+      cell.hardwareProfiles.totoro
+    ];
+  };
 }

@@ -4,6 +4,7 @@
   ];
 
   home.packages = with pkgs; [
+    gcc
     nodejs
     lazygit
     ripgrep

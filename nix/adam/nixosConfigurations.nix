@@ -40,10 +40,13 @@ in
     homeModules = with homeModules; [
       cli
       ide
+      k8s
     ];
     nixosModules = with nixosModules; [
+      k3s
       ssh
       netdata
+      tailscale
       cell.hardwareProfiles.totoro
       cell.hardwareProfiles.totoro-net
     ];

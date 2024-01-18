@@ -6,9 +6,15 @@
   ];
 
   services.buildkite-agents = {
+    default = {
+      enable = true;
+      name = "totoro";
+      tokenPath = "/etc/buildkite-agent/sato48-token";
+    };
+
     sato48-backend = {
       enable = true;
-      name = "roxie-backend";
+      name = "totoro-backend";
       tokenPath = "/etc/buildkite-agent/sato48-token";
       privateSshKeyPath = "/etc/buildkite-agent/ssh/backend.priv";
       tags = {
@@ -18,7 +24,7 @@
 
     sato48-frontend = {
       enable = true;
-      name = "roxie-festival-manager";
+      name = "totoro-festival-manager";
       tokenPath = "/etc/buildkite-agent/sato48-token";
       privateSshKeyPath = "/etc/buildkite-agent/ssh/festival-manager.priv";
       tags = {

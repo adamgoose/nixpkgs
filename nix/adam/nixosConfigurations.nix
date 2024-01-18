@@ -41,11 +41,14 @@ in
       cli
       ide
       k8s
+      charm
     ];
     nixosModules = with nixosModules; [
       k3s
       ssh
+      podman
       netdata
+      buildkite
       tailscale
       cell.hardwareProfiles.totoro
       cell.hardwareProfiles.totoro-net

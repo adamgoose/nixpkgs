@@ -31,6 +31,16 @@
         queue = "sato48-festival-manager";
       };
     };
+
+    sato48-email = {
+      enable = true;
+      name = "totoro-email";
+      tokenPath = "/etc/buildkite-agent/sato48-token";
+      privateSshKeyPath = "/etc/buildkite-agent/ssh/email.priv";
+      tags = {
+        queue = "sato48-email";
+      };
+    };
   };
 
 }

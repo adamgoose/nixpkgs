@@ -45,11 +45,13 @@ in
     ];
     nixosModules = with nixosModules; [
       k3s
+      nfs
       ssh
       podman
       netdata
       buildkite
       tailscale
+      cloudflare-dyndns
       cell.hardwareProfiles.totoro
     ];
   };

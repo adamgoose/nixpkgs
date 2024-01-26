@@ -9,7 +9,7 @@
     enable = true;
     extraFlags = toString [
       "--disable traefik"
-      "--node-ip 100.107.15.25"
+      "--node-ip 100.106.137.70"
       # "--node-label 'svc-lb.tailscale.iptables.sh/deploy=true'"
       # "--kube-apiserver-arg 'oidc-issuer-url=https://authentik.enge.me/application/o/k8s-on-nixos/'"
       # "--kube-apiserver-arg 'oidc-client-id=f95b622267c49c8cb77309afef936830db1bc035'"

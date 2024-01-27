@@ -14,6 +14,7 @@ in
     helmfile
     teleport
     kubeswitch
+    telepresence2
     kubelogin-oidc
 
     (wrapHelm kubernetes-helm {

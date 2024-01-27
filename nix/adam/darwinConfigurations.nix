@@ -18,6 +18,7 @@ in
       ide-full
       raycast
       syncthing
+      mc
     ];
     darwinModules = with darwinModules; [
       fonts

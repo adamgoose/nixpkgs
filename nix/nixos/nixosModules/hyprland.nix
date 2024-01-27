@@ -25,26 +25,30 @@ in
     tmux
     socat
     brightnessctl
-    sddm-catppuccin
+    # sddm-catppuccin
   ] ++ (with unstable; [
     brave
   ]);
 
+  fonts.fontDir.enable = true;
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
+    montserrat
+  ];
+
   programs.hyprland = {
     enable = true;
-    # nvidiaPatches = true;
     xwayland.enable = true;
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm = {
-    enable = true;
-    theme = "catppuccin-macchiato";
-  };
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.sddm = {
+  #   enable = true;
+  #   theme = "catppuccin-macchiato";
+  # };
 
   hardware = {
     opengl.enable = true;
-    # nvidia.modesetting.enable = true;
   };
 
   services.pipewire = {

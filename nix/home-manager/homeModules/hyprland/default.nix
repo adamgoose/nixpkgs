@@ -10,15 +10,15 @@ in
 {
   home.packages = with pkgs; [
     vlc
-    nyxt
+    vieb
     dunst
     qtemu
     slack
     steam
-    cider
     baobab
     discord
     pamixer
+    spotify
     cliphist
     gnome.eog
     hyprpaper
@@ -79,11 +79,11 @@ in
     };
   };
 
-  programs.eww = {
-    enable = true;
-    package = pkgs.eww-wayland;
-    configDir = ./.eww/bar;
-  };
+  # programs.eww = {
+  #   enable = true;
+  #   package = pkgs.eww-wayland;
+  #   configDir = ./.eww/bar;
+  # };
 
   programs.rofi = {
     enable = true;

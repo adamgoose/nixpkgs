@@ -42,6 +42,7 @@ in
       ide
       k8s
       charm
+      hyprland
     ];
     nixosModules = with nixosModules; [
       k3s
@@ -49,8 +50,10 @@ in
       ssh
       podman
       netdata
+      hyprland
       buildkite
       tailscale
+      pulseaudio
       cloudflare-dyndns
       cell.hardwareProfiles.totoro
     ];

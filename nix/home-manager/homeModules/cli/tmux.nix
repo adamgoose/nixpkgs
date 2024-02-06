@@ -3,8 +3,8 @@ let
   catppuccin = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "tmux";
-    rev = "47e33044b4b47b1c1faca1e42508fc92be12131a";
-    sha256 = "sha256-kn3kf7eiiwXj57tgA7fs5N2+B2r441OtBlM8IBBLl4I=";
+    rev = "a0119d25283ba2b18287447c1f86720a255fb652";
+    sha256 = "sha256-SGJjDrTrNNxnurYV1o1KbHRIHFyfmbXDX/t4KN8VCao=";
   };
 
   catppuccinSrc = pkgs.runCommand "build-catppuccin-tmux" { } ''
@@ -20,34 +20,45 @@ in
     mouse = true;
     keyMode = "vi";
     plugins = with pkgs.tmuxPlugins; [
+      resurrect
+      continuum
       prefix-highlight
       vim-tmux-navigator
       {
         plugin = mkTmuxPlugin {
           pluginName = "catppuccin";
-          version = "47e3304";
+          version = "a0119d2";
           src = catppuccinSrc;
         };
         extraConfig = ''
           set -g @catppuccin_flavour 'macchiato'
-          set -g @catppuccin_status_modules_right 'weather date_time session'
+
+          set -g @catppuccin_window_left_separator ""
+          set -g @catppuccin_window_right_separator " "
+          set -g @catppuccin_window_middle_separator "█ "
+          set -g @catppuccin_window_number_position "left"
+          set -g @catppuccin_window_default_fill "number"
+          set -g @catppuccin_window_default_text "#{b:pane_current_path}"
+          set -g @catppuccin_window_current_fill "number"
+          set -g @catppuccin_window_current_text "#{b:pane_current_path}#{?window_zoomed_flag, 󰛭,}"
+
+          set -g @catppuccin_status_modules_right 'directory date_time session'
+          set -g @catppuccin_status_left_separator  " "
+          set -g @catppuccin_status_right_separator ""
+          set -g @catppuccin_status_right_separator_inverse "no"
+          set -g @catppuccin_status_fill "icon"
+          set -g @catppuccin_status_connect_separator "no"
+
+          set -g @catppuccin_directory_text "#{pane_current_path}"
         '';
       }
     ];
-    tmuxp.enable = true;
     extraConfig = ''
+      set -g base-index 1
+      set -g renumber-windows on
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
     '';
   };
 
-  programs.zsh.initExtra = ''
-    function ide() {
-      APP=$1 tmuxp load -a ~/.config/tmuxp/tmuxp-ide.yaml
-      tmux select-window -t $1
-    }
-  '';
-
-  home.file.".config/tmuxp/tmuxp-ide.yaml".recursive = true;
-  home.file.".config/tmuxp/tmuxp-ide.yaml".source = ./files/tmuxp-ide.yaml;
 }

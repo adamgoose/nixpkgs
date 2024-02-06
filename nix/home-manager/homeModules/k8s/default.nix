@@ -12,7 +12,7 @@ in
     kubectl
     kubetap
     helmfile
-    teleport
+    teleport_11
     kubeswitch
     telepresence2
     kubelogin-oidc

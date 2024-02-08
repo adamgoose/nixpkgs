@@ -18,6 +18,7 @@ in
       ide-full
       raycast
       syncthing
+      wezterm
       mc
     ];
     darwinModules = with darwinModules; [

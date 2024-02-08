@@ -3,6 +3,7 @@
   services.yabai = {
     enable = true;
     package = unstable.yabai;
+    enableScriptingAddition = true;
     config = {
       layout = "bsp";
       top_padding = 10;
@@ -30,14 +31,17 @@
       yabai -m rule --add app="^Path Finder$" manage=off
       yabai -m rule --add app="Fantastical" manage=off
       yabai -m rule --add app="^iTerm2$" manage=off
+      yabai -m rule --add app="^WezTerm$" manage=off
+      yabai -m rule --add app="^1Password" manage=off
 
       # New window spawns to the right if vertical split, or bottom if horizontal split
       yabai -m config focus_follows_mouse autofocus
       yabai -m config window_placement second_child
-      yabai -m config window_topmost off
+
       yabai -m config window_opacity off
-      yabai -m config window_opacity_duration 0.00
-      yabai -m config active_window_opacity 1.0
+      # yabai -m config window_opacity_duration 0.25
+      # yabai -m config active_window_opacity 1.0
+      # yabai -m config normal_window_opacity 0.9
 
       ## some other settings
       yabai -m config auto_balance off

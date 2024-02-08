@@ -56,6 +56,8 @@ in
     extraConfig = ''
       set -g base-index 1
       set -g renumber-windows on
+      set -g status-position top
+      set -g pane-border-status top
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
     '';

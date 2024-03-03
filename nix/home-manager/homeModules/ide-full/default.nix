@@ -6,7 +6,6 @@
   home.packages = with pkgs; [
     go
     air
-    yarn
     ctags
     cscope
     mkcert

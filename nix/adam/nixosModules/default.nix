@@ -11,7 +11,6 @@ in
       settings.trusted-users = [ "root" username ];
       # registry = lib.mapAttrs' (n: v: lib.nameValuePair n { flake = v; }) inputs;
     };
-    nixpkgs.config.allowUnfree = true;
 
     networking.hostName = name;
     # networking.networkmanager.enable = true;

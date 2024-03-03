@@ -16,6 +16,7 @@ in
     }: nixos.lib.nixosSystem {
       inherit system;
 
+      pkgs = cell.nixpkgs.default;
       modules = [
         hlsdl.nixosModules.default
         hyprland.nixosModules.default

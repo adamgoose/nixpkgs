@@ -39,6 +39,7 @@
       ];
 
       nixpkgsConfig = {
+        pulseaudio = true;
         allowUnfree = true;
         permittedInsecurePackages = [
           "teleport-11.3.27"

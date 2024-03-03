@@ -39,10 +39,10 @@ in
     stateVersion = "23.11";
     homeModules = with homeModules; [
       cli
-      ide
       k8s
       charm
       hyprland
+      ide-full
     ];
     nixosModules = with nixosModules; [
       k3s

@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }:
+{ pkgs, ... }:
 let
   inherit (pkgs) stdenv fetchFromGitHub;
 
@@ -21,18 +21,15 @@ in
 {
   environment.systemPackages = with pkgs; [
     kitty
-    # brave
     tmux
     socat
     brightnessctl
     # sddm-catppuccin
-  ] ++ (with unstable; [
-    brave
-  ]);
+  ];
 
   fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" "JetBrainsMono" "Iosevka" ]; })
     montserrat
   ];
 
@@ -46,6 +43,10 @@ in
   #   enable = true;
   #   theme = "catppuccin-macchiato";
   # };
+
+  programs.steam = {
+    enable = true;
+  };
 
   hardware = {
     opengl.enable = true;

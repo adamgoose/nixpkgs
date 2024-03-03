@@ -20,11 +20,9 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    kitty
     tmux
     socat
     brightnessctl
-    # sddm-catppuccin
   ];
 
   fonts.fontDir.enable = true;
@@ -37,12 +35,6 @@ in
     enable = true;
     xwayland.enable = true;
   };
-
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.sddm = {
-  #   enable = true;
-  #   theme = "catppuccin-macchiato";
-  # };
 
   programs.steam = {
     enable = true;

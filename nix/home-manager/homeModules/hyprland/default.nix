@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, unstable, ... }:
 let
   catppuccin-rofi = pkgs.fetchFromGitHub {
     owner = "catppuccin";
@@ -88,15 +88,15 @@ in
   programs.rofi = {
     enable = true;
     font = "FiraCode Nerd Font 16";
-    terminal = "${pkgs.kitty}/bin/kitty";
+    terminal = "${unstable.wezterm}/bin/wezterm";
   };
 
-  programs.kitty = {
-    enable = true;
-    font.name = "FiraCode Nerd Font";
-    font.size = 16;
-    theme = "Catppuccin-Macchiato";
-  };
+  # programs.kitty = {
+  #   enable = true;
+  #   font.name = "FiraCode Nerd Font";
+  #   font.size = 16;
+  #   theme = "Catppuccin-Macchiato";
+  # };
 
   home.file.".config/hypr".recursive = true;
   home.file.".config/hypr".source = ./.hypr;

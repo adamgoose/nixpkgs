@@ -41,6 +41,7 @@ in
       cli
       k8s
       charm
+      wezterm
       hyprland
       ide-full
     ];

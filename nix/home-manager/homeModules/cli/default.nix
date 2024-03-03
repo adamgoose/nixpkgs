@@ -3,6 +3,7 @@
     ./git.nix
     ./ssh.nix
     ./tmux.nix
+    ./zellij.nix
     ./zsh.nix
   ];
   home.packages = with pkgs; [

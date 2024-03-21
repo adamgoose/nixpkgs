@@ -44,6 +44,7 @@ in
       wezterm
       hyprland
       ide-full
+      qutebrowser
     ];
     nixosModules = with nixosModules; [
       k3s

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, unstable, ... }:
 let
   inherit (pkgs) stdenv fetchFromGitHub;
 
@@ -22,6 +22,7 @@ in
   environment.systemPackages = with pkgs; [
     tmux
     socat
+    tigervnc
     brightnessctl
   ];
 
@@ -38,6 +39,16 @@ in
 
   programs.steam = {
     enable = true;
+  };
+
+  programs._1password = {
+    enable = true;
+    package = unstable._1password;
+  };
+
+  programs._1password-gui = {
+    enable = true;
+    package = unstable._1password-gui;
   };
 
   hardware = {

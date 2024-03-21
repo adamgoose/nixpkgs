@@ -25,7 +25,6 @@ in
     playerctl
     hyprpicker
     wl-clipboard
-    _1password-gui
     signal-desktop
     beekeeper-studio
     plex-media-player

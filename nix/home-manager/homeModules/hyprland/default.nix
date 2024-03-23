@@ -10,7 +10,6 @@ in
 {
   home.packages = with pkgs; [
     vlc
-    vieb
     dunst
     qtemu
     slack
@@ -28,6 +27,7 @@ in
     signal-desktop
     beekeeper-studio
     plex-media-player
+    unstable.hyprlock
     pantheon.elementary-files
   ];
 

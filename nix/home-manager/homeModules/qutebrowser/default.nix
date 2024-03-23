@@ -11,8 +11,9 @@
         default_family = "FiraCode Nerd Font";
         default_size = "16pt";
       };
-      content.tls.certificate_errors = "block";
+      content.tls.certificate_errors = "ask-block-thirdparty";
       colors.webpage.darkmode.enabled = true;
+      colors.webpage.darkmode.policy.images = "never";
     };
     keyBindings = {
       normal = {

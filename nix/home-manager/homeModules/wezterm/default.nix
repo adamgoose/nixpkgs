@@ -15,6 +15,7 @@
         window_decorations = 'RESIZE',
 
         window_background_opacity = .90,
+        hide_mouse_cursor_when_typing = false,
       }
     '';
   };

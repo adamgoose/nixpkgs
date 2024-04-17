@@ -15,7 +15,6 @@
     termshark
     postgresql
     kotlin-language-server
-    inputs.cells.hasura-cli.packages.hasura-cli
   ] ++ (with unstable; [
     risor
   ]);

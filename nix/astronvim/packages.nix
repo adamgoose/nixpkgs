@@ -1,6 +1,6 @@
 { inputs, cell }:
 let
-
+  inherit (inputs.nixpkgs) lib stdenv neovim makeWrapper;
 in
 {
 

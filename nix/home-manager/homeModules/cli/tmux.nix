@@ -58,6 +58,10 @@ in
       set -g renumber-windows on
       set -g status-position top
       set -g pane-border-status top
+      set -g allow-passthrough on
+      set -ga update-environment TERM
+      set -ga update-environment TERM_PROGRAM
+
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
     '';

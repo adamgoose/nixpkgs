@@ -14,6 +14,7 @@
     htop
     wget
     xplr
+    yazi
     doggo
     unzip
     watch

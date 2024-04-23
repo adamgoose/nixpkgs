@@ -52,6 +52,7 @@
         [ "kubeswitch" "packages" ]
         [ "kubetap" "packages" ]
         [ "truss-cli" "packages" ]
+        [ "astronvim" "packages" ]
       ];
 
       darwinConfigurations = (std.harvest (inputs.self) [

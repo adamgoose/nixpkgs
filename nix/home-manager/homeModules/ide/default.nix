@@ -26,5 +26,5 @@
     name = "lukechilds/zsh-nvm";
   }];
 
-  home.file.".config/lazygit/config.yml".source = ./files/lazygit.yml;
+  home.file.".config/lazygit/config.yml".source = ./lazygit.yml;
 }

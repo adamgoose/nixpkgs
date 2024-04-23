@@ -16,13 +16,14 @@ in
 
     installPhase = ''
       # Installation directory for the config
-      mkdir -p $out/share/nvim
-      cp -r $src/* $out/share/nvim
+      mkdir -p $out/share/astronvim
+      cp -r $src/* $out/share/astronvim
 
       # Wrapping the neovim executable to use the custom config directory
       makeWrapper ${neovim}/bin/nvim $out/bin/astronvim \
-        --add-flags "-u $out/share/nvim/init.lua" \
-        --set NVIM_CONFIG_HOME "$out/share/nvim"
+        --add-flags "-u $out/share/astronvim/init.lua" \
+        --set XDG_CONFIG_HOME "$out/share" \
+        --set NVIM_APPNAME astronvim
     '';
 
     meta = with lib; {

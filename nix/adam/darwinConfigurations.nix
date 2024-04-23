@@ -36,6 +36,7 @@ in
       cli
       iac
       k8s
+      wezterm
       ide-full
       syncthing
       cell.homeModules.bridge
@@ -45,6 +46,7 @@ in
       preferences
       skhd
       yabai
+      cell.darwinModules.bridge
     ];
   };
 

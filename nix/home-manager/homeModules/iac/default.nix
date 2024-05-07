@@ -11,6 +11,10 @@ in
     terragrunt
   ];
 
+  home.sessionVariables = {
+    PULUMI_IGNORE_AMBIENT_PLUGIN = "true";
+  };
+
   programs.zsh = {
     oh-my-zsh.plugins = [
       "terraform"

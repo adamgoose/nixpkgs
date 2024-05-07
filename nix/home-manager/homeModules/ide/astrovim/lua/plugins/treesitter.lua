@@ -14,6 +14,7 @@ return {
       "vue",
       "typescript",
       "terraform",
+      "pkl",
       -- add more arguments for adding more treesitter parsers
     })
   end,

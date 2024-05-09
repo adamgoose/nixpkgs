@@ -36,21 +36,6 @@ in
     system.stateVersion = 4;
   };
 
-  bridge = { unstable, ... }:
-    let
-      pkgs = unstable;
-      cabundle = pkgs.cacert.override {
-        extraCertificateFiles = [ ./netskope_ca.pem ];
-      };
-    in
-    {
-      nix = {
-        extraOptions = ''
-          ssl-cert-file = ${cabundle}/etc/ssl/certs/ca-bundle.crt
-        '';
-      };
-    };
-
   home = modules:
     home-manager.darwinModules.mkDarwinModule ([
       cell.homeModules.default

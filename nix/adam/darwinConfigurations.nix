@@ -42,11 +42,11 @@ in
       cell.homeModules.bridge
     ];
     darwinModules = with darwinModules; [
-      fonts
-      preferences
       skhd
+      fonts
       yabai
-      cell.darwinModules.bridge
+      netskope
+      preferences
     ];
   };
 

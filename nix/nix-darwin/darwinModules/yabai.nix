@@ -22,12 +22,13 @@
       yabai -m space 9 --label nine
 
       # float system preferences. Most of these just diable Yabai form resizing them.
-      yabai -m rule --add app="^System Settings$" sticky=on layer=above manage=off
-      yabai -m rule --add app="^BetterTouchTool$" sticky=on layer=above manage=off
-      yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
-      yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
-      yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
-      yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
+      yabai -m rule --add app="^System Settings$" sticky=on sub-layer=above manage=off
+      yabai -m rule --add app="^BetterTouchTool$" sticky=on sub-layer=above manage=off
+      yabai -m rule --add app="^Finder$" sticky=on sub-layer=above manage=off
+      yabai -m rule --add app="^Disk Utility$" sticky=on sub-layer=above manage=off
+      yabai -m rule --add app="^System Information$" sticky=on sub-layer=above manage=off
+      yabai -m rule --add app="^Activity Monitor$" sticky=on sub-layer=above manage=off
+      yabai -m rule --add app="^Self-Service$" sticky=on sub-layer=above manage=off
       yabai -m rule --add app="^Path Finder$" manage=off
       yabai -m rule --add app="Fantastical" manage=off
       yabai -m rule --add app="^iTerm2$" manage=off

@@ -4,11 +4,15 @@
   ];
 
   home.packages = with pkgs; [
+    nil
     gcc
     nodejs
+    statix
+    deadnix
     lazygit
     ripgrep
     rnix-lsp
+    alejandra
     tree-sitter
   ];
 

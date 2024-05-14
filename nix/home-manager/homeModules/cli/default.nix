@@ -1,4 +1,8 @@
-{ pkgs, username, ... }: rec {
+{
+  pkgs,
+  username,
+  ...
+}: rec {
   imports = [
     ./git.nix
     ./ssh.nix
@@ -38,11 +42,13 @@
     vim_keys = True
   '';
   home.file.".config/btop/themes".recursive = true;
-  home.file.".config/btop/themes".source = pkgs.fetchFromGitHub
+  home.file.".config/btop/themes".source =
+    pkgs.fetchFromGitHub
     {
       owner = "catppuccin";
       repo = "btop";
       rev = "89ff712eb62747491a76a7902c475007244ff202";
       sha256 = "sha256-J3UezOQMDdxpflGax0rGBF/XMiKqdqZXuX4KMVGTxFk=";
-    } + "/themes";
+    }
+    + "/themes";
 }

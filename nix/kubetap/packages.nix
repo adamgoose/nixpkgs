@@ -1,11 +1,10 @@
 # { buildGoModule, fetchFromGitHub, ... }:
-
-{ inputs, cell }:
-let
-  inherit (inputs.nixpkgs) buildGoModule fetchFromGitHub;
-in
 {
-
+  inputs,
+  cell,
+}: let
+  inherit (inputs.nixpkgs) buildGoModule fetchFromGitHub;
+in {
   kubetap = buildGoModule rec {
     pname = "kubetap";
     version = "0.1.4";
@@ -18,7 +17,6 @@ in
     };
 
     vendorHash = "sha256-oR4pV32q7kiAxK+fqjxhBqQTfcfxY/JgEBVepQWToF4=";
-    subPackages = [ "cmd/kubectl-tap" ];
+    subPackages = ["cmd/kubectl-tap"];
   };
-
 }

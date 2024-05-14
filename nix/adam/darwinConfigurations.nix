@@ -1,11 +1,11 @@
-{ inputs, cell }:
-let
+{
+  inputs,
+  cell,
+}: let
   inherit (inputs) cells;
   inherit (cells.home-manager) homeModules;
   inherit (cells.nix-darwin) darwinModules;
-in
-{
-
+in {
   "adam@home" = cell.lib.mkDarwinSystem {
     username = "adam";
     homeModules = with homeModules; [
@@ -49,5 +49,4 @@ in
       preferences
     ];
   };
-
 }

@@ -1,7 +1,5 @@
-{ ... }: {
-
+{...}: {
   virtualisation.podman = {
     enable = true;
   };
-
 }

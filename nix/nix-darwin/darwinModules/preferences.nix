@@ -1,5 +1,4 @@
-{ ... }: {
-
+{...}: {
   system.defaults = {
     dock.autohide = true;
     dock.mru-spaces = false;
@@ -17,5 +16,4 @@
   };
 
   security.pam.touchIdAuth.enable = true;
-
 }

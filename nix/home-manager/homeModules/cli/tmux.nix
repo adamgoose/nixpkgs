@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   catppuccin = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "tmux";
@@ -7,14 +6,13 @@ let
     sha256 = "sha256-SGJjDrTrNNxnurYV1o1KbHRIHFyfmbXDX/t4KN8VCao=";
   };
 
-  catppuccinSrc = pkgs.runCommand "build-catppuccin-tmux" { } ''
+  catppuccinSrc = pkgs.runCommand "build-catppuccin-tmux" {} ''
     mkdir $out
     cp -r ${catppuccin}/* $out/
     chmod +w $out/custom
     cp -r ${./files/catppuccin-tmux}/* $out/custom/
   '';
-in
-{
+in {
   programs.tmux = {
     enable = true;
     mouse = true;
@@ -66,5 +64,4 @@ in
       bind % split-window -h -c "#{pane_current_path}"
     '';
   };
-
 }

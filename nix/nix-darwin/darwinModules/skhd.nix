@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     skhd
   ];
@@ -12,5 +11,4 @@
       # alt + cmd - space : open -a alacritty
     '';
   };
-
 }

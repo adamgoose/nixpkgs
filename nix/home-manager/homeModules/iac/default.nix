@@ -1,9 +1,10 @@
-{ pkgs, inputs, ... }:
-let
-  inherit (inputs.cells) truss-cli;
-in
 {
-
+  pkgs,
+  inputs,
+  ...
+}: let
+  inherit (inputs.cells) truss-cli;
+in {
   home.packages = with pkgs; [
     vault
     pulumi-bin
@@ -20,9 +21,10 @@ in
       "terraform"
       "vault"
     ];
-    zplug.plugins = [{
-      name = "cda0/zsh-tfenv";
-    }];
+    zplug.plugins = [
+      {
+        name = "cda0/zsh-tfenv";
+      }
+    ];
   };
-
 }

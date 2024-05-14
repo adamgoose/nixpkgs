@@ -20,48 +20,51 @@
     hlsdl.url = "github:adamgoose/hlsdl";
   };
 
-  outputs = { std, ... }@inputs: std.growOn
-    {
-      inherit inputs;
-      cellsFrom = ./nix;
-      cellBlocks = with std.blockTypes; [
-        (installables "packages")
+  outputs = { std, ... } @ inputs:
+    std.growOn
+      {
+        inherit inputs;
+        cellsFrom = ./nix;
+        cellBlocks = with std.blockTypes; [
+          (installables "packages")
 
-        (functions "lib")
-        (functions "homeModules")
-        (functions "hardwareProfiles")
-        (functions "nixosModules")
-        (functions "nixosConfigurations")
-        (functions "darwinModules")
-        (functions "darwinConfigurations")
+          (functions "lib")
+          (functions "homeModules")
+          (functions "hardwareProfiles")
+          (functions "nixosModules")
+          (functions "nixosConfigurations")
+          (functions "darwinModules")
+          (functions "darwinConfigurations")
 
-        (pkgs "nixpkgs")
-      ];
-
-      nixpkgsConfig = {
-        pulseaudio = true;
-        allowUnfree = true;
-        permittedInsecurePackages = [
-          "teleport-11.3.27"
+          (pkgs "nixpkgs")
         ];
+
+        nixpkgsConfig = {
+          pulseaudio = true;
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            "teleport-11.3.27"
+          ];
+        };
+      }
+      {
+        packages = std.harvest (inputs.self) [
+          [ "hasura-cli" "packages" ]
+          [ "kubeswitch" "packages" ]
+          [ "kubetap" "packages" ]
+          [ "truss-cli" "packages" ]
+        ];
+
+        darwinConfigurations =
+          (std.harvest (inputs.self) [
+            [ "adam" "darwinConfigurations" ]
+          ]).aarch64-darwin;
+
+        nixosConfigurations =
+          (std.harvest (inputs.self) [
+            [ "adam" "nixosConfigurations" ]
+          ]).x86_64-linux;
       };
-    }
-    {
-      packages = std.harvest (inputs.self) [
-        [ "hasura-cli" "packages" ]
-        [ "kubeswitch" "packages" ]
-        [ "kubetap" "packages" ]
-        [ "truss-cli" "packages" ]
-      ];
-
-      darwinConfigurations = (std.harvest (inputs.self) [
-        [ "adam" "darwinConfigurations" ]
-      ]).aarch64-darwin;
-
-      nixosConfigurations = (std.harvest (inputs.self) [
-        [ "adam" "nixosConfigurations" ]
-      ]).x86_64-linux;
-    };
 
   nixConfig = {
     extra-substituters = [
@@ -75,5 +78,5 @@
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     ];
   };
-
 }
+

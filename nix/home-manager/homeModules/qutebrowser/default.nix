@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   programs.qutebrowser = {
     enable = true;
     extraConfig = ''
@@ -39,5 +38,4 @@
     };
     executable = true;
   };
-
 }

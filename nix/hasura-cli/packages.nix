@@ -1,9 +1,9 @@
-{ inputs, cell }:
-let
-  inherit (inputs.nixpkgs) lib buildGoModule fetchFromGitHub;
-in
 {
-
+  inputs,
+  cell,
+}: let
+  inherit (inputs.nixpkgs) lib buildGoModule fetchFromGitHub;
+in {
   hasura-cli = buildGoModule rec {
     pname = "hasura-cli";
     version = "2.18.0";
@@ -16,7 +16,7 @@ in
     };
     modRoot = "./cli";
 
-    subPackages = [ "cmd/hasura" ];
+    subPackages = ["cmd/hasura"];
 
     vendorHash = "sha256-vZKPVQ/FTHnEBsRI5jOT6qm7noGuGukWpmrF8fK0Mgs=";
 
@@ -38,9 +38,8 @@ in
     meta = {
       homepage = "https://www.hasura.io";
       license = lib.licenses.asl20;
-      maintainers = with lib.maintainers; [ lassulus ];
+      maintainers = with lib.maintainers; [lassulus];
       description = "Hasura GraphQL Engine CLI";
     };
   };
-
 }

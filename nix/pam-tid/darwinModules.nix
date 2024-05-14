@@ -1,12 +1,16 @@
-{ inputs, cell }:
 {
-  default = { config, lib, pkgs, ... }:
-
-    # This is a modified version of the original nix-darwin pam module.
-    # https://github.com/LnL7/nix-darwin/pull/787/commits/93bcd7010c28c3134405516004aa7d48dcf5f498
-
-    with lib;
-    let
+  inputs,
+  cell,
+}: {
+  default = {
+    config,
+    lib,
+    pkgs,
+    ...
+  }:
+  # This is a modified version of the original nix-darwin pam module.
+  # https://github.com/LnL7/nix-darwin/pull/787/commits/93bcd7010c28c3134405516004aa7d48dcf5f498
+    with lib; let
       cfg = config.security.pam;
       touchIdAuth = ''
         sudo_file=/etc/pam.d/sudo
@@ -78,20 +82,22 @@
         ensure_include "$sudo_file" $(basename "$sudo_local_file")
         ensure_include "$sudo_local_file" $(basename "$tid_file")
         ensure_content "$tid_file" <<'EOF'
-        ${optionalString
+        ${
+          optionalString
           (cfg.touchIdAuth.enable && cfg.touchIdAuth.reattach.enable)
-          ("auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so"
+          (
+            "auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so"
             + optionalString cfg.touchIdAuth.reattach.ignoreSSH " ignore_ssh"
           )
         }
-        ${optionalString
+        ${
+          optionalString
           cfg.touchIdAuth.enable
           "auth       sufficient     pam_tid.so"
         }
         EOF
       '';
-    in
-    {
+    in {
       options.security.pam = {
         touchIdAuth.enable = mkEnableOption (lib.mdDoc ''
           sudo authentication with Touch ID

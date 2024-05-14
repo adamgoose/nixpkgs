@@ -1,13 +1,15 @@
-{ pkgs, unstable, ... }:
-let
+{
+  pkgs,
+  unstable,
+  ...
+}: let
   catppuccin-rofi = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "rofi";
     rev = "5350da4";
     sha256 = "sha256-DNorfyl3C4RBclF2KDgwvQQwixpTwSRu7fIvihPN8JY=";
   };
-in
-{
+in {
   home.packages = with pkgs; [
     vlc
     dunst
@@ -36,9 +38,9 @@ in
     theme = {
       name = "Catppuccin-Macchiato-Compact-Pink-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
+        accents = ["pink"];
         size = "compact";
-        tweaks = [ "rimless" "black" ];
+        tweaks = ["rimless" "black"];
         variant = "macchiato";
       };
     };

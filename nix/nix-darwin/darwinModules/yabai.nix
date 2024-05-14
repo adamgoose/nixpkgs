@@ -1,5 +1,4 @@
-{ unstable, ... }: {
-
+{unstable, ...}: {
   services.yabai = {
     enable = true;
     package = unstable.yabai;
@@ -59,5 +58,4 @@
       #yabai -m config --space 3 layout             float
     '';
   };
-
 }

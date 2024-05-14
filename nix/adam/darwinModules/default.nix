@@ -1,14 +1,18 @@
-{ inputs, cell }:
-let
-  inherit (inputs.cells) home-manager;
-in
 {
-
-  default = { pkgs, username, ... }: {
+  inputs,
+  cell,
+}: let
+  inherit (inputs.cells) home-manager;
+in {
+  default = {
+    pkgs,
+    username,
+    ...
+  }: {
     nix = {
       useDaemon = true;
       settings = {
-        trusted-users = [ "root" username ];
+        trusted-users = ["root" username];
       };
       extraOptions = ''
         experimental-features = nix-command flakes repl-flake
@@ -24,7 +28,7 @@ in
 
     programs.zsh.enable = true;
     environment = {
-      shells = [ pkgs.zsh ];
+      shells = [pkgs.zsh];
       loginShell = pkgs.zsh;
     };
 
@@ -38,7 +42,7 @@ in
 
   home = modules:
     home-manager.darwinModules.mkDarwinModule ([
-      cell.homeModules.default
-    ] ++ modules);
-
+        cell.homeModules.default
+      ]
+      ++ modules);
 }

@@ -1,5 +1,4 @@
-{ unstable, ... }: {
-
+{unstable, ...}: {
   environment.systemPackages = with unstable; [
     lsof
     lm_sensors
@@ -10,5 +9,4 @@
     enable = true;
     package = unstable.netdataCloud;
   };
-
 }

@@ -1,5 +1,12 @@
-{ inputs, cell }: {
-  mkNixOSModule = imports: { username, unstable, ... }: {
+{
+  inputs,
+  cell,
+}: {
+  mkNixOSModule = imports: {
+    username,
+    unstable,
+    ...
+  }: {
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;

@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     libnfs
     nfs-utils
@@ -18,9 +17,18 @@
     ];
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 21064 32400 49199 ];
-  networking.firewall.allowedUDPPorts = [ 53 50222 ];
-  networking.firewall.interfaces.cni0.allowedTCPPortRanges = [{ from = 1; to = 65535; }];
-  networking.firewall.interfaces.cni0.allowedUDPPortRanges = [{ from = 1; to = 65535; }];
-
+  networking.firewall.allowedTCPPorts = [80 443 21064 32400 49199];
+  networking.firewall.allowedUDPPorts = [53 50222];
+  networking.firewall.interfaces.cni0.allowedTCPPortRanges = [
+    {
+      from = 1;
+      to = 65535;
+    }
+  ];
+  networking.firewall.interfaces.cni0.allowedUDPPortRanges = [
+    {
+      from = 1;
+      to = 65535;
+    }
+  ];
 }

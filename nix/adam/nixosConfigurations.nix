@@ -1,9 +1,10 @@
-{ inputs, cell }:
-let
+{
+  inputs,
+  cell,
+}: let
   inherit (inputs.cells.home-manager) homeModules;
   inherit (inputs.cells.nixos) nixosModules;
-in
-{
+in {
   roxie = cell.lib.mkNixosSystem {
     name = "roxie";
     username = "adam";

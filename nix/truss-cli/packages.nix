@@ -1,10 +1,10 @@
-{ inputs, cell }:
-let
+{
+  inputs,
+  cell,
+}: let
   inherit (cell.nixpkgs) unstable;
   inherit (unstable) lib buildGoModule fetchFromGitHub installShellFiles;
-in
-{
-
+in {
   truss-cli = buildGoModule rec {
     pname = "truss-cli";
     version = "0.3.2";
@@ -19,8 +19,8 @@ in
 
     doCheck = false;
 
-    nativeBuildInputs = [ installShellFiles ];
-    ldflags = [ "-s -w -X github.com/get-bridge/truss-cli/cmd.Version=${version}" ];
+    nativeBuildInputs = [installShellFiles];
+    ldflags = ["-s -w -X github.com/get-bridge/truss-cli/cmd.Version=${version}"];
 
     postInstall = ''
       mv $out/bin/truss-cli $out/bin/truss
@@ -38,5 +38,4 @@ in
       # maintainers = [ (import ../../../../maintainers/maintainer-list.nix).craun ];
     };
   };
-
 }

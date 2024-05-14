@@ -1,9 +1,10 @@
-{ inputs, cell }:
-let
+{
+  inputs,
+  cell,
+}: let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib stdenv fetchurl unzip p7zip;
-in
-{
+in {
   default = stdenv.mkDerivation rec {
     pname = "apple-fonts";
     version = "1";
@@ -28,7 +29,7 @@ in
       sha256 = "sha256-XOiWc4c7Yah+mM7axk8g1gY12vXamQF78Keqd3/0/cE=";
     };
 
-    nativeBuildInputs = [ p7zip ];
+    nativeBuildInputs = [p7zip];
 
     sourceRoot = ".";
 
@@ -36,7 +37,7 @@ in
 
     installPhase = ''
       7z x ${pro}
-      cd SFProFonts 
+      cd SFProFonts
       7z x 'SF Pro Fonts.pkg'
       7z x 'Payload~'
       mkdir -p $out/fontfiles

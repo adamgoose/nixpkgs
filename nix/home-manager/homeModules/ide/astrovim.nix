@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -10,5 +9,4 @@
 
   home.file.".config/nvim".recursive = true;
   home.file.".config/nvim".source = ./astrovim;
-
 }

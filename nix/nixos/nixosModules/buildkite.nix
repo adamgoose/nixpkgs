@@ -1,5 +1,4 @@
-{ username, ... }: {
-
+{username, ...}: {
   nix.settings.trusted-users = [
     "buildkite-agent-sato48-backend"
     "buildkite-agent-sato48-frontend"
@@ -42,5 +41,4 @@
       };
     };
   };
-
 }

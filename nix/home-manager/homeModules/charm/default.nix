@@ -1,10 +1,12 @@
-{ config, pkgs, lib, ... }:
-with lib;
-let
-  cfg = config.services.charm;
-in
 {
-
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.services.charm;
+in {
   options = {
     services.charm = {
       enable = mkOption {
@@ -41,7 +43,7 @@ in
 
   config = mkMerge [
     {
-      home.packages = with pkgs; [ charm skate ];
+      home.packages = with pkgs; [charm skate];
     }
     (mkIf cfg.enable {
       # home.packages = with pkgs; [ charm skate ];
@@ -54,7 +56,7 @@ in
       launchd.agents.charm = {
         enable = true;
         config = {
-          ProgramArguments = [ "${pkgs.charm}/bin/charm" "serve" ];
+          ProgramArguments = ["${pkgs.charm}/bin/charm" "serve"];
           EnvironmentVariables = {
             CHARM_SERVER_HOST = cfg.host;
             CHARM_SERVER_BIND_ADDRESS = cfg.bind;
@@ -77,7 +79,7 @@ in
       };
 
       home.activation = {
-        charm = hm.dag.entryAfter [ "writeBoundary" ] ''
+        charm = hm.dag.entryAfter ["writeBoundary"] ''
           mkdir -p ${config.xdg.dataHome}/charm-server/tls
           ${pkgs.mkcert}/bin/mkcert \
             -cert-file ${config.xdg.dataHome}/charm-server/tls/charm.crt \
@@ -87,5 +89,4 @@ in
       };
     })
   ];
-
 }

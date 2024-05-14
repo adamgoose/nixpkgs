@@ -1,14 +1,19 @@
-{ inputs, cell }:
-let
-  inherit (inputs.cells) home-manager;
-in
 {
-
-  default = { pkgs, name, username, ... }: {
+  inputs,
+  cell,
+}: let
+  inherit (inputs.cells) home-manager;
+in {
+  default = {
+    pkgs,
+    name,
+    username,
+    ...
+  }: {
     nix = {
       extraOptions = "experimental-features = nix-command flakes repl-flake";
       settings.auto-optimise-store = true;
-      settings.trusted-users = [ "root" username ];
+      settings.trusted-users = ["root" username];
       # registry = lib.mapAttrs' (n: v: lib.nameValuePair n { flake = v; }) inputs;
     };
 
@@ -33,14 +38,14 @@ in
     users.users.${username} = {
       isNormalUser = true;
       initialPassword = "applesauce";
-      extraGroups = [ "networkmanager" "wheel" "input" ];
+      extraGroups = ["networkmanager" "wheel" "input"];
       shell = pkgs.zsh;
     };
   };
 
   home = modules:
     home-manager.nixosModules.mkNixOSModule ([
-      cell.homeModules.default
-    ] ++ modules);
-
+        cell.homeModules.default
+      ]
+      ++ modules);
 }

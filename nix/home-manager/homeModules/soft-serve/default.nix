@@ -1,16 +1,19 @@
-{ pkgs, unstable, lib, config, ... }:
-let
-  l = lib // builtins;
-in
 {
-
-  home.packages = [ unstable.soft-serve ];
+  pkgs,
+  unstable,
+  lib,
+  config,
+  ...
+}: let
+  l = lib // builtins;
+in {
+  home.packages = [unstable.soft-serve];
 
   systemd.user.services = {
     soft-serve = {
       Unit = {
         Description = "Soft Serve";
-        After = [ "network.target" ];
+        After = ["network.target"];
       };
 
       Service = {
@@ -20,8 +23,8 @@ in
         ];
         ExecStart = "${unstable.soft-serve}/bin/soft serve";
         Restart = "on-failure";
-        SuccessExitStatus = [ 3 4 ];
-        RestartForceExitStatus = [ 3 4 ];
+        SuccessExitStatus = [3 4];
+        RestartForceExitStatus = [3 4];
 
         # Sandboxing.
         LockPersonality = true;
@@ -33,8 +36,7 @@ in
         SystemCallFilter = "@system-service";
       };
 
-      Install = { WantedBy = [ "default.target" ]; };
+      Install = {WantedBy = ["default.target"];};
     };
   };
-
 }

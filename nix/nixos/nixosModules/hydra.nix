@@ -1,10 +1,9 @@
-{ ... }: {
-
+{...}: {
   services.hydra = {
     enable = true;
     hydraURL = "http://roxie:3000";
     notificationSender = "adam@enge.me";
-    buildMachinesFiles = [ ];
+    buildMachinesFiles = [];
     useSubstitutes = true;
     extraConfig = ''
       <dynamicruncommand>
@@ -20,5 +19,4 @@
     enable = true;
     secretKeyFile = "/var/cache-priv-key.pem";
   };
-
 }

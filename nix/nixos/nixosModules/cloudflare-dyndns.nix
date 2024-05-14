@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   services.cloudflare-dyndns = {
     enable = true;
     apiTokenFile = "/etc/cloudflare/api-token-file";
@@ -8,5 +7,4 @@
       "home.enge.me"
     ];
   };
-
 }

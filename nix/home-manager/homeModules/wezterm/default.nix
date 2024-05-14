@@ -1,5 +1,8 @@
-{ pkgs, unstable, ... }: {
-
+{
+  pkgs,
+  unstable,
+  ...
+}: {
   programs.wezterm = {
     enable = true;
     package = unstable.wezterm;
@@ -19,5 +22,4 @@
       }
     '';
   };
-
 }

@@ -1,5 +1,12 @@
-{ inputs, cell }: {
-  mkDarwinModule = imports: { username, unstable, ... }: {
+{
+  inputs,
+  cell,
+}: {
+  mkDarwinModule = imports: {
+    username,
+    unstable,
+    ...
+  }: {
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;

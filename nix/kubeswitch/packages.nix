@@ -1,10 +1,10 @@
-{ inputs, cell }:
-let
+{
+  inputs,
+  cell,
+}: let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib testers buildGoModule fetchFromGitHub;
-in
-{
-
+in {
   kubeswitch = buildGoModule rec {
     pname = "kubeswitch";
     version = "0.8.0";
@@ -18,7 +18,7 @@ in
 
     vendorHash = null;
 
-    subPackages = [ "cmd/main.go" ];
+    subPackages = ["cmd/main.go"];
 
     ldflags = [
       "-s"
@@ -37,8 +37,7 @@ in
       description = "The kubectx for operators";
       license = licenses.asl20;
       homepage = "https://github.com/danielfoehrKn/kubeswitch";
-      maintainers = with maintainers; [ bryanasdev000 ];
+      maintainers = with maintainers; [bryanasdev000];
     };
   };
-
 }

@@ -1,11 +1,13 @@
-{ unstable, username, ... }:
-let
+{
+  unstable,
+  username,
+  ...
+}: let
   pkgs = unstable;
   cabundle = pkgs.cacert.override {
-    extraCertificateFiles = [ ./netskope_ca.pem ];
+    extraCertificateFiles = [./netskope_ca.pem];
   };
-in
-{
+in {
   nix = {
     extraOptions = ''
       ssl-cert-file = ${cabundle}/etc/ssl/certs/ca-bundle.crt

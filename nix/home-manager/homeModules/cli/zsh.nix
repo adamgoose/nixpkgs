@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -10,19 +12,19 @@
     oh-my-zsh = {
       enable = true;
       custom = "$HOME/.oh-my-zsh/custom";
-      plugins = [
-        "fzf"
-        "gcd"
-        "direnv"
-        "vi-mode"
-      ]
-      ++ lib.lists.optional (pkgs.stdenv.isDarwin) "macos"
-      ;
+      plugins =
+        [
+          "fzf"
+          "gcd"
+          "direnv"
+          "vi-mode"
+        ]
+        ++ lib.lists.optional (pkgs.stdenv.isDarwin) "macos";
     };
 
     zplug = {
       enable = true;
-      plugins = [ ];
+      plugins = [];
     };
   };
 
@@ -63,4 +65,3 @@
   home.file.".oh-my-zsh/custom".recursive = true;
   home.file.".oh-my-zsh/custom".source = ./files/oh-my-zsh-custom;
 }
-

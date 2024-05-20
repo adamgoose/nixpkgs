@@ -1,14 +1,17 @@
-{
-  pkgs,
-  lib,
-  ...
+{ pkgs
+, lib
+, ...
 }: {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
+
     autocd = true;
+    enableCompletion = true;
+    enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
+
+    history.share = true;
+
     oh-my-zsh = {
       enable = true;
       custom = "$HOME/.oh-my-zsh/custom";
@@ -24,44 +27,62 @@
 
     zplug = {
       enable = true;
-      plugins = [];
+      plugins = [
+        {
+          name = "Aloxaf/fzf-tab";
+        }
+      ];
     };
-  };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
+    initExtra = ''
+      # disable sort when completing `git checkout`
+      zstyle ':completion:*:git-checkout:*' sort false
+      # set descriptions format to enable group support
+      # NOTE: don't use escape sequences here, fzf-tab will ignore them
+      zstyle ':completion:*:descriptions' format '[%d]'
+      # set list-colors to enable filename colorizing
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+      # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+      zstyle ':completion:*' menu no
+      # preview directory's content with eza when completing cd
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+      # switch group using `<` and `>`
+      zstyle ':fzf-tab:*' switch-group '<' '>'
+    '';
   };
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
-
-  programs.bat = {
-    enable = true;
-    config = {
-      pager = "less -FR --mouse";
-      theme = "catppuccin";
-    };
-    themes = {
-      catppuccin = {
-        src = pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "bat"; # Bat uses sublime syntax for its themes
-          rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
-          sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
-        };
-        file = "Catppuccin-macchiato.tmTheme";
-      };
-    };
-  };
-
-  home.shellAliases = {
-    cat = "bat";
-    restart-nix = "sudo launchctl stop org.nixos.nix-daemon && sudo launchctl start org.nixos.nix-daemon";
-    nixpkgs = "cd ~/src/github.com/adamgoose/nixpkgs";
-  };
+  programs.eza.enable = true;
+  programs.eza.enableAliases = true;
 
   home.file.".oh-my-zsh/custom".recursive = true;
   home.file.".oh-my-zsh/custom".source = ./files/oh-my-zsh-custom;
+
+  # programs.oh-my-posh = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  #   settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile ./files/.omp.json));
+  # };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings =
+      {
+        palette = "catppuccin_macchiato";
+
+        gcloud.disabled = true;
+      }
+      // builtins.fromTOML (builtins.readFile (pkgs.fetchFromGitHub
+        {
+          owner = "catppuccin";
+          repo = "starship";
+          rev = "5629d2356f62a9f2f8efad3ff37476c19969bd4f";
+          sha256 = "sha256-nsRuxQFKbQkyEI4TXgvAjcroVdG+heKX5Pauq/4Ota0=";
+        }
+      + /palettes/macchiato.toml));
+  };
 }

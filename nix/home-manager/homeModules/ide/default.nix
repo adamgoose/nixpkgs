@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./astrovim.nix
   ];
@@ -21,11 +21,12 @@
   };
 
   home.sessionVariables = {
+    EDITOR = "nvim";
     NODE_VERSIONS = "$HOME/.nvm/versions/node";
     NODE_VERSION_PREFIX = "v";
   };
 
-  programs.zsh.oh-my-zsh.plugins = ["npm" "nvm"];
+  programs.zsh.oh-my-zsh.plugins = [ "npm" "nvm" ];
   programs.zsh.zplug.plugins = [
     {
       name = "lukechilds/zsh-nvm";

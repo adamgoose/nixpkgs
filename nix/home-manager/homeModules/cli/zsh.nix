@@ -7,7 +7,7 @@
 
     autocd = true;
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     history.share = true;
@@ -56,7 +56,7 @@
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
   programs.eza.enable = true;
-  programs.eza.enableAliases = true;
+  programs.eza.enableZshIntegration = true;
 
   home.file.".oh-my-zsh/custom".recursive = true;
   home.file.".oh-my-zsh/custom".source = ./files/oh-my-zsh-custom;

@@ -38,7 +38,6 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      "rnix",
       "nil_ls",
       "gleam",
     },

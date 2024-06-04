@@ -1,15 +1,12 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: let
-  inherit (inputs.cells) truss-cli;
-in {
+{ pkgs
+, inputs
+, ...
+}: {
   home.packages = with pkgs; [
     vault
-    pulumi-bin
-    pulumictl
-    terragrunt
+    (pulumi.overrideAttrs {
+      doCheck = false;
+    })
   ];
 
   home.sessionVariables = {

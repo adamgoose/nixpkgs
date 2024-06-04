@@ -1,14 +1,15 @@
-{
-  pkgs,
-  unstable,
-  inputs,
-  ...
-}: let
+{ pkgs
+, unstable
+, inputs
+, ...
+}:
+let
   kubeswitch = inputs.cells.kubeswitch.packages.kubeswitch;
   kubetap = inputs.cells.kubetap.packages.kubetap;
 
-  yamlFormat = pkgs.formats.yaml {};
-in {
+  yamlFormat = pkgs.formats.yaml { };
+in
+{
   home.packages = with pkgs; [
     tilt
     fluxcd
@@ -17,13 +18,12 @@ in {
     kubetap
     helmfile
     kubeswitch
-    teleport_11
     unstable.k9s
     telepresence2
     kubelogin-oidc
 
     (wrapHelm kubernetes-helm {
-      plugins = [kubernetes-helmPlugins.helm-diff];
+      plugins = [ kubernetes-helmPlugins.helm-diff ];
     })
   ];
 

@@ -11,7 +11,6 @@
     deadnix
     lazygit
     ripgrep
-    rnix-lsp
     alejandra
     tree-sitter
   ];

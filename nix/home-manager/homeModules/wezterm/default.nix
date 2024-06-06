@@ -1,14 +1,11 @@
-{
-  pkgs,
-  unstable,
-  ...
-}: {
+{pkgs, ...}: {
   programs.wezterm = {
     enable = true;
-    package = unstable.wezterm;
+    package = pkgs.wezterm;
     enableZshIntegration = true;
     extraConfig = ''
       return {
+        enable_wayland = false,
         color_scheme = "Catppuccin Macchiato",
         font = wezterm.font 'FiraCode Nerd Font Mono',
         font_size = 16.0,

@@ -51,6 +51,7 @@ in {
       k3s
       nfs
       ssh
+      hlsdl
       podman
       netdata
       hyprland

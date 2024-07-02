@@ -7,10 +7,12 @@
     (pulumi.overrideAttrs {
       doCheck = false;
     })
+    pulumiPackages.pulumi-language-go
+    pulumiPackages.pulumi-language-nodejs
   ];
 
   home.sessionVariables = {
-    PULUMI_IGNORE_AMBIENT_PLUGIN = "true";
+    PULUMI_IGNORE_AMBIENT_PLUGINS = "true";
   };
 
   programs.zsh = {

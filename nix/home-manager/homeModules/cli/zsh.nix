@@ -1,6 +1,7 @@
-{ pkgs
-, lib
-, ...
+{
+  pkgs,
+  lib,
+  ...
 }: {
   programs.zsh = {
     enable = true;
@@ -83,6 +84,11 @@
           rev = "5629d2356f62a9f2f8efad3ff37476c19969bd4f";
           sha256 = "sha256-nsRuxQFKbQkyEI4TXgvAjcroVdG+heKX5Pauq/4Ota0=";
         }
-      + /palettes/macchiato.toml));
+        + /palettes/macchiato.toml));
+  };
+
+  home.file.".config/process-compose/theme.yml".source = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/catppuccin/process-compose/4db4b805a1bfe6b48fbf3b993b29226c515151d8/themes/catppuccin-macchiato.yaml";
+    sha256 = "sha256-qmr8njVYaifEC6MjP/frcTHgBkHlmLKa+7qHUO9v61Q=";
   };
 }

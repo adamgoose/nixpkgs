@@ -39,6 +39,7 @@ in {
     username = "adam";
     stateVersion = "23.11";
     homeModules = with homeModules; [
+      aws
       cli
       k8s
       charm
@@ -56,6 +57,7 @@ in {
       netdata
       hyprland
       buildkite
+      syncthing
       tailscale
       pulseaudio
       cloudflare-dyndns

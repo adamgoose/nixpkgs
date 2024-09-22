@@ -9,6 +9,9 @@
     std.url = "github:divnix/std";
     std.inputs.nixpkgs.follows = "nixpkgs";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -17,53 +20,56 @@
 
     devenv.url = "github:cachix/devenv/latest";
     hlsdl.url = "github:adamgoose/hlsdl";
+    put2aria.url = "github:adamgoose/put2aria";
   };
 
-  outputs = { std, ... } @ inputs:
+  outputs = {std, ...} @ inputs:
     std.growOn
-      {
-        inherit inputs;
-        cellsFrom = ./nix;
-        cellBlocks = with std.blockTypes; [
-          (installables "packages")
+    {
+      inherit inputs;
+      cellsFrom = ./nix;
+      cellBlocks = with std.blockTypes; [
+        (installables "packages")
 
-          (functions "lib")
-          (functions "homeModules")
-          (functions "hardwareProfiles")
-          (functions "nixosModules")
-          (functions "nixosConfigurations")
-          (functions "darwinModules")
-          (functions "darwinConfigurations")
+        (functions "lib")
+        (functions "homeModules")
+        (functions "hardwareProfiles")
+        (functions "nixosModules")
+        (functions "nixosConfigurations")
+        (functions "darwinModules")
+        (functions "darwinConfigurations")
 
-          (pkgs "nixpkgs")
+        (pkgs "nixpkgs")
+      ];
+
+      nixpkgsConfig = {
+        pulseaudio = true;
+        allowUnfree = true;
+        permittedInsecurePackages = [
+          "teleport-11.3.27"
         ];
-
-        nixpkgsConfig = {
-          pulseaudio = true;
-          allowUnfree = true;
-          permittedInsecurePackages = [
-            "teleport-11.3.27"
-          ];
-        };
-      }
-      {
-        packages = std.harvest (inputs.self) [
-          [ "hasura-cli" "packages" ]
-          [ "kubeswitch" "packages" ]
-          [ "kubetap" "packages" ]
-          [ "truss-cli" "packages" ]
-        ];
-
-        darwinConfigurations =
-          (std.harvest (inputs.self) [
-            [ "adam" "darwinConfigurations" ]
-          ]).aarch64-darwin;
-
-        nixosConfigurations =
-          (std.harvest (inputs.self) [
-            [ "adam" "nixosConfigurations" ]
-          ]).x86_64-linux;
       };
+    }
+    {
+      packages = std.harvest (inputs.self) [
+        ["hasura-cli" "packages"]
+        ["kubeswitch" "packages"]
+        ["kubetap" "packages"]
+        ["truss-cli" "packages"]
+      ];
+
+      darwinConfigurations =
+        (std.harvest (inputs.self) [
+          ["adam" "darwinConfigurations"]
+        ])
+        .aarch64-darwin;
+
+      nixosConfigurations =
+        (std.harvest (inputs.self) [
+          ["adam" "nixosConfigurations"]
+        ])
+        .x86_64-linux;
+    };
 
   nixConfig = {
     extra-substituters = [

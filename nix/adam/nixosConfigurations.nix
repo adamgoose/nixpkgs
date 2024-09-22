@@ -52,10 +52,12 @@ in {
       k3s
       nfs
       ssh
+      sops
       hlsdl
       podman
       netdata
       hyprland
+      put2aria
       buildkite
       syncthing
       tailscale

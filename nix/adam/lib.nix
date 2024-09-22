@@ -1,22 +1,19 @@
-{ inputs
-, cell
-,
-}:
-let
-  inherit (inputs) cells nixos darwin hlsdl home-manager;
+{
+  inputs,
+  cell,
+}: let
+  inherit (inputs) cells nixos darwin hlsdl put2aria home-manager;
 
   l = inputs.nixpkgs.lib // builtins;
-in
-{
-  mkNixosSystem =
-    { name
-    , username
-    , system ? "x86_64-linux"
-    , stateVersion ? "23.05"
-    , nixosModules ? [ ]
-    , homeModules ? [ ]
-    ,
-    }:
+in {
+  mkNixosSystem = {
+    name,
+    username,
+    system ? "x86_64-linux",
+    stateVersion ? "23.05",
+    nixosModules ? [],
+    homeModules ? [],
+  }:
     nixos.lib.nixosSystem {
       inherit system;
 
@@ -24,10 +21,11 @@ in
       modules =
         [
           hlsdl.nixosModules.default
+          put2aria.nixosModules.default
           home-manager.nixosModules.home-manager
           (cell.nixosModules.home homeModules)
           cell.nixosModules.default
-          { system.stateVersion = stateVersion; }
+          {system.stateVersion = stateVersion;}
         ]
         ++ nixosModules;
 
@@ -37,13 +35,12 @@ in
       };
     };
 
-  mkDarwinSystem =
-    { username
-    , system ? "aarch64-darwin"
-    , darwinModules ? [ ]
-    , homeModules ? [ ]
-    ,
-    }:
+  mkDarwinSystem = {
+    username,
+    system ? "aarch64-darwin",
+    darwinModules ? [],
+    homeModules ? [],
+  }:
     darwin.lib.darwinSystem {
       inherit system;
 
@@ -65,11 +62,11 @@ in
 
   importModules = dir:
     l.mapAttrs'
-      (file: type:
-        l.nameValuePair
-          (l.removeSuffix ".nix" file)
-          (import (dir + /${file})))
-      (l.filterAttrs
-        (file: type: type == "directory" || file != "default.nix")
-        (l.readDir dir));
+    (file: type:
+      l.nameValuePair
+      (l.removeSuffix ".nix" file)
+      (import (dir + /${file})))
+    (l.filterAttrs
+      (file: type: type == "directory" || file != "default.nix")
+      (l.readDir dir));
 }

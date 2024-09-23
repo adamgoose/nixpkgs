@@ -6,7 +6,7 @@ keys:
   - &admin_adam age1sa839umwgnp9nsdj78ppkkzv60z327sm62sh5tfvtkgrcns3u4fqzj0xtz
   - &server_totoro age1nuz7l3zujq8c8972vy8adlpupzv6z420jzxl6k47w0e523tcdsts4dzthn
 creation_rules:
-  - path_regex: ^secrets.yaml$
+  - path_regex: secrets\.yaml
     key_groups:
       - age:
           - *admin_adam

@@ -20,6 +20,7 @@ in {
       syncthing
       wezterm
       mc
+      sops-bin
     ];
     darwinModules = with darwinModules; [
       fonts

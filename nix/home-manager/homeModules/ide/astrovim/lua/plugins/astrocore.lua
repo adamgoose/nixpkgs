@@ -11,11 +11,11 @@ return {
     -- Configure core features of AstroNvim
     features = {
       large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
-      autopairs = true, -- enable autopairs at start
-      cmp = true, -- enable completion at start
-      diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
-      highlighturl = true, -- highlight URLs at start
-      notifications = true, -- enable notifications at start
+      autopairs = true,                                 -- enable autopairs at start
+      cmp = true,                                       -- enable completion at start
+      diagnostics_mode = 3,                             -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
+      highlighturl = true,                              -- highlight URLs at start
+      notifications = true,                             -- enable notifications at start
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
@@ -24,14 +24,14 @@ return {
     },
     -- vim options can be configured here
     options = {
-      opt = { -- vim.opt.<key>
+      opt = {                  -- vim.opt.<key>
         relativenumber = true, -- sets vim.opt.relativenumber
-        number = true, -- sets vim.opt.number
-        spell = false, -- sets vim.opt.spell
-        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-        wrap = false, -- sets vim.opt.wrap
+        number = true,         -- sets vim.opt.number
+        spell = false,         -- sets vim.opt.spell
+        signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
+        wrap = false,          -- sets vim.opt.wrap
       },
-      g = { -- vim.g.<key>
+      g = {                    -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
@@ -66,25 +66,8 @@ return {
         --
         ["<Leader>hw"] = { "<cmd>HopWord<cr>", desc = "Hop to word" },
         ["<Leader>ht"] = { "<cmd>HopChar2<cr>", desc = "Hop to char" },
-        ["<Leader>h"] = { name = "Hop", desc = "➴ Hop" },
+        -- ["<Leader>h"] = { name = "Hop", desc = "➴ Hop" },
         ["<Leader>lx"] = { "<cmd>LspRestart<cr>", desc = "Restart LSP" },
-
-        ["<Leader>a"] = {
-          name = "AI with ChatGPT",
-          c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-          e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
-          g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
-          t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
-          k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
-          d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
-          a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
-          o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
-          s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
-          f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
-          x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
-          r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
-          l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
-        },
       },
       t = {
         -- setting a mapping to false will disable it

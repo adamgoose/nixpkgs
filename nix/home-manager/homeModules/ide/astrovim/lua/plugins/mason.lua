@@ -12,7 +12,7 @@ return {
         "lua_ls",
         "gopls",
         "terraformls",
-        "tsserver",
+        "ts_ls",
         "volar",
         "eslint",
         "yamlls",

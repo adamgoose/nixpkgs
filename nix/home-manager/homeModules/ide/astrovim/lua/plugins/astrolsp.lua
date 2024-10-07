@@ -45,24 +45,24 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
-      -- tsserver = {
-      --   init_options = {
-      --     plugins = {
-      --       {
-      --         name = "@vue/typescript-plugin",
-      --         location = "node_modules",
-      --         languages = { "javascript", "typescript", "vue" },
-      --       },
-      --     },
-      --   },
-      --   filetypes = {
-      --     "javascript",
-      --     "javascriptreact",
-      --     "typescript",
-      --     "typescriptreact",
-      --     "vue",
-      --   },
-      -- },
+      ts_ls = {
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = "node_modules",
+              languages = { "javascript", "typescript", "vue" },
+            },
+          },
+        },
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
+          "vue",
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {

@@ -19,9 +19,17 @@
     "buildkite/agents/sato48/ssh/email" = {
       owner = config.users.users.buildkite-agent-sato48-email.name;
     };
+    "buildkite/agents/sato48/sopsKey" = {
+      mode = "0444";
+    };
   };
 
-  services.buildkite-agents = {
+  services.buildkite-agents = let
+    environment = ''
+      echo '--- :house_with_garden: Setting up the environment'
+      export SOPS_AGE_KEY_FILE=${config.sops.secrets."buildkite/agents/sato48/sopsKey".path}
+    '';
+  in {
     default = {
       enable = true;
       name = "totoro";
@@ -36,6 +44,9 @@
       tags = {
         queue = "sato48-backend";
       };
+      hooks = {
+        inherit environment;
+      };
     };
 
     sato48-frontend = {
@@ -46,6 +57,9 @@
       tags = {
         queue = "sato48-festival-manager";
       };
+      hooks = {
+        inherit environment;
+      };
     };
 
     sato48-email = {
@@ -55,6 +69,9 @@
       privateSshKeyPath = config.sops.secrets."buildkite/agents/sato48/ssh/email".path;
       tags = {
         queue = "sato48-email";
+      };
+      hooks = {
+        inherit environment;
       };
     };
   };

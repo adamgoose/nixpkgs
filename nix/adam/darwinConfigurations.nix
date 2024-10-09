@@ -21,6 +21,7 @@ in {
       wezterm
       mc
       sops-bin
+      helix
     ];
     darwinModules = with darwinModules; [
       fonts

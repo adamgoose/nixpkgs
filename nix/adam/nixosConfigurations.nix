@@ -58,11 +58,11 @@ in {
       netdata
       hyprland
       put2aria
+      r53-ddns
       buildkite
       syncthing
       tailscale
       pulseaudio
-      cloudflare-dyndns
       cell.hardwareProfiles.totoro
     ];
   };

@@ -1,19 +1,8 @@
-{ pkgs
-, inputs
-, ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
-    vault
-    (pulumi.overrideAttrs {
-      doCheck = false;
-    })
-    pulumiPackages.pulumi-language-go
-    pulumiPackages.pulumi-language-nodejs
+    vault-bin
+    pulumi-bin
   ];
-
-  home.sessionVariables = {
-    PULUMI_IGNORE_AMBIENT_PLUGINS = "true";
-  };
 
   programs.zsh = {
     oh-my-zsh.plugins = [

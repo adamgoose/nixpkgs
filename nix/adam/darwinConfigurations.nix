@@ -38,6 +38,7 @@ in {
       cli
       iac
       k8s
+      raycast
       wezterm
       ide-full
       syncthing

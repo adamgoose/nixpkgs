@@ -44,6 +44,8 @@
   ];
 
   home.shellAliases = {
+    tl = "truss-local";
+
     ave = "aws-vault exec --duration 8h";
     avl = "aws-vault login --duration 8h";
 

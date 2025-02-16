@@ -1,5 +1,5 @@
 builds:
   exclude: []
   include:
-  - darwinConfigurations.*
-  - nixosConfigurations.*
+  - 'darwinConfigurations.*'
+  - 'nixosConfigurations.*'

@@ -975,16 +975,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1698758712,
-        "narHash": "sha256-aHdDJ/2R4mk4BeJ03W4OV94Op8PVYvfjSyQucl0W9DQ=",
-        "owner": "niklashhh",
+        "lastModified": 1729448365,
+        "narHash": "sha256-oquZeWTYWTr5IxfwEzgsxjtD8SSFZYLdO9DaQb70vNU=",
+        "owner": "nix-community",
         "repo": "gomod2nix",
-        "rev": "00c8e2fad3c0b3b86b0669d40e69f97d3ad1cdfb",
+        "rev": "5d387097aa716f35dd99d848dc26d8d5b62a104c",
         "type": "github"
       },
       "original": {
-        "owner": "niklashhh",
-        "ref": "fix-recursive-symlinker",
+        "owner": "nix-community",
+        "ref": "v1.6.0",
         "repo": "gomod2nix",
         "type": "github"
       }
@@ -998,16 +998,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1698758712,
-        "narHash": "sha256-aHdDJ/2R4mk4BeJ03W4OV94Op8PVYvfjSyQucl0W9DQ=",
-        "owner": "niklashhh",
+        "lastModified": 1729448365,
+        "narHash": "sha256-oquZeWTYWTr5IxfwEzgsxjtD8SSFZYLdO9DaQb70vNU=",
+        "owner": "nix-community",
         "repo": "gomod2nix",
-        "rev": "00c8e2fad3c0b3b86b0669d40e69f97d3ad1cdfb",
+        "rev": "5d387097aa716f35dd99d848dc26d8d5b62a104c",
         "type": "github"
       },
       "original": {
-        "owner": "niklashhh",
-        "ref": "fix-recursive-symlinker",
+        "owner": "nix-community",
+        "ref": "v1.6.0",
         "repo": "gomod2nix",
         "type": "github"
       }
@@ -1109,11 +1109,11 @@
         "std": "std"
       },
       "locked": {
-        "lastModified": 1723617373,
-        "narHash": "sha256-94LjXbkMO2oyVSlcObo6rFytP6WcVUE7FhDawo1ou1A=",
+        "lastModified": 1739820058,
+        "narHash": "sha256-MayifS7S1EQA2Q21PZul0vi9NvZRg/qwfk225CPH4js=",
         "owner": "adamgoose",
         "repo": "hlsdl",
-        "rev": "56f2f9769ae02b009973444a8d4b240f7fefe2b5",
+        "rev": "029c8db31b60000f347c717516e7be99ac26d9df",
         "type": "github"
       },
       "original": {
@@ -2365,11 +2365,11 @@
         "std": "std_2"
       },
       "locked": {
-        "lastModified": 1727039267,
-        "narHash": "sha256-yiOnt1o9bZtrbYu5nzJbt+Cy3X9dLAMadQTmZ1oC0Dg=",
+        "lastModified": 1739820242,
+        "narHash": "sha256-RiaMl5vfYU3wfC47LiXvd1+cBXVK/Hiv9QQK8tzvbpQ=",
         "owner": "adamgoose",
         "repo": "put2aria",
-        "rev": "69f25c623dd039cb107a49360a791b4f6222f076",
+        "rev": "0db0da084afefe4d60894b51484ca6fe75aae835",
         "type": "github"
       },
       "original": {
@@ -2844,16 +2844,16 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1732969441,
-        "narHash": "sha256-DoDV2pM3OsK9tLHQBerN/RrbnNUYjJMa9Lfg4kTCO/c=",
+        "lastModified": 1739291143,
+        "narHash": "sha256-uSxFyFTPsngoJSxO7F+Aoa/iPPHSvd3O0kpocMSa3qc=",
         "owner": "dj95",
         "repo": "zjstatus",
-        "rev": "c550c78ede95a55cce5f64ef39330af91f7ce52b",
+        "rev": "db29b512909ebcb30f79113bab6c5c7c5e66f861",
         "type": "github"
       },
       "original": {
         "owner": "dj95",
-        "ref": "v0.19.1",
+        "ref": "v0.20.2",
         "repo": "zjstatus",
         "type": "github"
       }

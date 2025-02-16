@@ -1,0 +1,6 @@
+builds:
+  exclude:
+    - 'nixosConfigurations.roxie'
+  include:
+    - 'darwinConfigurations.*'
+    - 'nixosConfigurations.*'

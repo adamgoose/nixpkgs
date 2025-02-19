@@ -10,9 +10,9 @@
   bundlePath = "${cabundle}/etc/ssl/certs/ca-bundle.crt";
 in {
   nix = {
-    # extraOptions = ''
-    #   ssl-cert-file = ${bundlePath}
-    # '';
+    extraOptions = ''
+      ssl-cert-file = ${bundlePath}
+    '';
   };
 
   home-manager.users.${username}.home.sessionVariables = {

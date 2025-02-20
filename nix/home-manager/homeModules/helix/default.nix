@@ -28,6 +28,7 @@
         cursorline = true;
         color-modes = true;
         line-number = "relative";
+        rulers = [80 120];
         cursor-shape = {
           insert = "bar";
         };

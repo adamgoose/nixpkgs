@@ -19,7 +19,6 @@ in {
       helix
       hlsdl
       ghostty
-      raycast
       wezterm
       ide-full
       sops-bin
@@ -28,7 +27,6 @@ in {
     ];
     darwinModules = with darwinModules; [
       fonts
-      # yabai
       aerospace
       preferences
     ];
@@ -43,7 +41,6 @@ in {
       k8s
       helix
       ghostty
-      raycast
       ide-full
       syncthing
       cell.homeModules.bridge

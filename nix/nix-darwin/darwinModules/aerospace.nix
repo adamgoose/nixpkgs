@@ -49,6 +49,9 @@
         outer.top = 10;
         outer.right = 10;
       };
+      workspace-to-monitor-force-assignment = {
+        "9" = 2;
+      };
       mode.main.binding = {
         alt-slash = "layout tiles accordion";
         alt-shift-slash = "layout horizontal vertical";

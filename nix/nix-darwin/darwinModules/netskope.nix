@@ -11,6 +11,7 @@
 in {
   nix = {
     extraOptions = ''
+      http2 = false
       ssl-cert-file = ${bundlePath}
     '';
   };

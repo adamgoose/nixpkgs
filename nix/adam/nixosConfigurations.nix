@@ -59,7 +59,7 @@ in {
       sops
       hlsdl
       minio
-      # podman
+      podman
       # netdata
       hyprland
       put2aria

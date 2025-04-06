@@ -50,6 +50,7 @@ in {
       hyprland
       ide-full
       qutebrowser
+      (themes.homeModules.catppuccin {flavor = "macchiato";})
     ];
     nixosModules = with nixosModules; [
       k3s
@@ -58,14 +59,15 @@ in {
       sops
       hlsdl
       minio
-      podman
-      netdata
+      # podman
+      # netdata
       hyprland
       put2aria
       r53-ddns
       buildkite
       syncthing
       tailscale
+      typesense
       pulseaudio
       cell.hardwareProfiles.totoro
     ];

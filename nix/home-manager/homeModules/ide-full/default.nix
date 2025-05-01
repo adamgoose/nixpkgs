@@ -20,6 +20,7 @@
       asciinema
       termshark
       postgresql
+      unstable.bun
       kotlin-language-server
     ]
     ++ (with unstable; [

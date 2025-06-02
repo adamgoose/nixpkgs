@@ -32,6 +32,7 @@
         ]
         ++ lib.forEach [
           "com.apple.finder"
+          "com.downstairsgeek.crc"
           "com.1password.1password"
           "com.mosyle.macos.business"
           "com.flexibits.fantastical2.mac"

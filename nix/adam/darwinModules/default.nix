@@ -10,7 +10,6 @@ in {
     ...
   }: {
     nix = {
-      useDaemon = true;
       settings = {
         trusted-users = ["root" username];
       };
@@ -31,10 +30,13 @@ in {
       shells = [pkgs.zsh];
     };
 
+    system.primaryUser = username;
     users.users.${username} = {
       name = username;
       home = "/Users/${username}";
     };
+
+    ids.gids.nixbld = 350;
 
     system.stateVersion = 4;
   };

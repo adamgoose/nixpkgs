@@ -30,7 +30,7 @@
   programs.zsh.oh-my-zsh.plugins = [
     "golang"
   ];
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     export PATH=$HOME/go/bin:$PATH
   '';
 }

@@ -36,5 +36,5 @@ in {
   };
 
   home.file.".kube/switch-config.yaml".source = ./files/switch-config.yaml;
-  programs.zsh.initExtraBeforeCompInit = pkgs.lib.readFile (kubeswitch + /lib/switch.sh);
+  programs.zsh.initContent = pkgs.lib.mkOrder 550 (pkgs.lib.readFile (kubeswitch + /lib/switch.sh));
 }

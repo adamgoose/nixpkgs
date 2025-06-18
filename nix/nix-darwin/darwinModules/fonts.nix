@@ -6,7 +6,8 @@
   inherit (inputs.cells) apple-fonts;
 in {
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode" "FiraMono"];})
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
     montserrat
     apple-fonts.packages.default
   ];

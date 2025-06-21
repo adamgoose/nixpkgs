@@ -16,7 +16,7 @@
     unzip
     watch
     cachix
-    httpie
+    curlie
     rclone
     hostctl
     jwt-cli
@@ -47,5 +47,7 @@
   home.shellAliases = {
     cat = "bat";
     nixpkgs = "cd ~/src/github.com/adamgoose/nixpkgs";
+    http = "curlie";
+    https = "curlie";
   };
 }

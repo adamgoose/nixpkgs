@@ -23,8 +23,14 @@
   zellij = pkgs.fetchFromGitHub {
     owner = "rose-pine";
     repo = "zellij";
-    rev = "b3b2fd3"; # 2025-01-17
-    sha256 = "sha256-JbeuAlrLjPjex97Y6S/UPRn7AGK237zBWmtHxvptawM=";
+    rev = "3122621"; # 2025-07-14
+    sha256 = "sha256-vmFilwX+ojYk3Q9FtRm98PUSfqVCUcv0GAkCFi3PBUU=";
+  };
+  starship = pkgs.fetchFromGitHub {
+    owner = "rose-pine";
+    repo = "starship";
+    rev = "c6aeb28"; # 2025-04-10
+    sha256 = "sha256-oFHyel6nYOPdK9VbNp7KbKL/3WeBp/SFHzKTq/9Bhh8=";
   };
 in {
   # Ghostty
@@ -40,7 +46,15 @@ in {
   # Helix
   programs.helix = {
     settings = {
-      theme = "rose_pine${underscoreFlavor}";
+      theme = "rose_pine_custom";
+    };
+    themes = {
+      rose_pine_custom = {
+        inherits = "rose_pine${underscoreFlavor}";
+        "ui.background" = {
+          fg = "text";
+        };
+      };
     };
   };
 
@@ -60,5 +74,11 @@ in {
   programs.zellij.settings.theme = "rose-pine${dashFlavor}";
 
   # starship
+  programs.starship.settings =
+    {
+      palette = "rose-pine${dashFlavor}";
+    }
+    // builtins.fromTOML (builtins.readFile (starship + /rose-pine${dashFlavor}.toml));
+
   # process-compose
 }

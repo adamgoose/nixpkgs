@@ -23,7 +23,7 @@ in {
       ide-full
       sops-bin
       syncthing
-      (themes.homeModules.catppuccin {flavor = "macchiato";})
+      (themes.homeModules.rose-pine {flavor = "moon";})
     ];
     darwinModules = with darwinModules; [
       fonts

@@ -7,6 +7,7 @@
   programs.helix = {
     enable = true;
     package = inputs.helix.packages.helix;
+    defaultEditor = true;
     extraPackages = with pkgs; [
       nil
       delve

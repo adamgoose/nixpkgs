@@ -20,7 +20,6 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "nvim";
     NODE_VERSIONS = "$HOME/.nvm/versions/node";
     NODE_VERSION_PREFIX = "v";
   };

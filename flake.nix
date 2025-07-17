@@ -23,7 +23,7 @@
     hlsdl.url = "github:adamgoose/hlsdl";
     put2aria.url = "github:adamgoose/put2aria";
     # zjstatus.url = "github:dj95/zjstatus/v0.20.2";
-    helix.url = "github:helix-editor/helix/25.01.1";
+    helix.url = "github:helix-editor/helix/25.07";
   };
 
   outputs = {std, ...} @ inputs:

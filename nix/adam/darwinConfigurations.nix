@@ -51,6 +51,7 @@ in {
       netskope
       aerospace
       preferences
+      cell.darwinModules.bridge
     ];
   };
 }

@@ -41,6 +41,10 @@ in {
     system.stateVersion = 4;
   };
 
+  bridge = {lib, ...}: {
+    ids.gids.nixbld = lib.mkForce 30000;
+  };
+
   home = modules:
     home-manager.darwinModules.mkDarwinModule ([
         cell.homeModules.default

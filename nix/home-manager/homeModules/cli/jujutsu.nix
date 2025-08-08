@@ -14,15 +14,13 @@
       ui = {
         paginate = "never";
         default-command = "log";
+        diff.tool = ["difft" "--color=always" "$left" "$right"];
       };
     };
   };
 
   home.packages = with pkgs; [
-    lazyjj
+    jjui
+    difftastic
   ];
-
-  home.shellAliases = {
-    lj = "lazyjj";
-  };
 }

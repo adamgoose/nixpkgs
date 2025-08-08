@@ -2,8 +2,9 @@
   imports = [
     ./git.nix
     ./ssh.nix
-    ./zellij.nix
     ./zsh.nix
+    ./zellij.nix
+    ./jujutsu.nix
   ];
   home.packages = with pkgs; [
     fx
@@ -11,6 +12,7 @@
     enc
     gum
     htop
+    mosh
     wget
     doggo
     unzip

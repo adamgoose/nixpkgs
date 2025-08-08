@@ -30,7 +30,7 @@
   };
 
   programs.git = {
-    userEmail = "adam.engebretson@getbridge.com";
+    userEmail = lib.mkForce "adam.engebretson@getbridge.com";
     extraConfig = {
       url = {
         "ssh://git@github.com/" = {
@@ -43,7 +43,7 @@
   programs.jujutsu = {
     settings = {
       user = {
-        email = "adam.engebretson@getbridge.com";
+        email = lib.mkForce "adam.engebretson@getbridge.com";
       };
     };
   };

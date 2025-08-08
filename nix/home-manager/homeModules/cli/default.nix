@@ -3,6 +3,7 @@
     ./git.nix
     ./ssh.nix
     ./zsh.nix
+    ./atuin.nix
     ./zellij.nix
     ./jujutsu.nix
   ];
@@ -20,8 +21,8 @@
     cachix
     curlie
     rclone
-    hostctl
     jwt-cli
+    posting
     neofetch
   ];
 

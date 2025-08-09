@@ -3,8 +3,8 @@
     ./git.nix
     ./ssh.nix
     ./zsh.nix
-    ./atuin.nix
     ./zellij.nix
+    # ./nushell.nix
   ];
   home.packages = with pkgs; [
     fx
@@ -26,6 +26,9 @@
   ];
 
   xdg.enable = true;
+  programs.eza.enable = true;
+  programs.yazi.enable = true;
+  programs.atuin.enable = true;
 
   programs.btop = {
     enable = true;
@@ -41,9 +44,16 @@
     };
   };
 
-  programs.yazi = {
+  programs.direnv = {
     enable = true;
-    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    settings = {
+      gcloud.disabled = true;
+    };
   };
 
   home.shellAliases = {

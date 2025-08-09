@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   tomlFormat = pkgs.formats.toml {};
 in {
   programs.zellij = {
@@ -6,6 +10,8 @@ in {
     settings = {
       pane_frames = false;
       show_startup_tips = false;
+      # default_shell = pkgs.nushell + /bin/nu;
+      # env = config.home.sessionVariables;
     };
   };
 
@@ -25,7 +31,6 @@ in {
   # - Alt + j to focus the sidebar, find another file, press enter
   # - Editing bliss
   #
-  programs.nushell.enable = true;
   home.shellAliases.sidebar = "YAZI_CONFIG_HOME=~/.config/yazi/sidebar yazi";
   xdg.configFile."yazi/sidebar/yazi.toml".source = tomlFormat.generate "yazi-sidebar-settings" {
     manager = {

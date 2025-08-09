@@ -5,7 +5,6 @@
     ./zsh.nix
     ./atuin.nix
     ./zellij.nix
-    ./jujutsu.nix
   ];
   home.packages = with pkgs; [
     fx

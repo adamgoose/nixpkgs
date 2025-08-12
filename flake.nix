@@ -24,6 +24,7 @@
     put2aria.url = "github:adamgoose/put2aria";
     # zjstatus.url = "github:dj95/zjstatus/v0.20.2";
     helix.url = "github:helix-editor/helix/25.07";
+    starship-jj.url = "gitlab:lanastara_foss/starship-jj/0.5.1";
   };
 
   outputs = {std, ...} @ inputs:

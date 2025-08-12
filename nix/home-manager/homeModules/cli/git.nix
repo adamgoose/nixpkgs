@@ -34,7 +34,7 @@
       ui = {
         paginate = "never";
         default-command = "log";
-        diff.tool = ["difft" "--color=always" "$left" "$right"];
+        diff-formatter = ["difft" "--color=always" "$left" "$right"];
       };
     };
   };

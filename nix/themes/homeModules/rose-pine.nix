@@ -12,13 +12,13 @@
     owner = "sasoria";
     repo = "k9s-theme";
     rev = "22cfbb2"; # 2024-12-27
-    sha256 = "sha256-JbeuAlrLjPjex97Y6S/UPRn7AGK237zBWmtHxvptawM=";
+    sha256 = "sha256-n9fXr2M+ygrJhTAQnCWhtByf4MBGvR1LPuF5JDmFkbM=";
   };
   btop = pkgs.fetchFromGitHub {
     owner = "rose-pine";
     repo = "btop";
     rev = "6d6abdc"; # 2023-07-18
-    sha256 = "sha256-JbeuAlrLjPjex97Y6S/UPRn7AGK237zBWmtHxvptawM=";
+    sha256 = "sha256-sShQYfsyR5mq/e+pjeIsFzVZv3tCpQEdGC9bnTKlQ5c=";
   };
   zellij = pkgs.fetchFromGitHub {
     owner = "rose-pine";

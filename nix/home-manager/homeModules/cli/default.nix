@@ -2,6 +2,7 @@
   lib,
   pkgs,
   inputs,
+  unstable,
   ...
 }: {
   imports = [
@@ -28,6 +29,7 @@
     jwt-cli
     posting
     neofetch
+    unstable.ncspot
     inputs.starship-jj.packages.${pkgs.system}.default
   ];
 

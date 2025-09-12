@@ -1,4 +1,8 @@
-{flavor ? ""}: {pkgs, ...}: let
+{flavor ? ""}: {
+  pkgs,
+  lib,
+  ...
+}: let
   dashFlavor =
     if flavor != ""
     then "-" + flavor
@@ -35,7 +39,7 @@
 in {
   # Ghostty
   xdg.configFile."ghostty/config".text = ''
-    theme = rose-pine${dashFlavor}
+    theme = "Rose Pine ${lib.toUpper (builtins.substring 0 1 flavor)}${builtins.substring 1 999 flavor}"
   '';
 
   # Wezterm

@@ -47,7 +47,7 @@
         inner.vertical = 10;
         outer.left = 10;
         outer.bottom = 10;
-        outer.top = 10;
+        outer.top = 0;
         outer.right = 10;
       };
       workspace-to-monitor-force-assignment = {

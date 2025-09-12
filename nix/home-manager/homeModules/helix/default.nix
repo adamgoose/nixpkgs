@@ -22,6 +22,7 @@
       unstable.vue-language-server
       unstable.nodePackages.prettier
       nodePackages.typescript-language-server
+      nodePackages.vscode-json-languageserver
     ];
     settings = {
       editor = {
@@ -40,6 +41,8 @@
         };
         lsp = {
           display-messages = true;
+          display-inlay-hints = true;
+          display-progress-messages = true;
         };
         whitespace = {
           render = {
@@ -56,6 +59,7 @@
     };
     languages = {
       language-server = {
+        vscode-json-language-server.command = "vscode-json-languageserver";
         statix = {
           command = "statix check";
           args = ["check" "--stdin" "--format=json"];
@@ -76,6 +80,20 @@
               languages = ["vue"];
             }
           ];
+          preferences = {
+            includeInlayParameterNameHints = "all";
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false;
+            includeInlayFunctionParameterTypeHints = false;
+            includeInlayVariableTypeHints = false;
+            includeInlayVariableTypeHintsWhenTypeMatchesName = false;
+            includeInlayPropertyDeclarationTypeHints = true;
+            includeInlayFunctionLikeReturnTypeHints = true;
+            includeInlayEnumMemberValueHints = true;
+          };
+        };
+        biome = {
+          command = "biome";
+          args = ["lsp-proxy"];
         };
       };
       language = [
@@ -90,24 +108,39 @@
         {
           name = "typescript";
           auto-format = true;
-          language-servers = ["typescript-language-server" "vscode-eslint-language-server"];
-          formatter = {
-            command = "prettier";
-            args = ["--parser" "typescript"];
-          };
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = ["format"];
+            }
+            "vscode-eslint-language-server"
+            "biome"
+          ];
         }
         {
           name = "tsx";
           auto-format = true;
-          language-servers = ["typescript-language-server" "tailwindcss" "vscode-eslint-language-server"];
-          formatter = {
-            command = "prettier";
-            args = ["--parser" "typescript"];
-          };
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = ["format"];
+            }
+            "tailwindcss"
+            "vscode-eslint-language-server"
+            "biome"
+          ];
         }
         {
           name = "vue";
-          language-servers = ["typescript-language-server" "vscode-eslint-language-server" "vuels" "efm"];
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = ["format"];
+            }
+            "vscode-eslint-language-server"
+            "vuels"
+            "efm"
+          ];
           auto-format = true;
           formatter = {
             command = "prettier";

@@ -8,4 +8,6 @@
   };
 
   bridge = import ./bridge.nix;
+
+  thma = import ./thma.nix;
 }

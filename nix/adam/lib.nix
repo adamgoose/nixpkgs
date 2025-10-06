@@ -36,6 +36,31 @@ in {
       };
     };
 
+  mkHome = {
+    username,
+    system ? "aarch64-darwin",
+    homeModules ? [],
+  }:
+    home-manager.lib.homeManagerConfiguration {
+      pkgs = cell.nixpkgs.default;
+      modules =
+        [
+          {
+            home.username = username;
+            home.homeDirectory = "/Users/${username}";
+            home.packages = [
+              home-manager.packages.home-manager
+            ];
+          }
+          cell.homeModules.default
+        ]
+        ++ homeModules;
+      extraSpecialArgs = {
+        inherit inputs;
+        unstable = cell.nixpkgs.unstable;
+      };
+    };
+
   mkDarwinSystem = {
     username,
     system ? "aarch64-darwin",

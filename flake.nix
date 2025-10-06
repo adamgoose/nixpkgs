@@ -37,6 +37,7 @@
 
         (functions "lib")
         (functions "homeModules")
+        (functions "homeConfigurations")
         (functions "hardwareProfiles")
         (functions "nixosModules")
         (functions "nixosConfigurations")
@@ -61,6 +62,11 @@
         ["kubetap" "packages"]
         ["truss-cli" "packages"]
       ];
+
+      homeConfigurations =
+        (std.harvest (inputs.self) [
+          ["adam" "homeConfigurations"]
+        ]).aarch64-darwin;
 
       darwinConfigurations =
         (std.harvest (inputs.self) [

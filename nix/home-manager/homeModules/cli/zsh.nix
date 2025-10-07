@@ -11,6 +11,10 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+    envExtra = ''
+      ZSH_DISABLE_COMPFIX=true
+    '';
+
     oh-my-zsh = {
       enable = true;
       custom = "$HOME/.oh-my-zsh/custom";
@@ -22,6 +26,8 @@
         ]
         ++ lib.lists.optional (pkgs.stdenv.isDarwin) "macos";
     };
+
+    zplug.enable = true;
   };
 
   programs.fzf.enableZshIntegration = true;

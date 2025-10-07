@@ -4,3 +4,4 @@ builds:
   include:
     - 'darwinConfigurations.*'
     - 'nixosConfigurations.*'
+    - 'homeConfigurations.*'

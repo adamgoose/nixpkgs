@@ -8,7 +8,10 @@ in {
   "adam@work" = cell.lib.mkHome {
     username = "adamengebretson";
     homeModules = with homeModules; [
+      aws
       cli
+      iac
+      k8s
       helix
       ghostty
       ide-full

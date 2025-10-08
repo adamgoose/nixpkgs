@@ -3,11 +3,11 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (nixpkgs) lib testers buildGoModule fetchFromGitHub;
+  inherit (nixpkgs) lib buildGoModule fetchFromGitHub;
 in {
   kubeswitch = buildGoModule rec {
     pname = "kubeswitch";
-    version = "0.8.0";
+    version = "0.9.3";
 
     src = fetchFromGitHub {
       owner = "danielfoehrKn";

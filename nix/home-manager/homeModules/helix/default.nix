@@ -31,6 +31,9 @@
         color-modes = true;
         line-number = "relative";
         rulers = [80 120];
+        file-picker = {
+          hidden = false; # Enables picking hidden files
+        };
         cursor-shape = {
           insert = "bar";
         };
@@ -81,14 +84,14 @@
             }
           ];
           preferences = {
-            includeInlayParameterNameHints = "all";
+            includeInlayParameterNameHints = "none";
             includeInlayParameterNameHintsWhenArgumentMatchesName = false;
             includeInlayFunctionParameterTypeHints = false;
             includeInlayVariableTypeHints = false;
             includeInlayVariableTypeHintsWhenTypeMatchesName = false;
-            includeInlayPropertyDeclarationTypeHints = true;
-            includeInlayFunctionLikeReturnTypeHints = true;
-            includeInlayEnumMemberValueHints = true;
+            includeInlayPropertyDeclarationTypeHints = false;
+            includeInlayFunctionLikeReturnTypeHints = false;
+            includeInlayEnumMemberValueHints = false;
           };
         };
         biome = {
@@ -108,42 +111,27 @@
         {
           name = "typescript";
           auto-format = true;
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = ["format"];
-            }
-            "vscode-eslint-language-server"
-            "biome"
-          ];
+          language-servers = ["typescript-language-server" "vscode-eslint-language-server"];
+          formatter = {
+            command = unstable.nodePackages.prettier + "/bin/prettier";
+            args = ["--parser" "typescript"];
+          };
         }
         {
           name = "tsx";
           auto-format = true;
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = ["format"];
-            }
-            "tailwindcss"
-            "vscode-eslint-language-server"
-            "biome"
-          ];
+          language-servers = ["typescript-language-server" "tailwindcss" "vscode-eslint-language-server"];
+          formatter = {
+            command = unstable.nodePackages.prettier + "/bin/prettier";
+            args = ["--parser" "typescript"];
+          };
         }
         {
           name = "vue";
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = ["format"];
-            }
-            "vscode-eslint-language-server"
-            "vuels"
-            "efm"
-          ];
           auto-format = true;
+          language-servers = ["typescript-language-server" "vscode-eslint-language-server" "vuels" "efm"];
           formatter = {
-            command = "prettier";
+            command = unstable.nodePackages.prettier + "/bin/prettier";
             args = ["--parser" "vue"];
           };
         }

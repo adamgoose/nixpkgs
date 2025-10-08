@@ -11,8 +11,3 @@ kubeconfigStores:
    kubeconfigName: "kubeconfig*"
    paths:
      - ~/.kube/configs/
- - kind: filesystem
-   id: truss-local
-   kubeconfigName: "kubeconfig.yaml"
-   paths:
-     - ~/.truss/k3d/

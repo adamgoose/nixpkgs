@@ -41,7 +41,7 @@
 
   home.packages = with pkgs; [
     ghq
-    jjui
     difftastic
+    unstable.jjui
   ];
 }

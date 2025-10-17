@@ -50,17 +50,12 @@
       nixpkgsConfig = {
         pulseaudio = true;
         allowUnfree = true;
-        permittedInsecurePackages = [
-          "teleport-11.3.27"
-        ];
       };
     }
     {
       packages = std.harvest (inputs.self) [
         ["hasura-cli" "packages"]
         ["kubeswitch" "packages"]
-        ["kubetap" "packages"]
-        ["truss-cli" "packages"]
       ];
 
       homeConfigurations =

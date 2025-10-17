@@ -31,27 +31,4 @@ in {
       preferences
     ];
   };
-
-  "adam@bridge" = cell.lib.mkDarwinSystem {
-    username = "adam";
-    homeModules = with homeModules; [
-      aws
-      cli
-      iac
-      k8s
-      helix
-      ghostty
-      ide-full
-      syncthing
-      cell.homeModules.bridge
-      (themes.homeModules.catppuccin {flavor = "macchiato";})
-    ];
-    darwinModules = with darwinModules; [
-      fonts
-      netskope
-      aerospace
-      preferences
-      cell.darwinModules.bridge
-    ];
-  };
 }

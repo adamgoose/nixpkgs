@@ -7,7 +7,5 @@
     home.stateVersion = "22.05";
   };
 
-  bridge = import ./bridge.nix;
-
   thma = import ./thma.nix;
 }

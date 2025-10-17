@@ -5,14 +5,12 @@
   ...
 }: let
   kubeswitch = inputs.cells.kubeswitch.packages.kubeswitch;
-  kubetap = inputs.cells.kubetap.packages.kubetap;
 in {
   home.packages = with pkgs; [
     tilt
     fluxcd
     kube3d
     kubectl
-    kubetap
     helmfile
     kubeswitch
     telepresence2

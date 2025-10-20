@@ -106,6 +106,9 @@
       mode.resize.binding = {
         esc = ["mode main"];
 
+        h = ["resize width 1270"];
+        l = ["resize width 1270"];
+        k = ["resize width 2585"];
         alt-h = ["resize width -100"];
         alt-j = ["resize height -100"];
         alt-k = ["resize height +100"];

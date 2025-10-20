@@ -5,6 +5,10 @@
       mildred = {
         user = "admin";
       };
+      soft = {
+        hostname = "totoro";
+        port = 23231;
+      };
     };
   };
 }

@@ -69,6 +69,7 @@ in {
       tailscale
       typesense
       pulseaudio
+      soft-serve
       cell.hardwareProfiles.totoro
     ];
   };

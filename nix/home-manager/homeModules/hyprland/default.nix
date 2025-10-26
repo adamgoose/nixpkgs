@@ -108,7 +108,6 @@ in {
 
   home.packages = with pkgs; [
     fd
-    bun
     dart-sass
     unstable.morewaita-icon-theme
 
@@ -141,7 +140,6 @@ in {
     hyprpicker
     wl-clipboard
     signal-desktop
-    beekeeper-studio
     plex-media-player
     unstable.hyprlock
   ];

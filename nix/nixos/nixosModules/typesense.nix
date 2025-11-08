@@ -1,5 +1,6 @@
 {
   pkgs,
+  unstable,
   lib,
   config,
   ...
@@ -53,7 +54,7 @@ in {
 
     script = ''
       export TYPESENSE_API_KEY=$(cat ${config.sops.secrets."typesense/api-key".path})
-      exec ${pkgs.typesense}/bin/typesense-server --config ${configFile}
+      exec ${unstable.typesense}/bin/typesense-server --config ${configFile}
     '';
 
     serviceConfig = {

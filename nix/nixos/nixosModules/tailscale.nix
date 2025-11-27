@@ -1,10 +1,13 @@
-{...}: {
+{unstable, ...}: {
   # Enable Tailscale
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    package = unstable.tailscale;
+  };
 
   # Configure DNS
   networking.nameservers = ["100.100.100.100" "8.8.8.8" "1.1.1.1"];
-  networking.search = ["enge.me.beta.tailscale.net"];
+  networking.search = ["bearded-ordinal.ts.net"];
 
   # Configure Firewall
   networking.firewall = {

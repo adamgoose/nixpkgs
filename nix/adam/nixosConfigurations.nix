@@ -67,6 +67,7 @@ in {
       buildkite
       syncthing
       tailscale
+      teslamate
       typesense
       pulseaudio
       soft-serve

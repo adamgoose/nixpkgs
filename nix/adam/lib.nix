@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) cells nixos darwin hlsdl put2aria home-manager wsl;
+  inherit (inputs) nixos darwin hlsdl put2aria home-manager wsl teslamate;
 
   l = inputs.nixpkgs.lib // builtins;
 in {
@@ -23,6 +23,7 @@ in {
           wsl.nixosModules.wsl
           hlsdl.nixosModules.default
           put2aria.nixosModules.default
+          teslamate.nixosModules.default
           home-manager.nixosModules.home-manager
           (cell.nixosModules.home homeModules)
           cell.nixosModules.default

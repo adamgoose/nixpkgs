@@ -12,12 +12,20 @@
       enable-normalization-flatten-containers = true;
       enable-normalization-opposite-orientation-for-nested-containers = true;
 
+      # on-focus-changed = ["exec-and-forget osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'"];
+      # exec-on-workspace-change = [(pkgs.zsh + "/bin/zsh") "-c" "/usr/bin/osascript -e \"tell application id \\\"tracesOf.Uebersicht\\\" to refresh widget id \\\"simple-bar-index-jsx\\\"\""];
+
       on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
       on-window-detected =
         [
           {
             "if".app-id = "com.mitchellh.ghostty";
             run = ["move-node-to-workspace 1"];
+          }
+          {
+            "if".app-id = "com.obsproject.obs-studio";
+            "if".window-title-regex-substring = "Projector";
+            run = ["layout floating"];
           }
           {
             "if".workspace = "1";
@@ -106,9 +114,9 @@
       mode.resize.binding = {
         esc = ["mode main"];
 
-        h = ["resize width 1270"];
-        l = ["resize width 1270"];
-        k = ["resize width 2585"];
+        b = ["balance-sizes"];
+        r = ["resize width 2560"];
+        k = ["trigger-binding b --mode resize" "trigger-binding r --mode resize" "mode main"];
         alt-h = ["resize width -100"];
         alt-j = ["resize height -100"];
         alt-k = ["resize height +100"];

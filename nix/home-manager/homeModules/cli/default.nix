@@ -37,12 +37,15 @@
   programs.eza.enable = true;
   programs.fzf.enable = true;
   programs.yazi.enable = true;
-  programs.atuin.enable = true;
-  programs.atuin.settings = {
-    invert = true;
-    inline_height = 20;
-    enter_accept = false;
-    search_mode_shell_up_key_binding = "prefix";
+  programs.atuin = {
+    enable = true;
+    settings = {
+      invert = true;
+      inline_height = 20;
+      enter_accept = false;
+      filter_mode = "workspace";
+      search_mode_shell_up_key_binding = "prefix";
+    };
   };
 
   programs.btop = {

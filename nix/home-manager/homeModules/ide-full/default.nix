@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  unstable,
+  ...
+}: {
   imports = [
     ../ide
   ];
@@ -14,6 +18,7 @@
     asciinema
     termshark
     postgresql
+    unstable.bun
   ];
 
   programs.zsh.oh-my-zsh.plugins = [

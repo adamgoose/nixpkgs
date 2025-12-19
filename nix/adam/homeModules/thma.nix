@@ -1,6 +1,10 @@
 {lib, ...}: {
   programs.git = {
-    userEmail = lib.mkForce "aengebretson@hmacademy.com";
+    settings = {
+      user = {
+        email = lib.mkForce "aengebretson@hmacademy.com";
+      };
+    };
   };
 
   programs.jujutsu = {

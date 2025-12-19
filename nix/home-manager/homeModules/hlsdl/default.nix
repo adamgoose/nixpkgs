@@ -2,9 +2,9 @@
   pkgs,
   inputs,
   ...
-}: rec {
+}: {
   home.packages = [
-    inputs.hlsdl.packages.${pkgs.system}.default
+    inputs.hlsdl.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   home.sessionVariables = {

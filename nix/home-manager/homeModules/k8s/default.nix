@@ -7,9 +7,9 @@
   kubeswitch = inputs.cells.kubeswitch.packages.kubeswitch;
 in {
   home.packages = with pkgs; [
+    k3d
     tilt
     fluxcd
-    kube3d
     kubectl
     helmfile
     kubeswitch

@@ -30,7 +30,7 @@
     posting
     neofetch
     unstable.ncspot
-    inputs.starship-jj.packages.${pkgs.system}.default
+    inputs.starship-jj.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   xdg.enable = true;

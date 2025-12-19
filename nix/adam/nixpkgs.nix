@@ -5,7 +5,7 @@
   default = inputs.nixpkgs;
 
   unstable = import inputs.nixpkgs-unstable {
-    system = inputs.nixpkgs.system;
+    system = inputs.nixpkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
 }

@@ -6,12 +6,11 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
-    userName = "Adam Engebretson";
-    userEmail = "adam@enge.me";
-    ignores = [
-      ".direnv"
-    ];
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Adam Engebretson";
+        email = "adam@enge.me";
+      };
       url = {
         "ssh://git@github.com/" = {
           insteadOf = "https://github.com/";
@@ -21,6 +20,9 @@
         root = "~/src";
       };
     };
+    ignores = [
+      ".direnv"
+    ];
   };
 
   programs.jujutsu = {

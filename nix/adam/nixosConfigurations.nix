@@ -59,6 +59,7 @@ in {
       sops
       hlsdl
       minio
+      starr
       podman
       # netdata
       hyprland

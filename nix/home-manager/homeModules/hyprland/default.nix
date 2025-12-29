@@ -140,7 +140,6 @@ in {
     hyprpicker
     wl-clipboard
     signal-desktop
-    plex-media-player
     unstable.hyprlock
   ];
 

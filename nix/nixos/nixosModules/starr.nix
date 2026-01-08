@@ -18,4 +18,8 @@
   services.flaresolverr = {
     enable = true;
   };
+
+  services.jellyfin = {
+    enable = true;
+  };
 }

@@ -18,9 +18,9 @@
       terraform-ls
       lua-language-server
       yaml-language-server
-      tailwindcss-language-server
-      unstable.vue-language-server
-      unstable.nodePackages.prettier
+      # tailwindcss-language-server
+      # unstable.vue-language-server
+      # unstable.nodePackages.prettier
       nodePackages.typescript-language-server
       nodePackages.vscode-json-languageserver
     ];
@@ -68,21 +68,21 @@
           args = ["check" "--stdin" "--format=json"];
         };
         deadnix.command = "deadnix";
-        tailwindcss = {
-          command = "tailwindcss-language-server";
-          args = ["--stdio"];
-          config = {
-            userLanguages = {tsx = "tsx";};
-          };
-        };
+        # tailwindcss = {
+        #   command = "tailwindcss-language-server";
+        #   args = ["--stdio"];
+        #   config = {
+        #     userLanguages = {tsx = "tsx";};
+        #   };
+        # };
         typescript-language-server.config = {
-          plugins = [
-            {
-              name = "@vue/typescript-plugin";
-              location = "./node_modules";
-              languages = ["vue"];
-            }
-          ];
+          # plugins = [
+          #   {
+          #     name = "@vue/typescript-plugin";
+          #     location = "./node_modules";
+          #     languages = ["vue"];
+          #   }
+          # ];
           preferences = {
             includeInlayParameterNameHints = "none";
             includeInlayParameterNameHintsWhenArgumentMatchesName = false;
@@ -108,33 +108,33 @@
           };
           language-servers = ["nil" "statix" "deadnix"];
         }
-        {
-          name = "typescript";
-          auto-format = true;
-          language-servers = ["typescript-language-server" "vscode-eslint-language-server"];
-          formatter = {
-            command = unstable.nodePackages.prettier + "/bin/prettier";
-            args = ["--parser" "typescript"];
-          };
-        }
-        {
-          name = "tsx";
-          auto-format = true;
-          language-servers = ["typescript-language-server" "tailwindcss" "vscode-eslint-language-server"];
-          formatter = {
-            command = unstable.nodePackages.prettier + "/bin/prettier";
-            args = ["--parser" "typescript"];
-          };
-        }
-        {
-          name = "vue";
-          auto-format = true;
-          language-servers = ["typescript-language-server" "vscode-eslint-language-server" "vuels" "efm"];
-          formatter = {
-            command = unstable.nodePackages.prettier + "/bin/prettier";
-            args = ["--parser" "vue"];
-          };
-        }
+        # {
+        #   name = "typescript";
+        #   auto-format = true;
+        #   language-servers = ["typescript-language-server" "vscode-eslint-language-server"];
+        #   formatter = {
+        #     command = unstable.nodePackages.prettier + "/bin/prettier";
+        #     args = ["--parser" "typescript"];
+        #   };
+        # }
+        # {
+        #   name = "tsx";
+        #   auto-format = true;
+        #   language-servers = ["typescript-language-server" "tailwindcss" "vscode-eslint-language-server"];
+        #   formatter = {
+        #     command = unstable.nodePackages.prettier + "/bin/prettier";
+        #     args = ["--parser" "typescript"];
+        #   };
+        # }
+        # {
+        #   name = "vue";
+        #   auto-format = true;
+        #   language-servers = ["typescript-language-server" "vscode-eslint-language-server" "vuels" "efm"];
+        #   formatter = {
+        #     command = unstable.nodePackages.prettier + "/bin/prettier";
+        #     args = ["--parser" "vue"];
+        #   };
+        # }
         {
           name = "kdl";
           auto-format = true;

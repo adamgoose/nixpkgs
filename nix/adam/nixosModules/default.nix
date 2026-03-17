@@ -34,6 +34,18 @@ in {
       LC_TIME = "en_US.UTF-8";
     };
 
+    security.sudo.extraRules = [
+      {
+        users = [username];
+        commands = [
+          {
+            command = "/run/current-system/sw/bin/nixos-rebuild";
+            options = ["NOPASSWD"];
+          }
+        ];
+      }
+    ];
+
     programs.zsh.enable = true;
     users.users.${username} = {
       isNormalUser = true;

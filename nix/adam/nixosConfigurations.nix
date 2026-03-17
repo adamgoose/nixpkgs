@@ -48,6 +48,7 @@ in {
       helix
       wezterm
       hyprland
+      openclaw
       ide-full
       qutebrowser
       (themes.homeModules.catppuccin {flavor = "macchiato";})
@@ -72,7 +73,20 @@ in {
       typesense
       pulseaudio
       soft-serve
+      protonmail-bridge
       cell.hardwareProfiles.totoro
+      ({config, ...}: {
+        sops.secrets = {
+          "openclaw/slack" = {
+            owner = "adam";
+            path = "/home/adam/.openclaw/credentials/slack";
+          };
+          "openclaw/openai" = {
+            owner = "adam";
+            path = "/home/adam/.openclaw/credentials/openai";
+          };
+        };
+      })
     ];
   };
 

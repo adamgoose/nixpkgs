@@ -1,14 +1,14 @@
 {
   pkgs,
-  # config,
+  unstable,
   ...
 }: {
   programs.zellij = {
     enable = true;
+    package = unstable.zellij;
     settings = {
       pane_frames = false;
       show_startup_tips = false;
-      # default_shell = pkgs.nushell + /bin/nu;
     };
   };
 

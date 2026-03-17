@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixos darwin hlsdl put2aria home-manager wsl teslamate;
+  inherit (inputs) nixos darwin hlsdl put2aria home-manager wsl teslamate nix-openclaw;
 
   l = inputs.nixpkgs.lib // builtins;
 in {

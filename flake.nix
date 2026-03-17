@@ -20,6 +20,8 @@
     wsl.url = "github:nix-community/nixos-wsl/2405.5.4";
     wsl.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-openclaw.url = "github:bobberb/nix-openclaw/fix/copy-plugin-manifests";
+
     hlsdl.url = "github:adamgoose/hlsdl";
     put2aria.url = "github:adamgoose/put2aria";
     # zjstatus.url = "github:dj95/zjstatus/v0.20.2";

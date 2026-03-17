@@ -6,11 +6,9 @@
   home.packages = with pkgs; [
     nil
     gcc
-    nodejs
     statix
     deadnix
     lazygit
-    ripgrep
     alejandra
     tree-sitter
   ];

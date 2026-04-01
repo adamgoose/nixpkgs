@@ -77,13 +77,29 @@ in {
       cell.hardwareProfiles.totoro
       ({config, ...}: {
         sops.secrets = {
-          "openclaw/slack" = {
+          # "openclaw/slack" = {
+          #   owner = "adam";
+          #   path = "/home/adam/.openclaw/credentials/slack";
+          # };
+          # "openclaw/openai" = {
+          #   owner = "adam";
+          #   path = "/home/adam/.openclaw/credentials/openai";
+          # };
+          "openclaw/sato48" = {
             owner = "adam";
-            path = "/home/adam/.openclaw/credentials/slack";
+            path = "/home/adam/.openclaw/credentials/sato48";
           };
-          "openclaw/openai" = {
+          "openclaw/openrouter" = {
             owner = "adam";
-            path = "/home/adam/.openclaw/credentials/openai";
+            path = "/home/adam/.openclaw/credentials/openrouter";
+          };
+          "openclaw/telegram" = {
+            owner = "adam";
+            path = "/home/adam/.openclaw/credentials/telegram";
+          };
+          "openclaw/plaid" = {
+            owner = "adam";
+            path = "/home/adam/.openclaw/credentials/plaid";
           };
         };
       })

@@ -46,10 +46,7 @@ in {
       charm
       helix
       wezterm
-      hyprland
-      openclaw
       ide-full
-      qutebrowser
       (themes.homeModules.catppuccin {flavor = "macchiato";})
     ];
     nixosModules = with nixosModules; [
@@ -57,49 +54,16 @@ in {
       nfs
       ssh
       sops
-      minio
       starr
       podman
-      # netdata
-      hyprland
       r53-ddns
       buildkite
       syncthing
       tailscale
       teslamate
       typesense
-      pulseaudio
       soft-serve
-      protonmail-bridge
       cell.hardwareProfiles.totoro
-      ({config, ...}: {
-        sops.secrets = {
-          # "openclaw/slack" = {
-          #   owner = "adam";
-          #   path = "/home/adam/.openclaw/credentials/slack";
-          # };
-          # "openclaw/openai" = {
-          #   owner = "adam";
-          #   path = "/home/adam/.openclaw/credentials/openai";
-          # };
-          "openclaw/sato48" = {
-            owner = "adam";
-            path = "/home/adam/.openclaw/credentials/sato48";
-          };
-          "openclaw/openrouter" = {
-            owner = "adam";
-            path = "/home/adam/.openclaw/credentials/openrouter";
-          };
-          "openclaw/telegram" = {
-            owner = "adam";
-            path = "/home/adam/.openclaw/credentials/telegram";
-          };
-          "openclaw/plaid" = {
-            owner = "adam";
-            path = "/home/adam/.openclaw/credentials/plaid";
-          };
-        };
-      })
     ];
   };
 

@@ -27,4 +27,6 @@
       urlPath = "/";
     };
   };
+
+  services.grafana.settings.security.secret_key = "SW2YcwTIb9zpOOhoPsMm";
 }

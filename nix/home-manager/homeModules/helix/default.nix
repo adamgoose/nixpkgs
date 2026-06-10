@@ -21,8 +21,8 @@
       # tailwindcss-language-server
       # unstable.vue-language-server
       # unstable.nodePackages.prettier
-      nodePackages.typescript-language-server
-      nodePackages.vscode-json-languageserver
+      typescript-language-server
+      vscode-json-languageserver
     ];
     settings = {
       editor = {

@@ -22,7 +22,6 @@ in {
       k3s
       nfs
       ssh
-      hlsdl
       # hydra
       podman
       netdata
@@ -58,13 +57,11 @@ in {
       nfs
       ssh
       sops
-      hlsdl
       minio
       starr
       podman
       # netdata
       hyprland
-      put2aria
       r53-ddns
       buildkite
       syncthing

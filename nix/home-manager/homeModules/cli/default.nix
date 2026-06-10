@@ -29,7 +29,6 @@
     rclone
     jwt-cli
     posting
-    neofetch
     unstable.ncspot
     inputs.starship-jj.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
@@ -38,6 +37,7 @@
   programs.eza.enable = true;
   programs.fzf.enable = true;
   programs.yazi.enable = true;
+  programs.yazi.shellWrapperName = "y";
   programs.atuin = {
     enable = true;
     settings = {

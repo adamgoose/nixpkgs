@@ -17,7 +17,6 @@ in {
       k8s
       charm
       helix
-      hlsdl
       ghostty
       wezterm
       ide-full

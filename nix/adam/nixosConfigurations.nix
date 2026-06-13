@@ -56,6 +56,7 @@ in {
       sops
       starr
       podman
+      radicle
       r53-ddns
       buildkite
       hyprland

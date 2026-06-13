@@ -23,7 +23,7 @@
     nix-openclaw.url = "github:bobberb/nix-openclaw/fix/copy-plugin-manifests";
 
     # zjstatus.url = "github:dj95/zjstatus/v0.20.2";
-    helix.url = "github:helix-editor/helix/25.07.1";
+    helix.url = "github:helix-editor/helix";
     starship-jj.url = "gitlab:lanastara_foss/starship-jj/0.5.1";
     teslamate.url = "github:teslamate-org/teslamate/v2.2.0";
     teslamate.inputs.devenv-root.follows = "nixpkgs";

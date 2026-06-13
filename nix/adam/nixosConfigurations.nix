@@ -58,6 +58,7 @@ in {
       podman
       r53-ddns
       buildkite
+      hyprland
       syncthing
       tailscale
       teslamate

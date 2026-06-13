@@ -10,6 +10,7 @@
     deadnix
     lazygit
     alejandra
+    nodejs_24
     tree-sitter
   ];
 
@@ -17,15 +18,15 @@
     lg = "lazygit";
   };
 
-  home.sessionVariables = {
-    NODE_VERSIONS = "$HOME/.nvm/versions/node";
-    NODE_VERSION_PREFIX = "v";
-  };
+  # home.sessionVariables = {
+  #   NODE_VERSIONS = "$HOME/.nvm/versions/node";
+  #   NODE_VERSION_PREFIX = "v";
+  # };
 
-  programs.zsh.oh-my-zsh.plugins = ["npm" "nvm"];
-  programs.zsh.zplug.plugins = [
-    {
-      name = "lukechilds/zsh-nvm";
-    }
-  ];
+  # programs.zsh.oh-my-zsh.plugins = ["npm" "nvm"];
+  # programs.zsh.zplug.plugins = [
+  #   {
+  #     name = "lukechilds/zsh-nvm";
+  #   }
+  # ];
 }

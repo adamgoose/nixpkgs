@@ -10,7 +10,6 @@ in {
   "adam@home" = cell.lib.mkDarwinSystem {
     username = "adam";
     homeModules = with homeModules; [
-      mc
       aws
       cli
       iac
@@ -18,7 +17,7 @@ in {
       charm
       helix
       ghostty
-      wezterm
+      radicle
       ide-full
       sops-bin
       syncthing

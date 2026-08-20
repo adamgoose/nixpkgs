@@ -65,6 +65,7 @@ in {
       teslamate
       typesense
       soft-serve
+      pangolin-newt
       cell.hardwareProfiles.totoro
     ];
   };

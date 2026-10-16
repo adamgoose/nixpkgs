@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   ...
@@ -17,7 +18,7 @@
 
     oh-my-zsh = {
       enable = true;
-      custom = "$HOME/.oh-my-zsh/custom";
+      custom = "${config.home.homeDirectory}/.oh-my-zsh/custom";
       plugins =
         [
           "gcd"

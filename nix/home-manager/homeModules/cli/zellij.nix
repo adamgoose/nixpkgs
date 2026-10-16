@@ -1,8 +1,4 @@
-{
-  pkgs,
-  unstable,
-  ...
-}: {
+{unstable, ...}: {
   programs.zellij = {
     enable = true;
     package = unstable.zellij;
@@ -13,6 +9,6 @@
   };
 
   xdg.configFile."ghostty/config".text = ''
-    command = ${pkgs.zellij}/bin/zellij attach --create
+    command = ${unstable.zellij}/bin/zellij attach --create
   '';
 }
